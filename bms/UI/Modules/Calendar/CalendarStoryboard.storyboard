@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="75C-Zg-Wqj">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calendar View Controller-->
+        <scene sceneID="W44-pC-4gg">
+            <objects>
+                <viewController id="75C-Zg-Wqj" customClass="CalendarViewController" customModule="bms" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xEL-xm-pag">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uQZ-2L-mup" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="20" y="44" width="374" height="518"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Xrn-1j-V09">
+                                    <size key="itemSize" width="85" height="84"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="J8O-lz-o7C" customClass="DateCell" customModule="bms" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aAT-fI-ln6">
+                                            <rect key="frame" x="0.0" y="0.0" width="31" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tv-WL-bL0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="31" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="2Tv-WL-bL0" secondAttribute="bottom" id="EfY-HJ-jzA"/>
+                                                <constraint firstAttribute="trailing" secondItem="2Tv-WL-bL0" secondAttribute="trailing" id="ahX-SV-FAY"/>
+                                                <constraint firstItem="2Tv-WL-bL0" firstAttribute="top" secondItem="aAT-fI-ln6" secondAttribute="top" id="dcE-v2-uI8"/>
+                                                <constraint firstItem="2Tv-WL-bL0" firstAttribute="leading" secondItem="aAT-fI-ln6" secondAttribute="leading" id="kIm-qO-PWa"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="2Tv-WL-bL0" id="v34-6a-EU1"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uQZ-2L-mup" firstAttribute="leading" secondItem="ulc-0k-IAn" secondAttribute="leading" constant="20" id="2vJ-ZK-PyG"/>
+                            <constraint firstItem="uQZ-2L-mup" firstAttribute="top" secondItem="ulc-0k-IAn" secondAttribute="top" id="AQR-50-ZHe"/>
+                            <constraint firstItem="ulc-0k-IAn" firstAttribute="trailing" secondItem="uQZ-2L-mup" secondAttribute="trailing" constant="20" id="diw-lt-c6U"/>
+                            <constraint firstItem="ulc-0k-IAn" firstAttribute="bottom" secondItem="uQZ-2L-mup" secondAttribute="bottom" constant="300" id="mqz-iR-xbd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ulc-0k-IAn"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendar" destination="uQZ-2L-mup" id="pic-ST-dID"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMU-Lw-qNE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49.275362318840585" y="112.5"/>
+        </scene>
+    </scenes>
+</document>

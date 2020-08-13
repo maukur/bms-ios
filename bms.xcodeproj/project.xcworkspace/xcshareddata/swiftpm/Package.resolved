@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "becd9a729a37bdbef5bc39dc3c702b99f9e3d046",
+          "version": "5.2.2"
+        }
+      },
+      {
+        "package": "JTAppleCalendar",
+        "repositoryURL": "https://github.com/patchthecode/JTAppleCalendar",
+        "state": {
+          "branch": null,
+          "revision": "2812ae8a58c4b8132cd3d0e761b984e344d841a4",
+          "version": "8.0.3"
+        }
+      },
+      {
+        "package": "MBProgressHUD",
+        "repositoryURL": "https://github.com/jdg/MBProgressHUD.git",
+        "state": {
+          "branch": null,
+          "revision": "bca42b801100b2b3a4eda0ba8dd33d858c780b0d",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "fe92b7aa3d49900defea430828a6774f0a2ab6dd",
+          "version": "5.8.1"
+        }
+      },
+      {
+        "package": "SDWebImageSwiftUI",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+        "state": {
+          "branch": null,
+          "revision": "4c7f169e39bc35d6b80d42b8eb8301bee9cd0907",
+          "version": "1.5.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
