@@ -11,6 +11,7 @@
 		D00355B724BDCA9C00C73CA5 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00355B624BDCA9C00C73CA5 /* ExpensesViewController.swift */; };
 		D00355B924BDCAAE00C73CA5 /* ExpensesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00355B824BDCAAE00C73CA5 /* ExpensesStoryboard.storyboard */; };
 		D006A0E224DAA4EE0069F21C /* DefaultUIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006A0E124DAA4EE0069F21C /* DefaultUIPickerView.swift */; };
+		D0082B5C24E570DD00ED1996 /* KDCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0082B5B24E570DD00ED1996 /* KDCalendar */; };
 		D01B9FCB24D238DA00E97A93 /* File.json in Resources */ = {isa = PBXBuildFile; fileRef = D01B9FCA24D238DA00E97A93 /* File.json */; };
 		D026E9BD24A2333400EF2248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026E9BC24A2333400EF2248 /* AppDelegate.swift */; };
 		D026E9C624A2333500EF2248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D026E9C524A2333500EF2248 /* Assets.xcassets */; };
@@ -62,7 +63,6 @@
 		D09C309C24C0BA3700A214DD /* ExpensesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C309B24C0BA3700A214DD /* ExpensesViewCell.swift */; };
 		D0A10E4C24DD5D82008EE4AF /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A10E4B24DD5D82008EE4AF /* PhotoService.swift */; };
 		D0DED8E124E4139A000C0407 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D0DED8E024E4139A000C0407 /* Alamofire */; };
-		D0DED8E424E41EA2000C0407 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0DED8E324E41EA2000C0407 /* JTAppleCalendar */; };
 		D0DED8E724E4228C000C0407 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DED8E624E4228C000C0407 /* CalendarViewController.swift */; };
 		D0DED8E924E422A0000C0407 /* CalendarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DED8E824E422A0000C0407 /* CalendarStoryboard.storyboard */; };
 		D0DED8EB24E42341000C0407 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DED8EA24E42341000C0407 /* CalendarViewModel.swift */; };
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0DED8E124E4139A000C0407 /* Alamofire in Frameworks */,
-				D0DED8E424E41EA2000C0407 /* JTAppleCalendar in Frameworks */,
+				D0082B5C24E570DD00ED1996 /* KDCalendar in Frameworks */,
 				D026EA0B24A236B600EF2248 /* MBProgressHUD in Frameworks */,
 				D026EA0824A235EB00EF2248 /* SDWebImageSwiftUI in Frameworks */,
 			);
@@ -512,7 +512,7 @@
 				D026EA0724A235EB00EF2248 /* SDWebImageSwiftUI */,
 				D026EA0A24A236B600EF2248 /* MBProgressHUD */,
 				D0DED8E024E4139A000C0407 /* Alamofire */,
-				D0DED8E324E41EA2000C0407 /* JTAppleCalendar */,
+				D0082B5B24E570DD00ED1996 /* KDCalendar */,
 			);
 			productName = bms;
 			productReference = D026E9B924A2333400EF2248 /* bms.app */;
@@ -546,7 +546,7 @@
 				D026EA0624A235EB00EF2248 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				D026EA0924A236B600EF2248 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				D0DED8DF24E4139A000C0407 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				D0DED8E224E41EA2000C0407 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
+				D0082B5A24E570DD00ED1996 /* XCRemoteSwiftPackageReference "CalendarView" */,
 			);
 			productRefGroup = D026E9BA24A2333400EF2248 /* Products */;
 			projectDirPath = "";
@@ -820,6 +820,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D0082B5A24E570DD00ED1996 /* XCRemoteSwiftPackageReference "CalendarView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mmick66/CalendarView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.9;
+			};
+		};
 		D026EA0624A235EB00EF2248 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -844,17 +852,14 @@
 				minimumVersion = 5.2.2;
 			};
 		};
-		D0DED8E224E41EA2000C0407 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D0082B5B24E570DD00ED1996 /* KDCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0082B5A24E570DD00ED1996 /* XCRemoteSwiftPackageReference "CalendarView" */;
+			productName = KDCalendar;
+		};
 		D026EA0724A235EB00EF2248 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D026EA0624A235EB00EF2248 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
@@ -869,11 +874,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0DED8DF24E4139A000C0407 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		D0DED8E324E41EA2000C0407 /* JTAppleCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D0DED8E224E41EA2000C0407 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
-			productName = JTAppleCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
