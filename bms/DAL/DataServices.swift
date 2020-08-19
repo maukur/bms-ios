@@ -12,16 +12,17 @@ class DataServices {
     
     static private(set) var userDataService: UserProtocol?
     static private(set) var expenseDataService: ExpenseProtocol?
+    static private(set) var calendarDataService: CalendarProtocol?
 
-    static func initialize (isMock:Bool, baseUrl:String){
+    static func initialize (isMock:Bool, baseUrl:String, getToken: @escaping ()->String?){
         if(isMock){
             userDataService = UserMockDataService()
-            expenseDataService = ExpenseMockDataService()
-        }
+         }
         else {
             let urlSession = URLSession(configuration: URLSessionConfiguration.default)
             userDataService = UserMockDataService()
-            expenseDataService = ExpenseRemoteDataService(baseUrl: baseUrl, session: urlSession)
+            expenseDataService = ExpenseRemoteDataService(baseUrl: baseUrl, getToken: getToken)
+            calendarDataService = CalendarDataService(baseUrl: baseUrl, getToken: getToken)
 
         }
         

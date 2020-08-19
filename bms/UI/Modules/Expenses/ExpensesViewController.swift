@@ -21,7 +21,6 @@ class ExpensesViewController: BaseViewController {
     
     override func viewDidLoad() {
         title = "Expenses"
-        self.tabBarController?.tabBar.items![0].image = UIImage(named: "dollarsign.circle")
         setupTableView()
         let button = UIBarButtonItem(title: "Добавить", style: .plain, target: self, action: #selector(addTapped));
         self.navigationItem.rightBarButtonItems = [button]

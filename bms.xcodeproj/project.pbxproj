@@ -54,7 +54,6 @@
 		D05F295E24D21EAC005C55C2 /* ExpenseGroupObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05F295D24D21EAC005C55C2 /* ExpenseGroupObject.swift */; };
 		D088863624CF5A530044ABE4 /* ExpenceDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088863524CF5A530044ABE4 /* ExpenceDto.swift */; };
 		D088863824CF5B340044ABE4 /* ExpenseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088863724CF5B340044ABE4 /* ExpenseObject.swift */; };
-		D088863A24CF5CF20044ABE4 /* ExpenseMockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088863924CF5CF20044ABE4 /* ExpenseMockDataService.swift */; };
 		D088863C24CF5D2F0044ABE4 /* ExpenseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088863B24CF5D2F0044ABE4 /* ExpenseProtocol.swift */; };
 		D09B475E24D87E52002ADD62 /* ExpenseEditStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09B475D24D87E52002ADD62 /* ExpenseEditStoryboard.storyboard */; };
 		D09B476024D87E66002ADD62 /* ExpenseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B475F24D87E66002ADD62 /* ExpenseEditViewController.swift */; };
@@ -62,6 +61,12 @@
 		D09C309A24C0BA1B00A214DD /* ExpensesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09C309924C0BA1B00A214DD /* ExpensesViewCell.xib */; };
 		D09C309C24C0BA3700A214DD /* ExpensesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C309B24C0BA3700A214DD /* ExpensesViewCell.swift */; };
 		D0A10E4C24DD5D82008EE4AF /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A10E4B24DD5D82008EE4AF /* PhotoService.swift */; };
+		D0D5902C24E5786C00550C74 /* Dictionsries.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5902B24E5786C00550C74 /* Dictionsries.swift */; };
+		D0D5902F24E595F000550C74 /* EventObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5902E24E595F000550C74 /* EventObject.swift */; };
+		D0D5903224E599FE00550C74 /* EventViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D5903124E599FE00550C74 /* EventViewCell.xib */; };
+		D0D5903424E59A3100550C74 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5903324E59A3100550C74 /* EventViewCell.swift */; };
+		D0D5903624E694F700550C74 /* CalendarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5903524E694F700550C74 /* CalendarProtocol.swift */; };
+		D0D5903824E695A000550C74 /* CalendarDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5903724E695A000550C74 /* CalendarDataService.swift */; };
 		D0DED8E124E4139A000C0407 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D0DED8E024E4139A000C0407 /* Alamofire */; };
 		D0DED8E724E4228C000C0407 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DED8E624E4228C000C0407 /* CalendarViewController.swift */; };
 		D0DED8E924E422A0000C0407 /* CalendarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DED8E824E422A0000C0407 /* CalendarStoryboard.storyboard */; };
@@ -117,7 +122,6 @@
 		D05F295D24D21EAC005C55C2 /* ExpenseGroupObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseGroupObject.swift; sourceTree = "<group>"; };
 		D088863524CF5A530044ABE4 /* ExpenceDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenceDto.swift; sourceTree = "<group>"; };
 		D088863724CF5B340044ABE4 /* ExpenseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseObject.swift; sourceTree = "<group>"; };
-		D088863924CF5CF20044ABE4 /* ExpenseMockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseMockDataService.swift; sourceTree = "<group>"; };
 		D088863B24CF5D2F0044ABE4 /* ExpenseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseProtocol.swift; sourceTree = "<group>"; };
 		D09B475D24D87E52002ADD62 /* ExpenseEditStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExpenseEditStoryboard.storyboard; sourceTree = "<group>"; };
 		D09B475F24D87E66002ADD62 /* ExpenseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,12 @@
 		D09C309924C0BA1B00A214DD /* ExpensesViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpensesViewCell.xib; sourceTree = "<group>"; };
 		D09C309B24C0BA3700A214DD /* ExpensesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewCell.swift; sourceTree = "<group>"; };
 		D0A10E4B24DD5D82008EE4AF /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		D0D5902B24E5786C00550C74 /* Dictionsries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionsries.swift; sourceTree = "<group>"; };
+		D0D5902E24E595F000550C74 /* EventObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventObject.swift; sourceTree = "<group>"; };
+		D0D5903124E599FE00550C74 /* EventViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventViewCell.xib; sourceTree = "<group>"; };
+		D0D5903324E59A3100550C74 /* EventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
+		D0D5903524E694F700550C74 /* CalendarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProtocol.swift; sourceTree = "<group>"; };
+		D0D5903724E695A000550C74 /* CalendarDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDataService.swift; sourceTree = "<group>"; };
 		D0DED8E624E4228C000C0407 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		D0DED8E824E422A0000C0407 /* CalendarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarStoryboard.storyboard; sourceTree = "<group>"; };
 		D0DED8EA24E42341000C0407 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
@@ -219,6 +229,7 @@
 		D026EA2324A2375800EF2248 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				D0D5903024E599EA00550C74 /* EventViewCell */,
 				D09C309824C0B9EE00A214DD /* ExpensesViewCell */,
 				D045409E24C09FF900CA9A27 /* SectionHeaderCell */,
 				D026EA9224A238F700EF2248 /* InitializedViewCell.swift */,
@@ -310,6 +321,7 @@
 				D026EA8924A237F400EF2248 /* SettingsService.swift */,
 				D026EA8A24A237F400EF2248 /* NavigationService.swift */,
 				D0A10E4B24DD5D82008EE4AF /* PhotoService.swift */,
+				D0D5902B24E5786C00550C74 /* Dictionsries.swift */,
 			);
 			path = Shell;
 			sourceTree = "<group>";
@@ -335,7 +347,6 @@
 			children = (
 				D026EACA24A23D6800EF2248 /* BaseMockDataService.swift */,
 				D026EACB24A23D6800EF2248 /* UserMockDataService.swift */,
-				D088863924CF5CF20044ABE4 /* ExpenseMockDataService.swift */,
 			);
 			path = MockDataServices;
 			sourceTree = "<group>";
@@ -372,6 +383,7 @@
 				D026EAD324A23D6800EF2248 /* EndPoints.swift */,
 				D026EAD424A23D6800EF2248 /* BaseRemoteDataService.swift */,
 				D0EC947C24E139EB007D547A /* ExpenseRemoteDataService.swift */,
+				D0D5903724E695A000550C74 /* CalendarDataService.swift */,
 			);
 			path = RemoteDataService;
 			sourceTree = "<group>";
@@ -387,6 +399,7 @@
 		D026EAD724A23D6800EF2248 /* DataObjects */ = {
 			isa = PBXGroup;
 			children = (
+				D0D5902D24E595E300550C74 /* Calendar */,
 				D05F295C24D21E94005C55C2 /* Expense */,
 				D026EAD824A23D6800EF2248 /* User */,
 			);
@@ -406,6 +419,7 @@
 			children = (
 				D026EADB24A23D6800EF2248 /* UserProtocol.swift */,
 				D088863B24CF5D2F0044ABE4 /* ExpenseProtocol.swift */,
+				D0D5903524E694F700550C74 /* CalendarProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -465,6 +479,23 @@
 				D09C309B24C0BA3700A214DD /* ExpensesViewCell.swift */,
 			);
 			path = ExpensesViewCell;
+			sourceTree = "<group>";
+		};
+		D0D5902D24E595E300550C74 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5902E24E595F000550C74 /* EventObject.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		D0D5903024E599EA00550C74 /* EventViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D0D5903124E599FE00550C74 /* EventViewCell.xib */,
+				D0D5903324E59A3100550C74 /* EventViewCell.swift */,
+			);
+			path = EventViewCell;
 			sourceTree = "<group>";
 		};
 		D0DED8E524E41F1C000C0407 /* Calendar */ = {
@@ -566,6 +597,7 @@
 				D026E9C924A2333500EF2248 /* LaunchScreen.storyboard in Resources */,
 				D01B9FCB24D238DA00E97A93 /* File.json in Resources */,
 				D09B475E24D87E52002ADD62 /* ExpenseEditStoryboard.storyboard in Resources */,
+				D0D5903224E599FE00550C74 /* EventViewCell.xib in Resources */,
 				D026EAE024A23D6800EF2248 /* expenseJson.json in Resources */,
 				D00355B924BDCAAE00C73CA5 /* ExpensesStoryboard.storyboard in Resources */,
 				D026E9C624A2333500EF2248 /* Assets.xcassets in Resources */,
@@ -590,11 +622,11 @@
 				D03C081A24DC2C5D00E88B96 /* ExpenseDetailObject.swift in Sources */,
 				D09C309C24C0BA3700A214DD /* ExpensesViewCell.swift in Sources */,
 				D026EA3C24A2375800EF2248 /* DefaultTableViewDataSource.swift in Sources */,
-				D088863A24CF5CF20044ABE4 /* ExpenseMockDataService.swift in Sources */,
 				D0EC947D24E139EB007D547A /* ExpenseRemoteDataService.swift in Sources */,
 				D045409B24C0926A00CA9A27 /* DefaultTableViewWithSectionsDataSource.swift in Sources */,
 				D00355B424BDCA5000C73CA5 /* ExpensesViewModel.swift in Sources */,
 				D026EAE324A23D6800EF2248 /* BaseRemoteDataService.swift in Sources */,
+				D0D5902C24E5786C00550C74 /* Dictionsries.swift in Sources */,
 				D05F295B24D21C80005C55C2 /* ExpenseGroupDto.swift in Sources */,
 				D0DED8EB24E42341000C0407 /* CalendarViewModel.swift in Sources */,
 				D026E9BD24A2333400EF2248 /* AppDelegate.swift in Sources */,
@@ -603,6 +635,7 @@
 				D026EA8C24A237F400EF2248 /* DialogService.swift in Sources */,
 				D026EA3B24A2375800EF2248 /* UIConverters.swift in Sources */,
 				D026EADD24A23D6800EF2248 /* BaseMockDataService.swift in Sources */,
+				D0D5903624E694F700550C74 /* CalendarProtocol.swift in Sources */,
 				D026EA8E24A237F400EF2248 /* SettingsService.swift in Sources */,
 				D026EA8F24A237F400EF2248 /* NavigationService.swift in Sources */,
 				D0EC948024E16092007D547A /* DateFormatters.swift in Sources */,
@@ -611,6 +644,8 @@
 				D088863624CF5A530044ABE4 /* ExpenceDto.swift in Sources */,
 				D026EAE824A23D9800EF2248 /* LoginViewModel.swift in Sources */,
 				D04540A024C0A01000CA9A27 /* SectionHeaderCell.swift in Sources */,
+				D0D5902F24E595F000550C74 /* EventObject.swift in Sources */,
+				D0D5903424E59A3100550C74 /* EventViewCell.swift in Sources */,
 				D05F295E24D21EAC005C55C2 /* ExpenseGroupObject.swift in Sources */,
 				D088863C24CF5D2F0044ABE4 /* ExpenseProtocol.swift in Sources */,
 				D00355B724BDCA9C00C73CA5 /* ExpensesViewController.swift in Sources */,
@@ -627,6 +662,7 @@
 				D026EA3E24A2375800EF2248 /* BaseViewController.swift in Sources */,
 				D026EAE524A23D6800EF2248 /* LoginResponseObject.swift in Sources */,
 				D026EA9324A238F700EF2248 /* InitializedViewCell.swift in Sources */,
+				D0D5903824E695A000550C74 /* CalendarDataService.swift in Sources */,
 				D026EADF24A23D6800EF2248 /* LoginDto.swift in Sources */,
 				D026EA4424A2375800EF2248 /* LoginViewController.swift in Sources */,
 			);

@@ -37,27 +37,32 @@ class ExpensesViewModel: BaseViewModel {
     
     func updateData() {
         showLoading()
-        DispatchQueue.global().async {
-            [weak self]  in
-            guard let self = self else { return }
-            let result = DataServices.expenseDataService?.getAll(token: "", year:self.date.get(.year))
-            if(result!.isValid()){
-                var dictionary:Dictionary<AnyHashable, [Any]> = [:]
-                result?.data?.forEach({ group in
-                    dictionary[group.mounth] = group.expenses
-                })
+    
+            DataServices.expenseDataService?.getAll(year: 2012, completionHandler: { items in
                 
-                DispatchQueue.main.async {
-                    [weak self] in
-                    guard let self = self else { return }
-                    self.data = dictionary
-                    self.onDataUpdate?(self.data)
-                    self.hideLoading()
-                }
-            }
+                    var dictionary:Dictionary<AnyHashable, [Any]> = [:]
+                
+                    items.forEach({ group in
+                        dictionary[group.mounth] = group.expenses
+                    })
+                    
+                    DispatchQueue.main.async {
+                        [weak self] in
+                        guard let self = self else { return }
+                        self.data = dictionary
+                        self.onDataUpdate?(self.data)
+                        self.hideLoading()
+                    }
+                
+        },
+         errorHandler: {
+            message in
+            self.showAlert(title: message)
+        })
             
-        }
     }
+        
+    
     
     
     

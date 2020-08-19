@@ -1,111 +1,63 @@
-//
-//  BaseRemoteDataService.swift
-//  OrderKing
-//
-//  Created by Artem Tischenko on 21.05.2020.
-//  Copyright © 2020 Artem Tischenko. All rights reserved.
-//
 
 import Foundation
+import Alamofire
 
 class BaseRemoteDataService  {
     
     let baseUrl: String
-    let session: URLSession
-    let json = JSONDecoder()
+    let decoder: JSONDecoder
+    let getToken: ()->(String?)
     
-    init(baseUrl:String, session:URLSession) {
+    init(baseUrl:String, getToken: @escaping ()->String?) {
         self.baseUrl = baseUrl
-        self.session = session
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        self.decoder = decoder
+        self.getToken = getToken
     }
     
-    
-    func POST<ModelType: Encodable>(url: String, token: String? = nil, model: ModelType) -> URLRequest {
+    func ex<T:Codable>(url:String, method:HTTPMethod = .get, parameters:Parameters = [:], completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil){
         
-        var request = getUrlRequest(getFulUrl(url), token: token, method: "POST");
-        
-        let encoder = JSONEncoder()
-        let encoded = try! encoder.encode(model)
-        request.httpBody = encoded
-        
-        return request
-    }
-    
-    
-    
-    func GET(url: String, token: String? = nil) -> URLRequest {
-        let request = getUrlRequest(getFulUrl(url), token: token, method: "GET");
-        return request
-    }
-    
-    
-    func GET(url: String, token: String? = nil, parameters: [String: String]) -> URLRequest {
-        var components = URLComponents(url: getFulUrl(url), resolvingAgainstBaseURL: false)!
-        
-        components.queryItems = parameters.enumerated().map {
-            URLQueryItem(name: $1.key, value: $1.value)
+        var headers: HTTPHeaders = []
+        let token = getToken()
+        if(token != nil){
+            let authHeader: HTTPHeader = HTTPHeader.authorization(bearerToken: token!)
+            headers.add(authHeader)
         }
-        
-        guard let percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B") else {
-            return URLRequest(url: components.url!)
-        }
-        
-        components.percentEncodedQuery = percentEncodedQuery
-        
-        let request = getUrlRequest(components.url!, token: token, method: "GET");
-        return request
-        
-    }
-    
-    
-    func execute<T:Codable>(_ request: URLRequest) -> RequestResult<T>{
-        let semaphore = DispatchSemaphore(value: 0)
-
-        var reuestResult:RequestResult<T>? = nil
-
-        session.dataTask(with: request) {
-            (data, response , error) in
-           
-            
+        let fullUrl = getFulUrl(url)
+        AF.request(fullUrl, method: method, parameters: parameters, headers: headers).response {
+            response in
             do {
-                let decoder = JSONDecoder()
-                let jsonData: T = try decoder.decode(T.self, from: data!)
-                reuestResult = RequestResult(data: jsonData, status: "ok")
-                semaphore.signal()
+                if let error = response.error {
+                    errorHandler?(error.localizedDescription)
+                }
+                let jsonData: T = try self.decoder.decode(T.self, from: response.data!)
+                completionHandler(jsonData)
+            } catch let DecodingError.dataCorrupted(context) {
+                errorHandler?("dataCorrupted")
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                errorHandler?("Key '\(key)' not found:" + context.debugDescription)
                 
+            } catch let DecodingError.valueNotFound(value, context) {
+                errorHandler?("Key '\(value)' not found:" + context.debugDescription)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                errorHandler?("Key '\(type)' not found:" + context.debugDescription)
+                
+            } catch {
+                errorHandler?(error.localizedDescription)
+                print("error: ", error)
             }
-            catch let DecodingError.typeMismatch(type, context)  {
-                print("Type '\(type)' mismatch:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            }
-            catch {
-                print(error.localizedDescription)
-            
-             semaphore.signal()
-            }
-        }.resume()
-        semaphore.wait()
-        return reuestResult!
+        }
     }
-    
-    func decode<ResultType: Decodable>(_ response: Data) throws -> ResultType {
-        try json.decode(ResultType.self, from: response)
-    }
-    
+
+
     private func getFulUrl(_ url:String)-> URL{
         URL(string: baseUrl + url)!
     }
     
-    private func getUrlRequest(_ url:URL, token: String? = nil, method: String) -> URLRequest {
-        var request = URLRequest(url: url)
-        request.httpMethod = method
-        request.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        
-        if let _token = token {
-            request.addValue("Bearer \(_token)", forHTTPHeaderField: "Authorization")
-        }
-        return request
-    }
     
 }
 

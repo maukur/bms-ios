@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NavigationService.initialize(module: "Login", setRootHandler: setRoot)
         DialogService.initialize(getTopViewController:getTopViewController)
-        DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl)
+        DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken)
         ImagePickService.initialize(getTopViewController:getTopViewController)
         return true
     }
@@ -30,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return topController
         }
         return nil
+    }
+    
+    func getToken() -> String{
+        ""
     }
     
     func setRoot(viewController:UIViewController){

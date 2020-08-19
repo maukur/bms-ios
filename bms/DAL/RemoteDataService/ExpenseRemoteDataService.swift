@@ -9,33 +9,28 @@
 import Foundation
 
 class ExpenseRemoteDataService: BaseRemoteDataService,ExpenseProtocol {
-   
-    func getAll(token: String, year:Int) -> RequestResult<[ExpenseGroupObject]> {
-        let request = self.GET(url: EndPoints.getExpenses, parameters: ["year": String(year)])
-           return execute(request)
+    func getAll(year: Int, completionHandler: @escaping ([ExpenseGroupObject]) -> (), errorHandler: ((String) -> ())?) {
+        ex(url: EndPoints.getExpenses, parameters: ["year": String(year)], completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func getCategories() -> RequestResult<[ExpenseCategoryObject]> {
-        let request = self.GET(url: EndPoints.getCategoryList)
-              return self.execute(request);
+    func getCategories(year: Int, completionHandler: @escaping ([ExpenseCategoryObject]) -> (), errorHandler: ((String) -> ())?) {
+        ex(url: EndPoints.getCategoryList, completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func getCurrencies() -> RequestResult<[CurrencyObject]> {
-        let request = self.GET(url: EndPoints.getCurrenciesList)
-              return self.execute(request);
+    func getCurrencies(token: String, completionHandler: @escaping ([CurrencyObject]) -> (), errorHandler: ((String) -> ())?) {
+        ex(url: EndPoints.getCurrenciesList, completionHandler: completionHandler, errorHandler: errorHandler)
+    }
+    func getPaymentTypes(completionHandler: @escaping ([PaymentTypeObject]) -> (), errorHandler: ((String) -> ())?) {
+        ex(url: EndPoints.getPaymentTypeList, completionHandler: completionHandler, errorHandler: errorHandler)
+    }
+    func getById(guid: String, completionHandler: @escaping (ExpenseDetailObject) -> (), errorHandler: ((String) -> ())?) {
+        ex(url: EndPoints.getExpenseByGuid, parameters: ["id" : guid], completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func getPaymentTypes() -> RequestResult<[PaymentTypeObject]> {
-        let request = self.GET(url: EndPoints.getPaymentTypeList)
-              return self.execute(request);
-    }
     
-     
     
-    func getById(guid: String) -> RequestResult<ExpenseDetailObject> {
-        let request = self.GET(url: EndPoints.getExpenseByGuid, parameters: ["id" : guid])
-        return self.execute(request);
-    }
+    
+    
     
     
 }

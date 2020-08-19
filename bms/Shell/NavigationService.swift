@@ -73,16 +73,27 @@ class NavigationService {
     
     private static func navigateTabTo(modules: [String], navigationParams: Dictionary<String, Any> ){
         
- 
         var controllers :[UIViewController] = []
+        let tabBarController = UITabBarController()
+
         modules.forEach({ (name) in
             let module = getModule(moduleName: name, navigationParams: navigationParams)
             let nsvigationcontroller = UINavigationController(rootViewController: module)
             controllers.append(nsvigationcontroller)
+          
         })
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = controllers
         
+        tabBarController.viewControllers = controllers
+    
+             for i in 0...(modules.count-1) {
+                let title = Dictionaries.instance.tabBarSettings[modules[i]]!.0
+                let image = Dictionaries.instance.tabBarSettings[modules[i]]!.1
+                
+                tabBarController.tabBar.items?[i].image = UIImage(named: image)?.withRenderingMode(.alwaysOriginal)
+                tabBarController.tabBar.items?[i].title = title
+            
+        }
+
         setRoot?(tabBarController)
     }
     

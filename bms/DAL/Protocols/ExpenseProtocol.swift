@@ -9,12 +9,12 @@
 import Foundation
 
 protocol ExpenseProtocol {
-    func getAll(token: String, year:Int) -> RequestResult<[ExpenseGroupObject]> 
-
-
-    func getById(guid:String) -> RequestResult<ExpenseDetailObject>
     
-    func getCategories() -> RequestResult<[ExpenseCategoryObject]>
-    func getCurrencies() -> RequestResult<[CurrencyObject]>
-    func getPaymentTypes() -> RequestResult<[PaymentTypeObject]>
+    
+    func getAll(year: Int, completionHandler: @escaping ([ExpenseGroupObject]) -> (), errorHandler: ((String) -> ())?)
+    func getCategories(year: Int, completionHandler: @escaping ([ExpenseCategoryObject]) -> (), errorHandler: ((String) -> ())?)
+    func getCurrencies(token: String, completionHandler: @escaping ([CurrencyObject]) -> (), errorHandler: ((String) -> ())?)
+    func getPaymentTypes(completionHandler: @escaping ([PaymentTypeObject]) -> (), errorHandler: ((String) -> ())?)
+    func getById(guid: String, completionHandler: @escaping (ExpenseDetailObject) -> (), errorHandler: ((String) -> ())?)
+    
 }
