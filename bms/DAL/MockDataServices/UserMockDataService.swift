@@ -9,6 +9,11 @@
 import Foundation
 
 class UserMockDataService: BaseMockDataService, UserProtocol {
+    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> (), errorHandler: ((String) -> ())?) {
+            
+    }
+   
+    
     func login(login: String, password: String, onCompleted: (RequestResult<LoginResponseObject>) -> Void) {
         let result: RequestResult<LoginDto> = MakeRequestFromJson(fileName: "loginJson")
         onCompleted(RequestResult<LoginResponseObject>(data: result.data?.convert, status: result.status, message: result.message))

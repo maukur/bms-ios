@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225D640E24EBD66300F34076 /* EditableProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D640D24EBD66300F34076 /* EditableProfileView.xib */; };
+		225D641024EBD69400F34076 /* EditableProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D640F24EBD69400F34076 /* EditableProfileView.swift */; };
+		2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */; };
+		2283073024E6DE3D00A6E1A7 /* UserInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */; };
+		2283073224E6DF4900A6E1A7 /* UserInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283073124E6DF4900A6E1A7 /* UserInfoObject.swift */; };
+		22C881BB24E583000069E07D /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C881BA24E583000069E07D /* ProfileStoryboard.storyboard */; };
+		22C881BD24E583780069E07D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C881BC24E583780069E07D /* ProfileViewController.swift */; };
+		22C881C024E5881E0069E07D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C881BF24E5881E0069E07D /* ProfileViewModel.swift */; };
 		D00355B424BDCA5000C73CA5 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00355B324BDCA5000C73CA5 /* ExpensesViewModel.swift */; };
 		D00355B724BDCA9C00C73CA5 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00355B624BDCA9C00C73CA5 /* ExpensesViewController.swift */; };
 		D00355B924BDCAAE00C73CA5 /* ExpensesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00355B824BDCAAE00C73CA5 /* ExpensesStoryboard.storyboard */; };
@@ -76,6 +84,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		225D640D24EBD66300F34076 /* EditableProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableProfileView.xib; sourceTree = "<group>"; };
+		225D640F24EBD69400F34076 /* EditableProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableProfileView.swift; sourceTree = "<group>"; };
+		2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataService.swift; sourceTree = "<group>"; };
+		2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDto.swift; sourceTree = "<group>"; };
+		2283073124E6DF4900A6E1A7 /* UserInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoObject.swift; sourceTree = "<group>"; };
+		22C881BA24E583000069E07D /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		22C881BC24E583780069E07D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		22C881BF24E5881E0069E07D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		D00355B324BDCA5000C73CA5 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
 		D00355B624BDCA9C00C73CA5 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		D00355B824BDCAAE00C73CA5 /* ExpensesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExpensesStoryboard.storyboard; sourceTree = "<group>"; };
@@ -157,6 +173,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		220683F924E6F6F0001CE715 /* EditableProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				225D640D24EBD66300F34076 /* EditableProfileView.xib */,
+				225D640F24EBD69400F34076 /* EditableProfileView.swift */,
+			);
+			path = EditableProfileView;
+			sourceTree = "<group>";
+		};
+		22C881B924E582EC0069E07D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				22C881BA24E583000069E07D /* ProfileStoryboard.storyboard */,
+				22C881BC24E583780069E07D /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		22C881BE24E5880C0069E07D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				22C881BF24E5881E0069E07D /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		D00355B224BDCA4100C73CA5 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +292,7 @@
 		D026EA2824A2375800EF2248 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				22C881B924E582EC0069E07D /* Profile */,
 				D0DED8E524E41F1C000C0407 /* Calendar */,
 				D09B475C24D87E3C002ADD62 /* ExpenseEdit */,
 				D00355B524BDCA7700C73CA5 /* Expenses */,
@@ -279,6 +322,7 @@
 		D026EA3A24A2375800EF2248 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				220683F924E6F6F0001CE715 /* EditableProfileView */,
 				D006A0E124DAA4EE0069F21C /* DefaultUIPickerView.swift */,
 			);
 			path = Views;
@@ -295,6 +339,7 @@
 		D026EA7A24A237B200EF2248 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				22C881BE24E5880C0069E07D /* Profile */,
 				D0DED8EC24E42349000C0407 /* Calendar */,
 				D09B476124D88037002ADD62 /* ExpensesEdit */,
 				D00355B224BDCA4100C73CA5 /* Expenses */,
@@ -364,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				D026EACE24A23D6800EF2248 /* LoginDto.swift */,
+				2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -384,6 +430,7 @@
 				D026EAD424A23D6800EF2248 /* BaseRemoteDataService.swift */,
 				D0EC947C24E139EB007D547A /* ExpenseRemoteDataService.swift */,
 				D0D5903724E695A000550C74 /* CalendarDataService.swift */,
+				2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */,
 			);
 			path = RemoteDataService;
 			sourceTree = "<group>";
@@ -410,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				D026EAD924A23D6800EF2248 /* LoginResponseObject.swift */,
+				2283073124E6DF4900A6E1A7 /* UserInfoObject.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -595,6 +643,8 @@
 			files = (
 				D045409D24C09FCF00CA9A27 /* SectionHeaderCell.xib in Resources */,
 				D026E9C924A2333500EF2248 /* LaunchScreen.storyboard in Resources */,
+				225D640E24EBD66300F34076 /* EditableProfileView.xib in Resources */,
+				22C881BB24E583000069E07D /* ProfileStoryboard.storyboard in Resources */,
 				D01B9FCB24D238DA00E97A93 /* File.json in Resources */,
 				D09B475E24D87E52002ADD62 /* ExpenseEditStoryboard.storyboard in Resources */,
 				D0D5903224E599FE00550C74 /* EventViewCell.xib in Resources */,
@@ -620,8 +670,10 @@
 				D026EA8B24A237F400EF2248 /* Consts.swift in Sources */,
 				D0DED8E724E4228C000C0407 /* CalendarViewController.swift in Sources */,
 				D03C081A24DC2C5D00E88B96 /* ExpenseDetailObject.swift in Sources */,
+				22C881BD24E583780069E07D /* ProfileViewController.swift in Sources */,
 				D09C309C24C0BA3700A214DD /* ExpensesViewCell.swift in Sources */,
 				D026EA3C24A2375800EF2248 /* DefaultTableViewDataSource.swift in Sources */,
+				2283073024E6DE3D00A6E1A7 /* UserInfoDto.swift in Sources */,
 				D0EC947D24E139EB007D547A /* ExpenseRemoteDataService.swift in Sources */,
 				D045409B24C0926A00CA9A27 /* DefaultTableViewWithSectionsDataSource.swift in Sources */,
 				D00355B424BDCA5000C73CA5 /* ExpensesViewModel.swift in Sources */,
@@ -637,6 +689,7 @@
 				D026EADD24A23D6800EF2248 /* BaseMockDataService.swift in Sources */,
 				D0D5903624E694F700550C74 /* CalendarProtocol.swift in Sources */,
 				D026EA8E24A237F400EF2248 /* SettingsService.swift in Sources */,
+				225D641024EBD69400F34076 /* EditableProfileView.swift in Sources */,
 				D026EA8F24A237F400EF2248 /* NavigationService.swift in Sources */,
 				D0EC948024E16092007D547A /* DateFormatters.swift in Sources */,
 				D026EAE224A23D6800EF2248 /* EndPoints.swift in Sources */,
@@ -647,6 +700,7 @@
 				D0D5902F24E595F000550C74 /* EventObject.swift in Sources */,
 				D0D5903424E59A3100550C74 /* EventViewCell.swift in Sources */,
 				D05F295E24D21EAC005C55C2 /* ExpenseGroupObject.swift in Sources */,
+				2283073224E6DF4900A6E1A7 /* UserInfoObject.swift in Sources */,
 				D088863C24CF5D2F0044ABE4 /* ExpenseProtocol.swift in Sources */,
 				D00355B724BDCA9C00C73CA5 /* ExpensesViewController.swift in Sources */,
 				D088863824CF5B340044ABE4 /* ExpenseObject.swift in Sources */,
@@ -657,6 +711,7 @@
 				D026EADE24A23D6800EF2248 /* UserMockDataService.swift in Sources */,
 				D026EADC24A23D6800EF2248 /* DataServices.swift in Sources */,
 				D0A10E4C24DD5D82008EE4AF /* PhotoService.swift in Sources */,
+				22C881C024E5881E0069E07D /* ProfileViewModel.swift in Sources */,
 				D02850F224D93F1B005AA6FF /* ExpenseCategoryObject.swift in Sources */,
 				D026EAE624A23D6800EF2248 /* UserProtocol.swift in Sources */,
 				D026EA3E24A2375800EF2248 /* BaseViewController.swift in Sources */,
@@ -665,6 +720,7 @@
 				D0D5903824E695A000550C74 /* CalendarDataService.swift in Sources */,
 				D026EADF24A23D6800EF2248 /* LoginDto.swift in Sources */,
 				D026EA4424A2375800EF2248 /* LoginViewController.swift in Sources */,
+				2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

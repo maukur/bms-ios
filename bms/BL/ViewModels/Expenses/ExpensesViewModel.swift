@@ -37,7 +37,6 @@ class ExpensesViewModel: BaseViewModel {
     
     func updateData() {
         showLoading()
-    
             DataServices.expenseDataService?.getAll(year: 2012, completionHandler: { items in
                 
                     var dictionary:Dictionary<AnyHashable, [Any]> = [:]

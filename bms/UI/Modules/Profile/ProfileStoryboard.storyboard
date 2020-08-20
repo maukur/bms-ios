@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6V1-vb-v0o">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="zuF-zT-nlK">
+            <objects>
+                <viewController id="6V1-vb-v0o" customClass="ProfileViewController" customModule="bms" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c30-YP-bpR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdp-IQ-8Q2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1DN-D3-caG">
+                                        <rect key="frame" x="10" y="10" width="394" height="464"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esj-uC-gpk" customClass="EditableProfileView" customModule="bms" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="aD6-A8-WNw"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCN-4z-qqY" customClass="EditableProfileView" customModule="bms" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="70" width="394" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="2g1-Dd-uqC"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPP-Q8-iLH" customClass="EditableProfileView" customModule="bms" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="140" width="394" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="eTN-Se-aa2"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSl-DY-uCT" customClass="EditableProfileView" customModule="bms" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="210" width="394" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Zj4-Hg-hWm"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62o-VS-gAY" customClass="EditableProfileView" customModule="bms" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="280" width="394" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="ylD-N9-cS0"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyJ-91-8kZ" customClass="EditableProfileView" customModule="bms" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="350" width="394" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Qg9-a3-VJ4"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlJ-6n-ak6">
+                                                <rect key="frame" x="0.0" y="420" width="394" height="44"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Qyf-LC-oGI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <state key="normal" title="Редактировать"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1DN-D3-caG" firstAttribute="bottom" secondItem="QSD-XF-DUU" secondAttribute="bottom" id="0AA-2A-n5x"/>
+                                    <constraint firstItem="1DN-D3-caG" firstAttribute="trailing" secondItem="QSD-XF-DUU" secondAttribute="trailing" constant="10" id="Dkd-6f-mZh"/>
+                                    <constraint firstItem="1DN-D3-caG" firstAttribute="leading" secondItem="QSD-XF-DUU" secondAttribute="leading" constant="10" id="MfW-ZV-Tb1"/>
+                                    <constraint firstItem="1DN-D3-caG" firstAttribute="top" secondItem="QSD-XF-DUU" secondAttribute="top" constant="10" id="dvT-us-wql"/>
+                                    <constraint firstItem="1DN-D3-caG" firstAttribute="width" secondItem="Mgt-qZ-DlS" secondAttribute="width" constant="-20" id="yob-v3-3qF"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="QSD-XF-DUU"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Mgt-qZ-DlS"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mdp-IQ-8Q2" firstAttribute="leading" secondItem="TAx-wV-OUL" secondAttribute="leading" id="8Qi-Bw-Hup"/>
+                            <constraint firstItem="TAx-wV-OUL" firstAttribute="trailing" secondItem="mdp-IQ-8Q2" secondAttribute="trailing" id="EKg-gd-SAV"/>
+                            <constraint firstItem="mdp-IQ-8Q2" firstAttribute="top" secondItem="TAx-wV-OUL" secondAttribute="top" id="V27-NM-gAY"/>
+                            <constraint firstItem="mdp-IQ-8Q2" firstAttribute="bottom" secondItem="TAx-wV-OUL" secondAttribute="bottom" id="u4E-GJ-pNv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TAx-wV-OUL"/>
+                    </view>
+                    <connections>
+                        <outlet property="birthDateField" destination="tSl-DY-uCT" id="4KC-Jk-eoz"/>
+                        <outlet property="emailField" destination="CCN-4z-qqY" id="cLq-Ws-5F9"/>
+                        <outlet property="employedDateField" destination="62o-VS-gAY" id="omQ-zF-ZKb"/>
+                        <outlet property="nameField" destination="esj-uC-gpk" id="lYG-VE-6D8"/>
+                        <outlet property="phoneField" destination="TPP-Q8-iLH" id="2Os-1o-MxZ"/>
+                        <outlet property="seniorityField" destination="XyJ-91-8kZ" id="7Ni-or-OSJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfL-wG-Hbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-713.04347826086962" y="515.625"/>
+        </scene>
+    </scenes>
+</document>

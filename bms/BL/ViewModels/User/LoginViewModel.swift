@@ -11,7 +11,7 @@ import Foundation
 class LoginViewModel: BaseViewModel
 {
     func loginAction(login: String?, password: String?) {
-        self.navigateTo(modules:["Expenses", "Calendar","Expenses"], mode: "tab")
+        self.navigateTo(modules:["Expenses", "Calendar","Profile"], mode: "tab")
 
         //DataServices.userDataService?.login(login: login!, password: password!, onCompleted: {
          //   result in

@@ -20,7 +20,7 @@ class DataServices {
          }
         else {
             let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-            userDataService = UserMockDataService()
+            userDataService = UserRemoteDataService(baseUrl: baseUrl, getToken: getToken)
             expenseDataService = ExpenseRemoteDataService(baseUrl: baseUrl, getToken: getToken)
             calendarDataService = CalendarDataService(baseUrl: baseUrl, getToken: getToken)
 
