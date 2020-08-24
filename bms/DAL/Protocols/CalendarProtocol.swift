@@ -9,5 +9,6 @@
 import Foundation
 
 protocol CalendarProtocol {
-    func getAllEvents(token: String, completionHandler: @escaping ([EventObject]) -> (), errorHandler: ((String) -> ())?) 
+    func getAllEvents(completionHandler: @escaping ([EventObject]) -> (), errorHandler: ((String) -> ())?)
+    func getEventTypeList(completionHandler: @escaping ([EventTypeObject]) -> (), errorHandler: ((String) -> ())?)
 }

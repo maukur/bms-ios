@@ -17,6 +17,7 @@ class CalendarViewModel: BaseViewModel {
     var selectedDate = Date()
     
     func addNewItem(dates:[Date])  {
+        navigateTo(modules: ["NewEvent"], mode: "modal")
         for date in dates {
             //events.append(EventObject(id: "", typeId: "", title: "test", startDate: NSDate(), endDate: Ns))
         }
@@ -35,7 +36,7 @@ class CalendarViewModel: BaseViewModel {
     }
     override func viewDidLoad() {
         showLoading()
-        DataServices.calendarDataService?.getAllEvents(token: "",
+        DataServices.calendarDataService?.getAllEvents(
            completionHandler: {
             [weak self] events in
             guard let self = self else { return }

@@ -10,8 +10,8 @@ import Foundation
 
 struct UserInfoObject: Codable {
     let fullName: String
-    let birthDate: String
-    let employedDate: String
+    let birthDate: Date
+    let employedDate: Date
     let email: String
     let phone: String
 }

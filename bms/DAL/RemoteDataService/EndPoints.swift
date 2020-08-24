@@ -18,4 +18,5 @@ class EndPoints {
     static let getPaymentTypeList = "/Mobile/PaymentTypeList"
     static let getEventList = "/Mobile/Events"
     static let getUserInfo = "/Mobile/UserInfo"
+    static let getEventTypeList = "/Mobile/EventTypeList"
 }

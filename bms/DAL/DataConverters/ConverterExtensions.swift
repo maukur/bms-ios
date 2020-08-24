@@ -16,7 +16,7 @@ extension LoginDto {
 
 extension UserInfoDto {
     var convert: UserInfoObject {
-        UserInfoObject(fullName: self.fullName, birthDate: self.birthDate, employedDate: self.employedDate, email: self.email, phone: self.phone)
+        UserInfoObject(fullName: self.fullName, birthDate: self.birthDate.toDate(), employedDate: self.employedDate.toDate(), email: self.email, phone: self.phone)
     }
 }
 

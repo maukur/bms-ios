@@ -9,7 +9,7 @@
 import Foundation
 
 class UserRemoteDataService: BaseRemoteDataService, UserProtocol {
-    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> (), errorHandler: ((String) -> ())?) {
+    func getUserInfo(completionHandler: @escaping (UserInfoDto) -> (), errorHandler: ((String) -> ())?) {
          ex(url: EndPoints.getUserInfo, completionHandler: completionHandler, errorHandler: errorHandler)
     }
     func login(login: String, password: String, onCompleted: (RequestResult<LoginResponseObject>) -> Void) {

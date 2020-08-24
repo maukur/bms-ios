@@ -11,6 +11,6 @@ import Foundation
 protocol UserProtocol {
     
     func login(login: String, password: String, onCompleted: (RequestResult<LoginResponseObject>) -> Void)
-    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> (), errorHandler: ((String) -> ())?)
+    func getUserInfo(completionHandler: @escaping (UserInfoDto) -> (), errorHandler: ((String) -> ())?)
     
 }

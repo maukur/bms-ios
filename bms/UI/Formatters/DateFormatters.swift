@@ -42,6 +42,27 @@ extension Date {
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
         return calendar.component(component, from: self)
     }
-     
+    
+    static func calculateTimeDifference(from dateTime1: Date?, to dateTime2: Date? = Date()) -> String {
+        
+        guard dateTime1 != nil && dateTime2 != nil else { return "" }
+        let components : NSCalendar.Unit = [.hour, .day, .month, .year]
+        let difference = (Calendar.current as NSCalendar).components(components, from: dateTime1!, to: dateTime2!, options: [])
+        var dateTimeDifferenceString = ""
+        
+    
+        if(difference.year != 0) {
+            dateTimeDifferenceString += "\(difference.year!)г "
+        }
+        if(difference.month != 0){
+            dateTimeDifferenceString += "\(difference.month!)м "
+        }
+        if(difference.day != 0){
+            dateTimeDifferenceString += "\(difference.month!)д "
+        }
+        else{
+            dateTimeDifferenceString += "\(difference.hour!)ч "
+        }
+     return dateTimeDifferenceString
+    }
 }
- 

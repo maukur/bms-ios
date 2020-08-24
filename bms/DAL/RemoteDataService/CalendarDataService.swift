@@ -10,8 +10,13 @@ import Foundation
 import Alamofire
 
 class CalendarDataService: BaseRemoteDataService, CalendarProtocol {
-    func getAllEvents(token: String, completionHandler: @escaping ([EventObject]) -> (), errorHandler:  ((String) -> ())?) {
+    func getAllEvents(completionHandler: @escaping ([EventObject]) -> (), errorHandler: ((String) -> ())?) {
         ex(url:  EndPoints.getEventList, completionHandler: completionHandler, errorHandler: errorHandler)
-        
-     }
+    }
+    
+   
+     func getEventTypeList(completionHandler: @escaping ([EventTypeObject]) -> (), errorHandler: ((String) -> ())?) {
+        ex(url: EndPoints.getEventTypeList, completionHandler: completionHandler, errorHandler: errorHandler)
+    }
+
 }

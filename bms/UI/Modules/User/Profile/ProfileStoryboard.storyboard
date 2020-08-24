@@ -102,6 +102,7 @@
                         <outlet property="employedDateField" destination="62o-VS-gAY" id="omQ-zF-ZKb"/>
                         <outlet property="nameField" destination="esj-uC-gpk" id="lYG-VE-6D8"/>
                         <outlet property="phoneField" destination="TPP-Q8-iLH" id="2Os-1o-MxZ"/>
+                        <outlet property="scrollVIew" destination="mdp-IQ-8Q2" id="nE1-de-naO"/>
                         <outlet property="seniorityField" destination="XyJ-91-8kZ" id="7Ni-or-OSJ"/>
                     </connections>
                 </viewController>

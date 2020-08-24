@@ -11,8 +11,8 @@ import Foundation
 class ProfileViewModel: BaseViewModel {
     
     
-    var data: UserInfoObject?
-    var onDataUpdate: ((UserInfoObject?)  -> Void)?
+    var userInfo: UserInfoObject?
+    var onDataLoaded: ((UserInfoObject?)  -> Void)?
     
     override func viewDidLoad() {
         updateData()
@@ -25,9 +25,8 @@ class ProfileViewModel: BaseViewModel {
                             DispatchQueue.main.async {
                                 [weak self] in
                                 guard let self = self else { return }
-                                self.data = userData
-                                self.onDataUpdate?(self.data)
-                                self.hideLoading()
+                                self.userInfo = userData.convert
+                                self.onDataLoaded?(self.userInfo)
                             }
                },
                 errorHandler: {
@@ -35,6 +34,7 @@ class ProfileViewModel: BaseViewModel {
                    self.showAlert(title: message)
                })
         
+         hideLoading()
     }
 
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class UserMockDataService: BaseMockDataService, UserProtocol {
-    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> (), errorHandler: ((String) -> ())?) {
+    func getUserInfo(completionHandler: @escaping (UserInfoDto) -> (), errorHandler: ((String) -> ())?) {
             
     }
    
