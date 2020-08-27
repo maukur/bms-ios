@@ -16,22 +16,60 @@ class BaseViewController: UIViewController {
     var dismissKeyboardAction: ((UITextField)  -> Void)?
     
     func getViewModel<T>() -> T{
-          baseViewModel as! T
+        baseViewModel as! T
     }
     
-     func setViewModel(viewModel:BaseViewModel){
+    func setViewModel(viewModel:BaseViewModel){
         self.baseViewModel = viewModel
         self.bind()
-     }
+    }
+    var topView: UIView?
     
     func bind(){
         
+        func getStateView(name:String) -> UIView {
+            let view = Bundle.main.loadNibNamed(name, owner: self, options: nil)?.first as! UIView
+            return view
+        }
+        
+        baseViewModel?.stateDidChange = {
+            
+            [weak self] state in
+            guard let self = self else { return }
+            
+            self.topView?.removeFromSuperview()
+            
+            switch state {
+                
+            case "loading":
+                let view = getStateView(name: "LoadingView")
+                self.topView = view
+                self.view.addSubview(view, stretchToFit:true)
+                break;
+            case "error":
+                let view = getStateView(name: "ErrorView")
+                self.topView = view
+                self.view.addSubview(view, stretchToFit:true)
+                break;
+            case "empty":
+                let view = getStateView(name: "EmptyView")
+                self.topView = view
+                self.view.addSubview(view, stretchToFit:true)
+                break;
+            default:
+                self.topView = nil
+                break
+            }
+            
+ 
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
         self.baseViewModel?.viewDidLoad()
+        self.baseViewModel?.loadData()
     }
     
     
@@ -41,7 +79,6 @@ class BaseViewController: UIViewController {
             guard field.isEditing else { continue }
             field.endEditing(true)
             dismissKeyboardAction?(field)
-            
         }
     }
     
@@ -52,4 +89,6 @@ class BaseViewController: UIViewController {
         self.baseViewModel?.viewDidDisappear()
     }
     
+    
 }
+

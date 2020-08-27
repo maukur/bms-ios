@@ -21,12 +21,12 @@ class ExpensesViewModel: BaseViewModel {
     func goToTheNextYear() {
         date = changeYear(year: 1)
         onDateUpdate?(date)
-        updateData()
+        loadData()
     }
     func goToThePreviousYear() {
         date = changeYear(year: -1)
         onDateUpdate?(date)
-        updateData()
+        loadData()
     }
     
     func changeYear(year:Int) -> Date{
@@ -34,41 +34,32 @@ class ExpensesViewModel: BaseViewModel {
         dateComponent.year = year
         return Calendar.current.date(byAdding: dateComponent, to: date) ?? date
     }
-    
-    func updateData() {
-        showLoading()
-            DataServices.expenseDataService?.getAll(year: 2012, completionHandler: { items in
-                
-                    var dictionary:Dictionary<AnyHashable, [Any]> = [:]
-                
-                    items.forEach({ group in
-                        dictionary[group.mounth] = group.expenses
-                    })
-                    
-                    DispatchQueue.main.async {
-                        [weak self] in
-                        guard let self = self else { return }
-                        self.data = dictionary
-                        self.onDataUpdate?(self.data)
-                        self.hideLoading()
-                    }
-                
-        },
-         errorHandler: {
-            message in
-            self.showAlert(title: message)
-        })
-            
+    override func loadData() {
+          DataServices.expenseDataService?.getAll(year: 2012, completionHandler: { items in
+                      
+                          var dictionary:Dictionary<AnyHashable, [Any]> = [:]
+                      
+                          items.forEach({ group in
+                              dictionary[group.mounth] = group.expenses
+                          })
+                          
+                          DispatchQueue.main.async {
+                              [weak self] in
+                              guard let self = self else { return }
+                              self.data = dictionary
+                              self.onDataUpdate?(self.data)
+                              self.hideLoading()
+                          }
+                      
+              },
+               errorHandler: {
+                  message in
+                  self.showAlert(title: message)
+              })
     }
+     
         
-    
-    
-    
-    
-    override func viewDidLoad() {
-        onDateUpdate?(date)
-        updateData()
-    }
+   
     
     func editItem(value:Any){
         let item = value as! ExpenseObject

@@ -27,6 +27,7 @@ class CalendarViewModel: BaseViewModel {
     func didSelectItem(item:Any) {
         
     }
+    
     func didSelectDate(date:Date){
         selectedDate = date
         events = allEvents.filter({ event -> Bool in
@@ -34,27 +35,26 @@ class CalendarViewModel: BaseViewModel {
         })
         onSetEvents?()
     }
-    override func viewDidLoad() {
-        showLoading()
+    
+    
+    
+    override func loadData() {
         DataServices.calendarDataService?.getAllEvents(
-           completionHandler: {
-            [weak self] events in
-            guard let self = self else { return }
-
-            self.allEvents = events
-            self.events = events.filter({ event -> Bool in
-                event.startDate < self.selectedDate && event.endDate > self.selectedDate
-            })
-            self.onSetEvents?()
-            self.hideLoading()
-            
+            completionHandler: {
+                [weak self] events in
+                guard let self = self else { return }
+                
+                self.allEvents = events
+                self.events = events.filter({ event -> Bool in
+                    event.startDate < self.selectedDate && event.endDate > self.selectedDate
+                })
+                self.onSetEvents?()
+                self.State = "normal"
+                
             },
-           errorHandler: {
-            [weak self] message in
-            self?.hideLoading()
-            self?.showAlert(title: message)
+            errorHandler: {
+                [weak self] message in
+                self?.State = "error"
         })
-        
-        
     }
 }

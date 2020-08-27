@@ -9,7 +9,9 @@
 import KDCalendar
 import UIKit
 
-class CalendarViewController: BaseViewController{
+class CalendarViewController: BaseViewController , ErrorProtocol {
+    
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarView: CalendarView!
@@ -29,6 +31,7 @@ class CalendarViewController: BaseViewController{
         setupTableView()
         super.viewDidLoad()
     }
+    
     func setupToolbar(){
         title = "Calendar"
         let button = UIBarButtonItem(title: "Добавить", style: .plain, target: self, action: #selector(addTapped));
@@ -42,10 +45,12 @@ class CalendarViewController: BaseViewController{
         calendarView.dataSource = self
         calendarView.multipleSelectionEnable = false
         calendarView.setDisplayDate(today, animated: false)
-
+        
     }
     
     override func bind() {
+        super.bind()
+        
         viewModel.onSetEvents = {
             [weak self] in
             self?.tableView.reloadData()
@@ -63,6 +68,10 @@ class CalendarViewController: BaseViewController{
         tableView.register(eventNib, forCellReuseIdentifier: "DefaultCell")
         tableView.dataSource = self
     }
+    
+    func retryAction() {
+        viewModel.loadData()
+    }
 }
 
 extension CalendarViewController: UITableViewDataSource{
@@ -77,7 +86,6 @@ extension CalendarViewController: UITableViewDataSource{
         initializedCell?.initialize(item: item )
         return cell
     }
-    
     
 }
 

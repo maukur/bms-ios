@@ -16,8 +16,23 @@ class BaseViewModel {
         
     }
     
+    var stateDidChange: ((String) -> Void)?
+    
+    private var _state:String = "none"
+    
+    var State: String {
+        get {
+            return _state
+        }
+        set {
+            _state = newValue
+            stateDidChange?(newValue)
+        }
+    }
+    
+    
     func navigateTo(modules:[String], mode:String, masterModule: String = "", navigationParams:Dictionary<String,Any> = [:]){
-          let dic = ["modules": modules, "masterModule": masterModule, "mode": mode, "navigationParams": navigationParams] as [String : Any]
+        let dic = ["modules": modules, "masterModule": masterModule, "mode": mode, "navigationParams": navigationParams] as [String : Any]
         
         SwiftEventBus.postToMainThread(Consts.instance.NavigationToMessage, sender: dic)
     }
@@ -78,4 +93,6 @@ class BaseViewModel {
     func viewDidLoad(){ }
     
     func viewDidDisappear(){ }
+    
+    func loadData() {}
 }
