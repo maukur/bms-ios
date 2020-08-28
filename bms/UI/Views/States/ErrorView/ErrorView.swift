@@ -17,7 +17,7 @@ class ErrorView: UIView {
              }
          }
     @IBAction func retryButtonAction(_ sender: Any) {
-        let ep = self.superview?.parentViewController as! ErrorProtocol
+        let ep = self.superview?.parentViewController as! BaseViewController
         ep.retryAction()
     }
 }

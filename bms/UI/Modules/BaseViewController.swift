@@ -89,6 +89,9 @@ class BaseViewController: UIViewController {
         self.baseViewModel?.viewDidDisappear()
     }
     
-    
+    func retryAction() {
+        baseViewModel?.loadData()
+    }
+
 }
 

@@ -9,7 +9,7 @@
 import KDCalendar
 import UIKit
 
-class CalendarViewController: BaseViewController , ErrorProtocol {
+class CalendarViewController: BaseViewController  {
     
     
     
@@ -69,10 +69,7 @@ class CalendarViewController: BaseViewController , ErrorProtocol {
         tableView.dataSource = self
     }
     
-    func retryAction() {
-        viewModel.loadData()
     }
-}
 
 extension CalendarViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
