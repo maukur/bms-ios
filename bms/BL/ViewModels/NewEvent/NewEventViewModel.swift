@@ -15,19 +15,24 @@ class NewEventViewModel: BaseViewModel {
     
     override func viewDidLoad() {
         showLoading()
-        DataServices.calendarDataService?.getEventTypeList(completionHandler: { data in
-                                   DispatchQueue.main.async {
-                                       [weak self] in
-                                       guard let self = self else { return }
-                                       self.eventTypeList = data
-                                       self.onEventTypListLoaded?(self.eventTypeList)
-                                   }
-                      },
-                       errorHandler: {
-                          message in
-                          self.showAlert(title: message)
-                      })
-               
-        hideLoading()
+        DataServices.calendarDataService?.getEventTypeList(
+            completionHandler: { data in
+                DispatchQueue.main.async {
+                    [weak self] in
+                    guard let self = self else { return }
+                    self.eventTypeList = data
+                    self.onEventTypListLoaded?(self.eventTypeList)
+                    self.hideLoading()
+                    
+                }
+        },
+            errorHandler: {
+                [weak self] message in
+                guard let self = self else { return }
+                self.hideLoading()
+                self.showAlert(title: message)
+                
+        })
+        
     }
 }

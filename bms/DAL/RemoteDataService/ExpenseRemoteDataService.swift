@@ -13,11 +13,11 @@ class ExpenseRemoteDataService: BaseRemoteDataService,ExpenseProtocol {
         ex(url: EndPoints.getExpenses, parameters: ["year": String(year)], completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func getCategories(year: Int, completionHandler: @escaping ([ExpenseCategoryObject]) -> (), errorHandler: ((String) -> ())?) {
+    func getCategories( completionHandler: @escaping ([ExpenseCategoryObject]) -> (), errorHandler: ((String) -> ())?) {
         ex(url: EndPoints.getCategoryList, completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func getCurrencies(token: String, completionHandler: @escaping ([CurrencyObject]) -> (), errorHandler: ((String) -> ())?) {
+    func getCurrencies( completionHandler: @escaping ([CurrencyObject]) -> (), errorHandler: ((String) -> ())?) {
         ex(url: EndPoints.getCurrenciesList, completionHandler: completionHandler, errorHandler: errorHandler)
     }
     func getPaymentTypes(completionHandler: @escaping ([PaymentTypeObject]) -> (), errorHandler: ((String) -> ())?) {
@@ -26,11 +26,5 @@ class ExpenseRemoteDataService: BaseRemoteDataService,ExpenseProtocol {
     func getById(guid: String, completionHandler: @escaping (ExpenseDetailObject) -> (), errorHandler: ((String) -> ())?) {
         ex(url: EndPoints.getExpenseByGuid, parameters: ["id" : guid], completionHandler: completionHandler, errorHandler: errorHandler)
     }
-    
-    
-    
-    
-    
-    
     
 }

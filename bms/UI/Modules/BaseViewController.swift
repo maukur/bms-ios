@@ -11,7 +11,6 @@ import UIKit
 
 class BaseViewController: UIViewController {
     private var baseViewModel : BaseViewModel? = nil
-    var textFieldList: [UITextField] = []
     
     var dismissKeyboardAction: ((UITextField)  -> Void)?
     
@@ -66,21 +65,10 @@ class BaseViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        self.view.addGestureRecognizer(tapGesture)
         self.baseViewModel?.viewDidLoad()
         self.baseViewModel?.loadData()
     }
     
-    
-    @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        
-        for field in textFieldList {
-            guard field.isEditing else { continue }
-            field.endEditing(true)
-            dismissKeyboardAction?(field)
-        }
-    }
     
     
     override func viewDidDisappear(_ animated: Bool) {

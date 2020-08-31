@@ -27,7 +27,6 @@ class ProfileViewController: BaseViewController {
       
         super.viewDidLoad()
         title = "Profile"
-        textFieldList = [phoneField.textField]
         dismissKeyboardAction = {
             [weak self]  field in
             guard let self = self else { return }

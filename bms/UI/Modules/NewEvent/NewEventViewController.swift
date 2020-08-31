@@ -39,7 +39,6 @@ class NewEventViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldList = [eventTypeField, descriptionField, startDateField, endDateField]
         selectDateFormatSwitch.isOn = false
         endDateField.isUserInteractionEnabled = false
         endDateLabel.textColor = .gray

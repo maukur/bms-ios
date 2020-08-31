@@ -71,66 +71,65 @@ class ExpenseEditViewModel: BaseViewModel {
     }
     
     
-    
-    override func viewDidLoad() {
+    override func loadData() {
+        showLoading()
         
         let item = navigationParams["item"] as?  ExpenseObject
-        
-//        let categoriesListResponse = DataServices.expenseDataService?.getCategories()
-//        let paymentTypeListResponse = DataServices.expenseDataService?.getPaymentTypes()
-//        let currenciesListResponse = DataServices.expenseDataService?.getCurrencies()
-//        
-//        onSetCategories?(categoriesListResponse!.data!)
-//        onSetCurrencies?(currenciesListResponse!.data!)
-//        onSetPaymentTypes?(paymentTypeListResponse!.data!)
-//        
-//        var paymentType:PaymentTypeObject? = nil
-//        var currency:CurrencyObject? = nil
-//        var category:ExpenseCategoryObject? = nil
-//        
-//        if(item == nil){
-//            paymentType = paymentTypeListResponse?.data!.first!
-//            currency = currenciesListResponse?.data!.first!
-//            category = categoriesListResponse?.data!.first!
-//            
-//            self.item = ExpenseDetailObject(id: "",
-//                                            description: "",
-//                                            date: Date().toString(.dateTime),
-//                                            price: 0,
-//                                            status: "",
-//                                            categoryId: category!.id,
-//                                            currencyId: currency!.id,
-//                                            paymentTypeId: paymentType!.id,
-//                                            image: nil)
-//            onSetCurrentItem?(self.item!)
-//            onSetCurrentPaymentType?(paymentType!)
-//            onSetCurrentCategory?(category!)
-//            onSetCurrentCurrency?(currency!)
-//        }
-//        else {
-//            DispatchQueue.global().async {
-//                
-//                self.showLoading()
-//                let result = DataServices.expenseDataService!.getById(guid: "b13bc54d-6123-4873-bb49-2eea3503e127")
-//                
-//                paymentType = paymentTypeListResponse?.data!.first(where: { $0.id == result.data!.paymentTypeId })
-//                currency = currenciesListResponse?.data!.first(where: { $0.id == result.data!.currencyId })
-//                category = categoriesListResponse?.data!.first(where: { $0.id == result.data!.categoryId })
-//                
-//                DispatchQueue.main.async {
-//                    self.item = result.data!
-//                    self.onSetCurrentItem?(result.data!)
-//                    self.onSetCurrentPaymentType?(paymentType!)
-//                    self.onSetCurrentCategory?(category!)
-//                    self.onSetCurrentCurrency?(currency!)
-//                }
-//                
-//                self.hideLoading()
-//                
-//            }
-//        }
-//        
-        super.viewDidLoad()
+        DataServices.expenseDataService?.getCategories(completionHandler: {
+            resultCategories in
+            self.onSetCategories?(resultCategories)
+            
+            DataServices.expenseDataService?.getPaymentTypes(completionHandler: {
+                resultPaymentTypes in
+                self.onSetPaymentTypes?(resultPaymentTypes)
+                DataServices.expenseDataService?.getCurrencies(completionHandler:{
+                    resultCurrencies in
+                    self.onSetCurrencies?(resultCurrencies)
+                    
+                    if(item == nil){
+                        self.didSelectPaymentType(item: resultPaymentTypes.first!)
+                        self.didSelectCurrency(item:  resultCurrencies.first!)
+                        self.didSelectCategory(item:  resultCategories.first!)
+                        self.item = ExpenseDetailObject(id: "",
+                                                        description: "",
+                                                        date: Date().toString(.dateTime),
+                                                        price: 0,
+                                                        status: "",
+                                                        categoryId: "",
+                                                        currencyId: "",
+                                                        paymentTypeId: "",
+                                                        image: nil)
+                    }
+                    else {
+                        DataServices.expenseDataService!.getById(guid: "b13bc54d-6123-4873-bb49-2eea3503e127",
+                                                                 completionHandler: {
+                                                                    result in
+                                                                    self.item = result
+                                                                    self.onSetCurrentItem?(result)
+                                                                    self.didSelectPaymentType(item: resultPaymentTypes.first(where: { $0.id == result.paymentTypeId })!)
+                                                                    self.didSelectCurrency(item: resultCurrencies.first(where: { $0.id == result.currencyId })!)
+                                                                    self.didSelectCategory(item: resultCategories.first(where: { $0.id == result.categoryId })!)
+                        },
+                                                                 errorHandler: {
+                                                                    message in
+                                                                    self.hideLoading()
+                        })
+                    }
+                }, errorHandler: {
+                    result in
+                    self.State = "error"
+                })
+                
+            }, errorHandler: {
+                result in
+                self.State = "error"
+            })
+            
+        }, errorHandler: {
+            result in
+            self.State = "error"
+        }
+        )
         
     }
 }
