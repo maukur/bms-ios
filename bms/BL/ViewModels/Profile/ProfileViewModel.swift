@@ -21,20 +21,24 @@ class ProfileViewModel: BaseViewModel {
     
     func updateData() {
         showLoading()
-        DataServices.userDataService?.getUserInfo(completionHandler: { userData in
-                            DispatchQueue.main.async {
-                                [weak self] in
-                                guard let self = self else { return }
-                                self.userInfo = userData.convert
-                                self.onDataLoaded?(self.userInfo)
-                            }
-               },
-                errorHandler: {
-                   message in
-                   self.showAlert(title: message)
-               })
-        
-         hideLoading()
+        DataServices.userDataService?.getUserInfo(
+            completionHandler: {
+                userData in
+                DispatchQueue.main.async {
+                    [weak self] in
+                    guard let self = self else { return }
+                    self.userInfo = userData.convert
+                    self.onDataLoaded?(self.userInfo)
+                    self.hideLoading()
+                }
+        },
+            errorHandler: {
+                [weak self] message in
+                guard let self = self else { return }
+                self.showAlert(title: message)
+                self.hideLoading()
+                
+        })
     }
-
+    
 }

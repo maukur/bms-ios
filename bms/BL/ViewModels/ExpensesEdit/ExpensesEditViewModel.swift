@@ -34,6 +34,7 @@ class ExpenseEditViewModel: BaseViewModel {
         self.item?.currencyId = item.id
         
     }
+    
     func didSelectPaymentType(item:PaymentTypeObject)  {
         onSetCurrentPaymentType?(item)
         self.item?.paymentTypeId = item.id
@@ -45,9 +46,11 @@ class ExpenseEditViewModel: BaseViewModel {
         self.item?.date = date.toString()
         
     }
+    
     func didSelectDescription(description:String)  {
         item?.description = description
     }
+    
     func didSelectPrice(value:Int)  {
         item?.price = Int(value)
     }
@@ -69,7 +72,6 @@ class ExpenseEditViewModel: BaseViewModel {
             self.item?.image = image?.jpegData(compressionQuality: 1.0)
         }
     }
-    
     
     override func loadData() {
         showLoading()
@@ -99,6 +101,8 @@ class ExpenseEditViewModel: BaseViewModel {
                                                         currencyId: "",
                                                         paymentTypeId: "",
                                                         image: nil)
+                        self.hideLoading()
+
                     }
                     else {
                         DataServices.expenseDataService!.getById(guid: "b13bc54d-6123-4873-bb49-2eea3503e127",
@@ -109,6 +113,7 @@ class ExpenseEditViewModel: BaseViewModel {
                                                                     self.didSelectPaymentType(item: resultPaymentTypes.first(where: { $0.id == result.paymentTypeId })!)
                                                                     self.didSelectCurrency(item: resultCurrencies.first(where: { $0.id == result.currencyId })!)
                                                                     self.didSelectCategory(item: resultCategories.first(where: { $0.id == result.categoryId })!)
+                                                                    self.hideLoading()
                         },
                                                                  errorHandler: {
                                                                     message in
@@ -118,16 +123,21 @@ class ExpenseEditViewModel: BaseViewModel {
                 }, errorHandler: {
                     result in
                     self.State = "error"
+                    self.hideLoading()
+
                 })
                 
             }, errorHandler: {
                 result in
                 self.State = "error"
+                self.hideLoading()
+
             })
             
         }, errorHandler: {
             result in
             self.State = "error"
+            self.hideLoading()
         }
         )
         

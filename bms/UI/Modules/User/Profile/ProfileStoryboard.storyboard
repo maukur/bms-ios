@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1DN-D3-caG">
-                                        <rect key="frame" x="10" y="10" width="394" height="464"/>
+                                        <rect key="frame" x="10" y="10" width="394" height="410"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esj-uC-gpk" customClass="EditableProfileView" customModule="bms" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="60"/>
@@ -63,18 +63,18 @@
                                                     <constraint firstAttribute="height" constant="60" id="Qg9-a3-VJ4"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlJ-6n-ak6">
-                                                <rect key="frame" x="0.0" y="420" width="394" height="44"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Qyf-LC-oGI"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <state key="normal" title="Редактировать"/>
-                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlJ-6n-ak6">
+                                        <rect key="frame" x="20" y="764" width="374" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Qyf-LC-oGI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Редактировать"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="1DN-D3-caG" firstAttribute="bottom" secondItem="QSD-XF-DUU" secondAttribute="bottom" id="0AA-2A-n5x"/>
@@ -90,9 +90,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="mdp-IQ-8Q2" firstAttribute="leading" secondItem="TAx-wV-OUL" secondAttribute="leading" id="8Qi-Bw-Hup"/>
+                            <constraint firstItem="FlJ-6n-ak6" firstAttribute="leading" secondItem="TAx-wV-OUL" secondAttribute="leading" constant="20" id="9v4-yF-2l5"/>
                             <constraint firstItem="TAx-wV-OUL" firstAttribute="trailing" secondItem="mdp-IQ-8Q2" secondAttribute="trailing" id="EKg-gd-SAV"/>
                             <constraint firstItem="mdp-IQ-8Q2" firstAttribute="top" secondItem="TAx-wV-OUL" secondAttribute="top" id="V27-NM-gAY"/>
+                            <constraint firstItem="TAx-wV-OUL" firstAttribute="trailing" secondItem="FlJ-6n-ak6" secondAttribute="trailing" constant="20" id="sVt-sF-rBF"/>
                             <constraint firstItem="mdp-IQ-8Q2" firstAttribute="bottom" secondItem="TAx-wV-OUL" secondAttribute="bottom" id="u4E-GJ-pNv"/>
+                            <constraint firstItem="TAx-wV-OUL" firstAttribute="bottom" secondItem="FlJ-6n-ak6" secondAttribute="bottom" constant="10" id="w8s-Vi-Z71"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TAx-wV-OUL"/>
                     </view>
