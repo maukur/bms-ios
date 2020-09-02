@@ -47,3 +47,7 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+bms.xcodeproj/project.xcworkspace/xcuserdata/macos.xcuserdatad/UserInterfaceState.xcuserstate
+bms.xcodeproj/project.xcworkspace/xcuserdata/macos.xcuserdatad/xcschemes/xcschememanagement.plist
+bms.xcodeproj/xcuserdata/macos.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+bms.xcodeproj/xcuserdata/macos.xcuserdatad/xcschemes/xcschememanagement.plist
