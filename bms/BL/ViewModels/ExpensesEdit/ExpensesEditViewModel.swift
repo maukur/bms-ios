@@ -32,7 +32,15 @@ class ExpenseEditViewModel: BaseViewModel {
     func didSelectCurrency(item:CurrencyObject)  {
         onSetCurrentCurrency?(item)
         self.item?.currencyId = item.id
-        
+    }
+    
+    func deleteItem() {
+        showLoading()
+        navigateBack(mode: "modal")
+        hideLoading()
+    }
+    func cancel() {
+        navigateBack(mode: "modal")
     }
     
     func didSelectPaymentType(item:PaymentTypeObject)  {
@@ -101,8 +109,9 @@ class ExpenseEditViewModel: BaseViewModel {
                                                         currencyId: "",
                                                         paymentTypeId: "",
                                                         image: nil)
+                        self.onSetCurrentItem?(self.item!)
                         self.hideLoading()
-
+                        
                     }
                     else {
                         DataServices.expenseDataService!.getById(guid: "b13bc54d-6123-4873-bb49-2eea3503e127",
@@ -124,14 +133,14 @@ class ExpenseEditViewModel: BaseViewModel {
                     result in
                     self.State = "error"
                     self.hideLoading()
-
+                    
                 })
                 
             }, errorHandler: {
                 result in
                 self.State = "error"
                 self.hideLoading()
-
+                
             })
             
         }, errorHandler: {

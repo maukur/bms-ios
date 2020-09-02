@@ -52,6 +52,8 @@ class NavigationService {
             navigateRootTo(module: modules.first!, navigationParams: navigationParams)
         case "modal":
             navigateModalTo(module: modules.first!, navigationParams: navigationParams)
+        case "modalNavigation":
+            navigateModalNavigationTo(module: modules.first!, navigationParams: navigationParams)
         default:
             return
         }
@@ -105,6 +107,12 @@ class NavigationService {
     private static func navigateModalTo(module: String, navigationParams: Dictionary<String, Any>){
         let viewController = getModule(moduleName: module, navigationParams:navigationParams)
         NavigationService.instance.anyTopController?.present(viewController, animated: true)
+    }
+    
+    private static func navigateModalNavigationTo(module: String, navigationParams: Dictionary<String, Any>){
+        let viewController = getModule(moduleName: module, navigationParams:navigationParams)
+        let navigationViewController = UINavigationController(rootViewController: viewController)
+        NavigationService.instance.anyTopController?.present(navigationViewController, animated: true)
     }
     
     private static func navigationBack(result: Any?){
