@@ -13,6 +13,7 @@ class DataServices {
     static private(set) var userDataService: UserProtocol?
     static private(set) var expenseDataService: ExpenseProtocol?
     static private(set) var calendarDataService: CalendarProtocol?
+    static private(set) var cachedDataService: CachedDataService?
 
     static func initialize (isMock:Bool, baseUrl:String, getToken: @escaping ()->String?){
         if(isMock){
@@ -22,8 +23,7 @@ class DataServices {
             userDataService = UserRemoteDataService(baseUrl: baseUrl, getToken: getToken)
             expenseDataService = ExpenseRemoteDataService(baseUrl: baseUrl, getToken: getToken)
             calendarDataService = CalendarDataService(baseUrl: baseUrl, getToken: getToken)
-
         }
-        
+        cachedDataService = CachedDataService(baseUrl: baseUrl, getToken: getToken)
     }
 }

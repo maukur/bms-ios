@@ -67,6 +67,7 @@
 		D04540A024C0A01000CA9A27 /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045409F24C0A01000CA9A27 /* SectionHeaderCell.swift */; };
 		D05F295B24D21C80005C55C2 /* ExpenseGroupDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05F295A24D21C80005C55C2 /* ExpenseGroupDto.swift */; };
 		D05F295E24D21EAC005C55C2 /* ExpenseGroupObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05F295D24D21EAC005C55C2 /* ExpenseGroupObject.swift */; };
+		D0729E1824FFE2FD0057A874 /* CachedDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0729E1724FFE2FD0057A874 /* CachedDataService.swift */; };
 		D088863624CF5A530044ABE4 /* ExpenceDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088863524CF5A530044ABE4 /* ExpenceDto.swift */; };
 		D088863824CF5B340044ABE4 /* ExpenseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088863724CF5B340044ABE4 /* ExpenseObject.swift */; };
 		D088863C24CF5D2F0044ABE4 /* ExpenseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088863B24CF5D2F0044ABE4 /* ExpenseProtocol.swift */; };
@@ -152,6 +153,7 @@
 		D045409F24C0A01000CA9A27 /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
 		D05F295A24D21C80005C55C2 /* ExpenseGroupDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseGroupDto.swift; sourceTree = "<group>"; };
 		D05F295D24D21EAC005C55C2 /* ExpenseGroupObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseGroupObject.swift; sourceTree = "<group>"; };
+		D0729E1724FFE2FD0057A874 /* CachedDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedDataService.swift; sourceTree = "<group>"; };
 		D088863524CF5A530044ABE4 /* ExpenceDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenceDto.swift; sourceTree = "<group>"; };
 		D088863724CF5B340044ABE4 /* ExpenseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseObject.swift; sourceTree = "<group>"; };
 		D088863B24CF5D2F0044ABE4 /* ExpenseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseProtocol.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 				D0EC947C24E139EB007D547A /* ExpenseRemoteDataService.swift */,
 				D0D5903724E695A000550C74 /* CalendarDataService.swift */,
 				2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */,
+				D0729E1724FFE2FD0057A874 /* CachedDataService.swift */,
 			);
 			path = RemoteDataService;
 			sourceTree = "<group>";
@@ -799,6 +802,7 @@
 				D0A10E4C24DD5D82008EE4AF /* PhotoService.swift in Sources */,
 				22C881C024E5881E0069E07D /* ProfileViewModel.swift in Sources */,
 				226B293F24F2782B00B22EFD /* NewEventViewModel.swift in Sources */,
+				D0729E1824FFE2FD0057A874 /* CachedDataService.swift in Sources */,
 				D02850F224D93F1B005AA6FF /* ExpenseCategoryObject.swift in Sources */,
 				D026EAE624A23D6800EF2248 /* UserProtocol.swift in Sources */,
 				D026EA3E24A2375800EF2248 /* BaseViewController.swift in Sources */,

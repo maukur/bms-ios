@@ -84,71 +84,52 @@ class ExpenseEditViewModel: BaseViewModel {
     override func loadData() {
         showLoading()
         
+        let resultCategories = DataServices.cachedDataService?.getExpenseCategoryList()
+        let resultPaymentTypes = DataServices.cachedDataService?.getExpensePaymentList()
+        let resultCurrencies = DataServices.cachedDataService?.getExpenseCurrnecyList()
+        
+        self.onSetPaymentTypes?(resultPaymentTypes!)
+        self.onSetCategories?(resultCategories!)
+        self.onSetCurrencies?(resultCurrencies!)
+        
         let item = navigationParams["item"] as?  ExpenseObject
-        DataServices.expenseDataService?.getCategories(completionHandler: {
-            resultCategories in
-            self.onSetCategories?(resultCategories)
-            
-            DataServices.expenseDataService?.getPaymentTypes(completionHandler: {
-                resultPaymentTypes in
-                self.onSetPaymentTypes?(resultPaymentTypes)
-                DataServices.expenseDataService?.getCurrencies(completionHandler:{
-                    resultCurrencies in
-                    self.onSetCurrencies?(resultCurrencies)
-                    
-                    if(item == nil){
-                        self.didSelectPaymentType(item: resultPaymentTypes.first!)
-                        self.didSelectCurrency(item:  resultCurrencies.first!)
-                        self.didSelectCategory(item:  resultCategories.first!)
-                        self.item = ExpenseDetailObject(id: "",
-                                                        description: "",
-                                                        date: Date().toString(.dateTime),
-                                                        price: 0,
-                                                        status: "",
-                                                        categoryId: "",
-                                                        currencyId: "",
-                                                        paymentTypeId: "",
-                                                        image: nil)
-                        self.onSetCurrentItem?(self.item!)
-                        self.hideLoading()
-                        
-                    }
-                    else {
-                        DataServices.expenseDataService!.getById(guid: "b13bc54d-6123-4873-bb49-2eea3503e127",
-                                                                 completionHandler: {
-                                                                    result in
-                                                                    self.item = result
-                                                                    self.onSetCurrentItem?(result)
-                                                                    self.didSelectPaymentType(item: resultPaymentTypes.first(where: { $0.id == result.paymentTypeId })!)
-                                                                    self.didSelectCurrency(item: resultCurrencies.first(where: { $0.id == result.currencyId })!)
-                                                                    self.didSelectCategory(item: resultCategories.first(where: { $0.id == result.categoryId })!)
-                                                                    self.hideLoading()
-                        },
-                                                                 errorHandler: {
-                                                                    message in
-                                                                    self.hideLoading()
-                        })
-                    }
-                }, errorHandler: {
-                    result in
-                    self.State = "error"
-                    self.hideLoading()
-                    
-                })
-                
-            }, errorHandler: {
-                result in
-                self.State = "error"
-                self.hideLoading()
-                
-            })
-            
-        }, errorHandler: {
-            result in
-            self.State = "error"
+        
+        
+        if(item == nil){
+            self.didSelectPaymentType(item: resultPaymentTypes!.first!)
+            self.didSelectCurrency(item:  resultCurrencies!.first!)
+            self.didSelectCategory(item:  resultCategories!.first!)
+            self.item = ExpenseDetailObject(id: "",
+                                            description: "",
+                                            date: Date().toString(.dateTime),
+                                            price: 0,
+                                            status: "",
+                                            categoryId: "",
+                                            currencyId: "",
+                                            paymentTypeId: "",
+                                            image: nil)
+            self.onSetCurrentItem?(self.item!)
             self.hideLoading()
+            
         }
-        )
+        else {
+            DataServices.expenseDataService!.getById(guid: "b13bc54d-6123-4873-bb49-2eea3503e127",
+                                                     completionHandler: {
+                                                        result in
+                                                        self.item = result
+                                                        self.onSetCurrentItem?(result)
+                                                        self.didSelectPaymentType(item: resultPaymentTypes!.first(where: { $0.id == result.paymentTypeId })!)
+                                                        self.didSelectCurrency(item: resultCurrencies!.first(where: { $0.id == result.currencyId })!)
+                                                        self.didSelectCategory(item: resultCategories!.first(where: { $0.id == result.categoryId })!)
+                                                        self.hideLoading()
+            },
+                                                     errorHandler: {
+                                                        message in
+                                                        self.hideLoading()
+            })
+        }
+        
+        
         
     }
 }

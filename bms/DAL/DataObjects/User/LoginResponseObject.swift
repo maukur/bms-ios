@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LoginResponseObject {
+struct LoginResponseObject:Codable {
     var token : String
     var email : String
     var phone : String

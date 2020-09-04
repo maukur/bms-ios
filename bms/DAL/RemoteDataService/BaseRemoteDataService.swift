@@ -19,7 +19,7 @@ class BaseRemoteDataService  {
         self.getToken = getToken
     }
     
-    func ex<T:Codable>(url:String, method:HTTPMethod = .get, parameters:Parameters = [:], completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil){
+    func ex<T:Codable>(url:String, method:HTTPMethod = .get, parameters:Parameters = [:], encoding:  URLEncoding = URLEncoding.queryString, completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil){
         
         var headers: HTTPHeaders = []
         let token = getToken()
@@ -27,13 +27,20 @@ class BaseRemoteDataService  {
             let authHeader: HTTPHeader = HTTPHeader.authorization(bearerToken: token!)
             headers.add(authHeader)
         }
+        headers.add(name: "Content-Type", value: "application/json")
         let fullUrl = getFulUrl(url)
-        AF.request(fullUrl, method: method, parameters: parameters, headers: headers).response {
+        AF.request(fullUrl, method: method, parameters: parameters, encoding: encoding, headers: headers).response {
             response in
             do {
                 if let error = response.error {
                     errorHandler?(error.localizedDescription)
                 }
+                #if DEBUG
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)")
+                }
+                #endif
+                
                 let jsonData: T = try self.decoder.decode(T.self, from: response.data!)
                 completionHandler(jsonData)
             } catch let DecodingError.dataCorrupted(context) {
@@ -53,8 +60,8 @@ class BaseRemoteDataService  {
             }
         }
     }
-
-
+    
+    
     private func getFulUrl(_ url:String)-> URL{
         URL(string: baseUrl + url)!
     }

@@ -13,18 +13,12 @@ class ExpenseRemoteDataService: BaseRemoteDataService,ExpenseProtocol {
         ex(url: EndPoints.getExpenses, parameters: ["year": String(year)], completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func getCategories( completionHandler: @escaping ([ExpenseCategoryObject]) -> (), errorHandler: ((String) -> ())?) {
-        ex(url: EndPoints.getCategoryList, completionHandler: completionHandler, errorHandler: errorHandler)
-    }
-    
-    func getCurrencies( completionHandler: @escaping ([CurrencyObject]) -> (), errorHandler: ((String) -> ())?) {
-        ex(url: EndPoints.getCurrenciesList, completionHandler: completionHandler, errorHandler: errorHandler)
-    }
-    func getPaymentTypes(completionHandler: @escaping ([PaymentTypeObject]) -> (), errorHandler: ((String) -> ())?) {
-        ex(url: EndPoints.getPaymentTypeList, completionHandler: completionHandler, errorHandler: errorHandler)
-    }
+ 
     func getById(guid: String, completionHandler: @escaping (ExpenseDetailObject) -> (), errorHandler: ((String) -> ())?) {
         ex(url: EndPoints.getExpenseByGuid, parameters: ["id" : guid], completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
+    func removeById(guid: String, completionHandler: @escaping (Bool) -> (), errorHandler: ((String) -> ())?) {
+        ex(url: EndPoints.postDeleteExpense, parameters: ["id" : guid], completionHandler: completionHandler, errorHandler: errorHandler)
+    }
 }

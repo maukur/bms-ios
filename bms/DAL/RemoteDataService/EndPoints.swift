@@ -12,11 +12,15 @@ class EndPoints {
         
     static let getExpenseByGuid = "/Mobile/GetExpenseById"
     static let getExpenses = "/Mobile/Expenses"
+    static let postDeleteExpense = "/MobileApi​/Expenses​/Delete"
 
+    
     static let getCategoryList = "/Mobile/CategoryList"
     static let getCurrenciesList = "/Mobile/CurrenciesList"
     static let getPaymentTypeList = "/Mobile/PaymentTypeList"
     static let getEventList = "/Mobile/Events"
     static let getUserInfo = "/Mobile/UserInfo"
+    static let postLogin = "/MobileApi/Account/Authenticate"
+
     static let getEventTypeList = "/Mobile/EventTypeList"
 }
