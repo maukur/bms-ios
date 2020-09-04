@@ -36,8 +36,7 @@ class ExpenseEditViewModel: BaseViewModel {
     
     func deleteItem() {
         showLoading()
-        navigateBack(mode: "modal")
-        hideLoading()
+        
     }
     func cancel() {
         navigateBack(mode: "modal")
@@ -64,8 +63,17 @@ class ExpenseEditViewModel: BaseViewModel {
     }
     
     func save() {
-        navigateBack(mode: "modal")
-    }
+        showLoading()
+        DataServices.expenseDataService?.update(expense: item!,
+                                                completionHandler: {
+                                                    [weak self] in
+                                                    self?.hideLoading()
+                                                    self?.navigateBack(mode: "modal")
+            },
+                                                errorHandler: {
+                                                    [weak self] message in
+                                                    self?.hideLoading()
+        })    }
     
     func getPhotoFromGallery() {
         DispatchQueue.global().async {
@@ -103,17 +111,17 @@ class ExpenseEditViewModel: BaseViewModel {
                                             description: "",
                                             date: Date().toString(.dateTime),
                                             price: 0,
-                                            status: "",
-                                            categoryId: "",
-                                            currencyId: "",
-                                            paymentTypeId: "",
+                                            status: "fe399ac8-63e5-460d-ba10-60948fb9fd27",
+                                            categoryId: resultCategories!.first!.id,
+                                            currencyId: resultCurrencies!.first!.id,
+                                            paymentTypeId: resultPaymentTypes!.first!.id,
                                             image: nil)
             self.onSetCurrentItem?(self.item!)
             self.hideLoading()
             
         }
         else {
-            DataServices.expenseDataService!.getById(guid: "b13bc54d-6123-4873-bb49-2eea3503e127",
+            DataServices.expenseDataService!.getById(guid: item!.id,
                                                      completionHandler: {
                                                         result in
                                                         self.item = result

@@ -11,7 +11,7 @@ import Foundation
 class EndPoints {
         
     static let getExpenseByGuid = "/Mobile/GetExpenseById"
-    static let getExpenses = "/Mobile/Expenses"
+    static let getExpenses = "/MobileApi/Expenses"
     static let postDeleteExpense = "/MobileApi​/Expenses​/Delete"
 
     
@@ -21,6 +21,7 @@ class EndPoints {
     static let getEventList = "/Mobile/Events"
     static let getUserInfo = "/Mobile/UserInfo"
     static let postLogin = "/MobileApi/Account/Authenticate"
+    static let postExpenseUpdate = "/MobileApi/Expenses/Update"
 
     static let getEventTypeList = "/Mobile/EventTypeList"
 }

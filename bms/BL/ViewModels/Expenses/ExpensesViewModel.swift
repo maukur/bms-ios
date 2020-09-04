@@ -34,8 +34,12 @@ class ExpensesViewModel: BaseViewModel {
         dateComponent.year = year
         return Calendar.current.date(byAdding: dateComponent, to: date) ?? date
     }
+    
     override func loadData() {
-          DataServices.expenseDataService?.getAll(year: 2012, completionHandler: { items in
+        onDateUpdate?(date)
+        let year = date.get(.year)
+        showLoading()
+        DataServices.expenseDataService?.getAll(year: year, completionHandler: { items in
                       
                           var dictionary:Dictionary<AnyHashable, [Any]> = [:]
                       
@@ -54,6 +58,7 @@ class ExpensesViewModel: BaseViewModel {
               },
                errorHandler: {
                   message in
+                  self.hideLoading()
                   self.showAlert(title: message)
               })
     }

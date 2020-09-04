@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DialogService.initialize(getTopViewController:getTopViewController)
         DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unautorized: self.unautorized)
         ImagePickService.initialize(getTopViewController:getTopViewController)
+         
         return true
     }
     
@@ -37,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func unautorized() {
-        SwiftEventBus.post(Consts.instance.unautorized, sender: nil)
+        let dic = ["modules": ["Login"],  "mode": "root", "navigationParams": [:] as Dictionary<String, Any>] as [String : Any]
+        SwiftEventBus.postToMainThread(Consts.instance.NavigationToMessage, sender: dic)
     }
     
     func setRoot(viewController:UIViewController){
