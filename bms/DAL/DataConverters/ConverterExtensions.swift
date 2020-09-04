@@ -9,9 +9,9 @@
 import Foundation
 
 extension LoginDto {
-    var convert: LoginResponseObject {
-        LoginResponseObject(token: self.token!, email: self.email ?? "", phone: self.phone ?? "")
-    }
+//    var convert: LoginResponseObject {
+//        LoginResponseObject(token: self.token!, email: self.email ?? "", phone: self.phone ?? "")
+//    }
 }
 
 extension UserInfoDto {

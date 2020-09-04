@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import Alamofire
 
 class UserRemoteDataService: BaseRemoteDataService, UserProtocol {
    
     func login(login: String, password: String, completionHandler: @escaping (LoginResponseObject) -> (), errorHandler: ((String) -> ())?) {
-        ex(url: EndPoints.postLogin, method: .post, parameters: ["username": login, "password":password], encoding: .init(destination: .httpBody, arrayEncoding: .brackets, boolEncoding: .literal), completionHandler: completionHandler, errorHandler: errorHandler)
+        ex(url: EndPoints.postLogin, method: .post, parameters: ["username": login, "password":password],  encoding: JSONEncoding.default, completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
     func getUserInfo(completionHandler: @escaping (UserInfoDto) -> (), errorHandler: ((String) -> ())?) {

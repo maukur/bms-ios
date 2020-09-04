@@ -22,6 +22,8 @@ class Consts{
 
     let getPhotoMessage = "getPhotoMessage"
 
+    let unautorized = "unautorized"
+
     
     let baseUrl = "https://bmsbackendd-dev.azurewebsites.net"
 }

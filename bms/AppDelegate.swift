@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NavigationService.initialize(module: "Login", setRootHandler: setRoot)
         DialogService.initialize(getTopViewController:getTopViewController)
-        DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken)
+        DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unautorized: self.unautorized)
         ImagePickService.initialize(getTopViewController:getTopViewController)
         return true
     }
@@ -33,7 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func getToken() -> String{
-        ""
+        SettingsService.instance.token
+    }
+    
+    func unautorized() {
+        SwiftEventBus.post(Consts.instance.unautorized, sender: nil)
     }
     
     func setRoot(viewController:UIViewController){

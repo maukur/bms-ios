@@ -12,8 +12,8 @@ class CachedDataService:BaseRemoteDataService{
     
     private var cache = NSCache<NSString, NSArray>()
 
-    override init(baseUrl: String, getToken: @escaping () -> String?) {
-        super.init(baseUrl: baseUrl, getToken: getToken)
+    override init(baseUrl: String, unautorized: @escaping ()->(), getToken: @escaping () -> String?) {
+        super.init(baseUrl: baseUrl, unautorized: unautorized, getToken: getToken)
         ex(url: EndPoints.getCategoryList, completionHandler:  categoryCompletionHandler)
         ex(url: EndPoints.getPaymentTypeList, completionHandler: paymentCompletionHandler)
         ex(url: EndPoints.getCurrenciesList, completionHandler:  currencyCompletionHandler)

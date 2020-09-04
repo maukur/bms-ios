@@ -7,8 +7,9 @@ class BaseRemoteDataService  {
     let baseUrl: String
     let decoder: JSONDecoder
     let getToken: ()->(String?)
+    let unautorized: ()->()
     
-    init(baseUrl:String, getToken: @escaping ()->String?) {
+    init(baseUrl:String,  unautorized: @escaping ()->(),getToken: @escaping ()->String?) {
         self.baseUrl = baseUrl
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
@@ -17,9 +18,10 @@ class BaseRemoteDataService  {
         decoder.dateDecodingStrategy = .formatted(formatter)
         self.decoder = decoder
         self.getToken = getToken
+        self.unautorized = unautorized
     }
     
-    func ex<T:Codable>(url:String, method:HTTPMethod = .get, parameters:Parameters = [:], encoding:  URLEncoding = URLEncoding.queryString, completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil){
+    func ex<T:Codable>(url:String, method:HTTPMethod = .get, parameters:Parameters = [:], encoding:  ParameterEncoding = URLEncoding.default, completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil){
         
         var headers: HTTPHeaders = []
         let token = getToken()
@@ -27,14 +29,18 @@ class BaseRemoteDataService  {
             let authHeader: HTTPHeader = HTTPHeader.authorization(bearerToken: token!)
             headers.add(authHeader)
         }
-        headers.add(name: "Content-Type", value: "application/json")
         let fullUrl = getFulUrl(url)
         AF.request(fullUrl, method: method, parameters: parameters, encoding: encoding, headers: headers).response {
             response in
             do {
                 if let error = response.error {
                     errorHandler?(error.localizedDescription)
+                    guard let statusCode = error.responseCode else { return }
+                    if(statusCode == 401) {
+                        self.unautorized()
+                    }
                 }
+                
                 #if DEBUG
                 if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                     print("Data: \(utf8Text)")
