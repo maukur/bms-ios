@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         if SettingsService.instance.token == "" {
-            NavigationService.initialize(modules: ["Login"], setRootHandler: setRoot, mode: "normal")
+            NavigationService.initialize(modules: ["Login"], setRootHandler: setRoot, mode: .normal)
         }
         else {
-            NavigationService.initialize(modules: ["Expenses", "Calendar", "Profile"], setRootHandler: setRoot, mode: "tab")
+            NavigationService.initialize(modules: ["Expenses", "Calendar", "Profile"], setRootHandler: setRoot, mode: .tab)
         }
         DialogService.initialize(getTopViewController:getTopViewController)
         DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unautorized: self.unautorized)

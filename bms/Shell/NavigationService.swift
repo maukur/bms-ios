@@ -12,10 +12,8 @@ typealias setRootHandlerAlias = (UIViewController)  -> Void
 
 
 class NavigationService {
-    
 
     public enum navigationMode {
-        
         case normal
         case navigation
         case tab
@@ -23,6 +21,7 @@ class NavigationService {
         case modal
         case modalNavigation
     }
+    
     private static let instance = NavigationService()
     
     private init() {
@@ -31,14 +30,14 @@ class NavigationService {
     
     static private var setRoot:setRootHandlerAlias?
     
-    static func initialize(modules:[String], setRootHandler:@escaping setRootHandlerAlias, mode:String){
+    static func initialize(modules:[String], setRootHandler:@escaping setRootHandlerAlias, mode:navigationMode){
         setRoot = setRootHandler;
         
         switch mode {
-        case "tab":
+        case .tab:
             navigateTabTo(modules: modules, navigationParams: Dictionary<String, Any>())
             break
-        case "normal":
+        case .normal:
             let viewController = NavigationService.getModule(moduleName: modules[0], navigationParams: [:])
             setRoot?(viewController)
             break
@@ -135,12 +134,12 @@ class NavigationService {
         
         let dic = result as! Dictionary<String, Any>
         
-        let mode = dic["mode"] as! String
+        let mode = dic["mode"] as! navigationMode
         
         switch mode {
-        case "normal":
+        case .normal:
             navigateNormalBack()
-        case "modal":
+        case .modal:
             navigateModalBack()
         default:
             return
