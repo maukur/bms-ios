@@ -36,10 +36,11 @@ class ExpenseEditViewModel: BaseViewModel {
     
     func deleteItem() {
         showLoading()
+        navigateBack(mode: .modal)
         
     }
     func cancel() {
-        navigateBack(mode: "modal")
+        navigateBack(mode: .modal)
     }
     
     func didSelectPaymentType(item:PaymentTypeObject)  {
@@ -68,7 +69,7 @@ class ExpenseEditViewModel: BaseViewModel {
                                                 completionHandler: {
                                                     [weak self] in
                                                     self?.hideLoading()
-                                                    self?.navigateBack(mode: "modal")
+                                                    self?.navigateBack(mode: .modal)
             },
                                                 errorHandler: {
                                                     [weak self] message in

@@ -30,14 +30,13 @@ class BaseViewModel {
         }
     }
     
-    
     func navigateTo(modules:[String], mode:NavigationService.navigationMode, masterModule: String = "", navigationParams:Dictionary<String,Any> = [:]){
         let dic = ["modules": modules, "masterModule": masterModule, "mode": mode, "navigationParams": navigationParams] as [String : Any]
         
         SwiftEventBus.postToMainThread(Consts.instance.NavigationToMessage, sender: dic)
     }
     
-    func navigateBack(mode:String){
+    func navigateBack(mode: NavigationService.navigationMode){
         let dic = ["mode": mode] as [String : Any]
         SwiftEventBus.postToMainThread(Consts.instance.NavigationBackMessage, sender: dic)
     }
