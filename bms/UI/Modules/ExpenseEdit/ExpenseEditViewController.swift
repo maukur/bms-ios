@@ -63,17 +63,17 @@ class ExpenseEditViewController: BaseViewController
             value in
             guard let self = self else { return }
             self.descriptionTextField.text = value.description
-            self.priceTextField.text = String(value.price)
+            self.priceTextField.text = String(value.amount)
             self.datePickerTextField.text =  value.date.toDate().toString()
             self.descriptionTextField.becomeFirstResponder()
             if value.id == "" {
                 self.title = "Добавление расходов"
-                     let button = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.cancelButtonAction));
-                    self.navigationItem.rightBarButtonItems = [button]
-             }
+                let button = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.cancelButtonAction));
+                self.navigationItem.rightBarButtonItems = [button]
+            }
             else {
                 self.title = "Редактирование расходов"
-                if value.status != "approved" {
+                if value.status == .created  {
                     let button = UIBarButtonItem(image: UIImage(named: "trash"), style: .plain, target: self, action: #selector(self.deleteButtonAction));
                     self.navigationItem.rightBarButtonItems = [button]
                 }
@@ -83,14 +83,14 @@ class ExpenseEditViewController: BaseViewController
         
     }
     
-       @objc func deleteButtonAction(sender: Any)
-       {
-           viewModel.deleteItem()
-       }
-          @objc func cancelButtonAction(sender: Any)
-          {
-              viewModel.deleteItem()
-          }
+    @objc func deleteButtonAction(sender: Any)
+    {
+        viewModel.deleteItem()
+    }
+    @objc func cancelButtonAction(sender: Any)
+    {
+        viewModel.deleteItem()
+    }
     
     func createCategoryPickerView(items:[ExpenseCategoryObject]) {
         let pickerView = DefaultUIPickerView()
@@ -207,7 +207,7 @@ class ExpenseEditViewController: BaseViewController
     }
     
     @IBAction func priceChanged(_ sender: UITextField) {
-        let value = Int(sender.text!) ?? 0
+        let value = Double(sender.text!) ?? 0.0
         viewModel.didSelectPrice(value: value)
     }
     @IBAction func descriptionTextChanged(_ sender: UITextField) {

@@ -10,7 +10,4 @@ import Foundation
 
 struct LoginResponseObject:Codable {
     var token : String
-    var id: String
-    var email : String
-    var fullName : String
 }

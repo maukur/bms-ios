@@ -9,136 +9,149 @@
 import Foundation
 
 class ExpenseEditViewModel: BaseViewModel {
-    
-    var onSetCategories: (([ExpenseCategoryObject])  -> Void)?
-    var onSetCurrencies: (([CurrencyObject])  -> Void)?
-    var onSetPaymentTypes: (([PaymentTypeObject])  -> Void)?
-    
+
+    var onSetCategories: (([ExpenseCategoryObject]) -> Void)?
+    var onSetCurrencies: (([CurrencyObject]) -> Void)?
+    var onSetPaymentTypes: (([PaymentTypeObject]) -> Void)?
     var onSetCurrentCategory: ((ExpenseCategoryObject) -> Void)?
     var onSetCurrentCurrency: ((CurrencyObject) -> Void)?
-    var onSetCurrentDate: ((Date)  -> Void)?
-    var onSetCurrentPaymentType: ((PaymentTypeObject)  -> Void)?
+    var onSetCurrentDate: ((Date) -> Void)?
+    var onSetCurrentPaymentType: ((PaymentTypeObject) -> Void)?
     var onSetCurrentItem: ((ExpenseDetailObject) -> Void)?
-    
-    
-    var item:ExpenseDetailObject?
-    
-    
-    func didSelectCategory(item:ExpenseCategoryObject)  {
+    var didDataChange: (() -> Void)?
+
+    var item: ExpenseDetailObject?
+
+
+    func didSelectCategory(item: ExpenseCategoryObject) {
         onSetCurrentCategory?(item)
-        self.item?.categoryId = item.id
+        self.item?.expenseCategoryId = item.id
     }
-    
-    func didSelectCurrency(item:CurrencyObject)  {
+
+    func didSelectCurrency(item: CurrencyObject) {
         onSetCurrentCurrency?(item)
         self.item?.currencyId = item.id
     }
-    
+
     func deleteItem() {
         showLoading()
-        navigateBack(mode: .modal)
-        
+        DataServices.expenseDataService?.removeById(guid: item!.id,
+                completionHandler: {
+                    [weak self] in
+                    self?.didDataChange?()
+                    self?.navigateBack(mode: .modal)
+                },
+                errorHandler: {
+                    [weak self] message in
+                    self?.hideLoading()
+                    self?.showAlert(title: message)
+
+                })
+
     }
+
     func cancel() {
         navigateBack(mode: .modal)
     }
-    
-    func didSelectPaymentType(item:PaymentTypeObject)  {
+
+    func didSelectPaymentType(item: PaymentTypeObject) {
         onSetCurrentPaymentType?(item)
-        self.item?.paymentTypeId = item.id
+        self.item?.paymentMethodId = item.id
+
     }
-    
-    func didSelectDate(date:Date)  {
+
+    func didSelectDate(date: Date) {
         onSetCurrentDate?(date)
         self.item?.date = date.toString()
-        
+
     }
-    
-    func didSelectDescription(description:String)  {
+
+    func didSelectDescription(description: String) {
         item?.description = description
     }
-    
-    func didSelectPrice(value:Int)  {
-        item?.price = Int(value)
+
+    func didSelectPrice(value: Double) {
+        item?.amount = Double(value)
     }
-    
+
     func save() {
         showLoading()
         DataServices.expenseDataService?.update(expense: item!,
-                                                completionHandler: {
-                                                    [weak self] in
-                                                    self?.hideLoading()
-                                                    self?.navigateBack(mode: .modal)
-            },
-                                                errorHandler: {
-                                                    [weak self] message in
-                                                    self?.hideLoading()
-        })
+                completionHandler: {
+                    [weak self] in
+                    self?.hideLoading()
+                    self?.navigateBack(mode: .modal)
+                },
+                errorHandler: {
+                    [weak self] message in
+                    self?.hideLoading()
+                })
     }
-    
+
     func getPhotoFromGallery() {
         DispatchQueue.global().async {
             let image = self.pickImage(sourceType: .photoLibrary)
             self.item?.image = image?.jpegData(compressionQuality: 1.0)
         }
     }
-    
+
     func getPhotoFromCamera() {
         DispatchQueue.global().async {
             let image = self.pickImage(sourceType: .camera)
             self.item?.image = image?.jpegData(compressionQuality: 1.0)
         }
     }
-    
+
+
     override func loadData() {
         showLoading()
-        
+
         let resultCategories = DataServices.cachedDataService?.getExpenseCategoryList()
         let resultPaymentTypes = DataServices.cachedDataService?.getExpensePaymentList()
         let resultCurrencies = DataServices.cachedDataService?.getExpenseCurrnecyList()
-        
+
         self.onSetPaymentTypes?(resultPaymentTypes!)
         self.onSetCategories?(resultCategories!)
         self.onSetCurrencies?(resultCurrencies!)
-        
-        let item = navigationParams["item"] as?  ExpenseObject
-        
-        
-        if(item == nil){
+
+        let item = navigationParams["item"] as? ExpenseObject
+        self.didDataChange = navigationParams["didDataChange"] as? () -> ()
+
+
+        if (item == nil) {
             self.didSelectPaymentType(item: resultPaymentTypes!.first!)
-            self.didSelectCurrency(item:  resultCurrencies!.first!)
-            self.didSelectCategory(item:  resultCategories!.first!)
-            self.item = ExpenseDetailObject(id: "",
-                                            description: "",
-                                            date: Date().toString(.dateTime),
-                                            price: 0,
-                                            status: "fe399ac8-63e5-460d-ba10-60948fb9fd27",
-                                            categoryId: resultCategories!.first!.id,
-                                            currencyId: resultCurrencies!.first!.id,
-                                            paymentTypeId: resultPaymentTypes!.first!.id,
-                                            image: nil)
+            self.didSelectCurrency(item: resultCurrencies!.first!)
+            self.didSelectCategory(item: resultCategories!.first!)
+            self.item = ExpenseDetailObject(
+                    id: "",
+                    description: "",
+                    date: Date().toString(.dateTime),
+                    amount: 0.0,
+                    expenseCategoryId: resultCategories!.first!.id,
+                    currencyId: resultCurrencies!.first!.id,
+                    paymentMethodId: resultPaymentTypes!.first!.id,
+                    image: nil,
+                    status: .none)
             self.onSetCurrentItem?(self.item!)
             self.hideLoading()
-            
-        }
-        else {
+
+        } else {
             DataServices.expenseDataService!.getById(guid: item!.id,
-                                                     completionHandler: {
-                                                        result in
-                                                        self.item = result
-                                                        self.onSetCurrentItem?(result)
-                                                        self.didSelectPaymentType(item: resultPaymentTypes!.first(where: { $0.id == result.paymentTypeId })!)
-                                                        self.didSelectCurrency(item: resultCurrencies!.first(where: { $0.id == result.currencyId })!)
-                                                        self.didSelectCategory(item: resultCategories!.first(where: { $0.id == result.categoryId })!)
-                                                        self.hideLoading()
-            },
-                                                     errorHandler: {
-                                                        message in
-                                                        self.hideLoading()
-            })
+                    completionHandler: {
+                        result in
+                        self.item = result
+                        self.onSetCurrentItem?(result)
+                        self.didSelectPaymentType(item: resultPaymentTypes!.first(where: { $0.id == result.paymentMethodId })!)
+                        self.didSelectCurrency(item: resultCurrencies!.first(where: { $0.id == result.currencyId })!)
+                        self.didSelectCategory(item: resultCategories!.first(where: { $0.id == result.expenseCategoryId })!)
+                        self.hideLoading()
+                    },
+                    errorHandler: {
+                        message in
+                        self.hideLoading()
+                    })
         }
-        
-        
-        
+
+
     }
 }

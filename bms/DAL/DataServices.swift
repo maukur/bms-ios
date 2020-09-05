@@ -20,10 +20,10 @@ class DataServices {
             userDataService = UserMockDataService()
          }
         else {
-            userDataService = UserRemoteDataService(baseUrl: baseUrl, unautorized: unautorized, getToken: getToken)
-            expenseDataService = ExpenseRemoteDataService(baseUrl: baseUrl, unautorized: unautorized, getToken: getToken)
-            calendarDataService = CalendarDataService(baseUrl: baseUrl, unautorized: unautorized, getToken: getToken)
+            userDataService = UserRemoteDataService(baseUrl: baseUrl, unauthorized: unautorized, getToken: getToken)
+            expenseDataService = ExpenseRemoteDataService(baseUrl: baseUrl, unauthorized: unautorized, getToken: getToken)
+            calendarDataService = CalendarDataService(baseUrl: baseUrl, unauthorized: unautorized, getToken: getToken)
         }
-        cachedDataService = CachedDataService(baseUrl: baseUrl, unautorized: unautorized, getToken: getToken)
+        cachedDataService = CachedDataService(baseUrl: baseUrl, unauthorized: unautorized, getToken: getToken)
     }
 }

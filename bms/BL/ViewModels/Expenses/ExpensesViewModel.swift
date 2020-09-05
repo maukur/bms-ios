@@ -79,11 +79,12 @@ class ExpensesViewModel: BaseViewModel {
     
     func editItem(value:Any){
         let item = value as! ExpenseObject
-        navigateTo(modules: ["ExpenseEdit"], mode: .modalNavigation, navigationParams: ["item": item])
+        navigateTo(modules: ["ExpenseEdit"], mode: .modalNavigation, navigationParams: ["item": item, "didDataChange": {[weak self] in self?.loadData()}])
     }
     
     func addNewItem(){
-        navigateTo(modules: ["ExpenseEdit"], mode: .modalNavigation)
+        navigateTo(modules: ["ExpenseEdit"], mode: .modalNavigation, navigationParams: ["didDataChange": {[weak self] in self?.loadData()}])
+
     }
 }
 

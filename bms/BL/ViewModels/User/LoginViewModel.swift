@@ -8,22 +8,21 @@
 
 import Foundation
 
-class LoginViewModel: BaseViewModel
-{
+class LoginViewModel: BaseViewModel {
     func loginAction(login: String?, password: String?) {
-        
-        DataServices.userDataService?.login(login: "artem.tischenko@binwell.com", password: "17443821", completionHandler: {
-            [weak self] result in
-            
-            
-            let userInfo = result
-            SettingsService.instance.token = result.token
-            self?.navigateTo(modules:["Expenses", "Calendar","Profile"], mode: .tab)
-            
-            
-            
-            }, errorHandler:   {
-                message in
-        })
+
+        showLoading()
+        DataServices.userDataService?.login(login: "artem.tischenko@binwell.com", password: "17443821",
+                completionHandler: {
+                    [weak self] result in
+                    SettingsService.instance.token = result.token
+                    self?.hideLoading()
+                    self?.navigateTo(modules: ["Expenses", "Calendar", "Profile"], mode: .tab)
+                },
+                errorHandler: {
+                    [weak self] message in
+                    self?.hideLoading()
+                    self?.showAlert(message: message)
+                })
     }
 }

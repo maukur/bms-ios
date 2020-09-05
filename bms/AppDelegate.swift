@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func unautorized() {
-        let dic = ["modules": ["Login"],  "mode": "root", "navigationParams": [:] as Dictionary<String, Any>] as [String : Any]
+        let dic = ["modules": ["Login"],  "mode": NavigationService.navigationMode.root, "navigationParams": [:] as Dictionary<String, Any>] as [String : Any]
         SwiftEventBus.postToMainThread(Consts.instance.NavigationToMessage, sender: dic)
     }
     

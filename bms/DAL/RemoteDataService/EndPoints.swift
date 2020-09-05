@@ -10,18 +10,15 @@ import Foundation
 
 class EndPoints {
         
-    static let getExpenseByGuid = "/Mobile/GetExpenseById"
+    static let getExpenseByGuid = "/MobileApi/Expenses/GetById"
     static let getExpenses = "/MobileApi/Expenses"
-    static let postDeleteExpense = "/MobileApi​/Expenses​/Delete"
-
-    
-    static let getCategoryList = "/Mobile/CategoryList"
-    static let getCurrenciesList = "/Mobile/CurrenciesList"
-    static let getPaymentTypeList = "/Mobile/PaymentTypeList"
-    static let getEventList = "/Mobile/Events"
-    static let getUserInfo = "/Mobile/UserInfo"
+    static let postDeleteExpense = "/MobileApi/Expenses/Delete"
+    static let getCategoryList = "/MobileApi/Expenses/ExpenseCategoryList"
+    static let getCurrenciesList = "/MobileApi/Expenses/CurrencyList"
+    static let getPaymentTypeList = "/MobileApi/Expenses/PaymentMethodList"
+    static let getEventList = "/MobileApi/EventLogs"
+    static let getUserInfo = "/MobileApi/Account/Info"
     static let postLogin = "/MobileApi/Account/Authenticate"
     static let postExpenseUpdate = "/MobileApi/Expenses/Update"
-
-    static let getEventTypeList = "/Mobile/EventTypeList"
+    static let getEventTypeList = "/MobileApi/EventLogs/EventCategoryList"
 }
