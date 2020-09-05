@@ -23,12 +23,20 @@ class NavigationService {
     
     static private var setRoot:setRootHandlerAlias?
     
-    static func initialize(module:String, setRootHandler:@escaping setRootHandlerAlias){
+    static func initialize(modules:[String], setRootHandler:@escaping setRootHandlerAlias, mode:String){
         setRoot = setRootHandler;
         
-        let viewController = NavigationService.getModule(moduleName: module, navigationParams: [:])
-        
-        setRoot?(viewController)
+        switch mode {
+        case "tab":
+            navigateTabTo(modules: modules, navigationParams: Dictionary<String, Any>())
+            break
+        case "normal":
+            let viewController = NavigationService.getModule(moduleName: modules[0], navigationParams: [:])
+            setRoot?(viewController)
+            break
+        default:
+            break
+        }
         
         SwiftEventBus.onMainThread(self, name: Consts.instance.NavigationToMessage) { result in NavigationService.navigationTo(result:result?.object) }
         SwiftEventBus.onMainThread(self, name: Consts.instance.NavigationBackMessage) { result in NavigationService.navigationBack(result:result?.object) }

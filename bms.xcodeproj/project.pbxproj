@@ -65,7 +65,6 @@
 		D045409B24C0926A00CA9A27 /* DefaultTableViewWithSectionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045409A24C0926A00CA9A27 /* DefaultTableViewWithSectionsDataSource.swift */; };
 		D045409D24C09FCF00CA9A27 /* SectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D045409C24C09FCF00CA9A27 /* SectionHeaderCell.xib */; };
 		D04540A024C0A01000CA9A27 /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045409F24C0A01000CA9A27 /* SectionHeaderCell.swift */; };
-		D05F295B24D21C80005C55C2 /* ExpenseGroupDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05F295A24D21C80005C55C2 /* ExpenseGroupDto.swift */; };
 		D05F295E24D21EAC005C55C2 /* ExpenseGroupObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05F295D24D21EAC005C55C2 /* ExpenseGroupObject.swift */; };
 		D0729E1824FFE2FD0057A874 /* CachedDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0729E1724FFE2FD0057A874 /* CachedDataService.swift */; };
 		D088863624CF5A530044ABE4 /* ExpenceDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088863524CF5A530044ABE4 /* ExpenceDto.swift */; };
@@ -151,7 +150,6 @@
 		D045409A24C0926A00CA9A27 /* DefaultTableViewWithSectionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewWithSectionsDataSource.swift; sourceTree = "<group>"; };
 		D045409C24C09FCF00CA9A27 /* SectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderCell.xib; sourceTree = "<group>"; };
 		D045409F24C0A01000CA9A27 /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
-		D05F295A24D21C80005C55C2 /* ExpenseGroupDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseGroupDto.swift; sourceTree = "<group>"; };
 		D05F295D24D21EAC005C55C2 /* ExpenseGroupObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseGroupObject.swift; sourceTree = "<group>"; };
 		D0729E1724FFE2FD0057A874 /* CachedDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedDataService.swift; sourceTree = "<group>"; };
 		D088863524CF5A530044ABE4 /* ExpenceDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenceDto.swift; sourceTree = "<group>"; };
@@ -536,7 +534,6 @@
 			isa = PBXGroup;
 			children = (
 				D088863524CF5A530044ABE4 /* ExpenceDto.swift */,
-				D05F295A24D21C80005C55C2 /* ExpenseGroupDto.swift */,
 			);
 			path = Expense;
 			sourceTree = "<group>";
@@ -765,7 +762,6 @@
 				D00355B424BDCA5000C73CA5 /* ExpensesViewModel.swift in Sources */,
 				D026EAE324A23D6800EF2248 /* BaseRemoteDataService.swift in Sources */,
 				D0D5902C24E5786C00550C74 /* Dictionsries.swift in Sources */,
-				D05F295B24D21C80005C55C2 /* ExpenseGroupDto.swift in Sources */,
 				D0DED8EB24E42341000C0407 /* CalendarViewModel.swift in Sources */,
 				D026E9BD24A2333400EF2248 /* AppDelegate.swift in Sources */,
 				D026EA8D24A237F400EF2248 /* SwiftEventBus.swift in Sources */,

@@ -45,7 +45,6 @@ class ExpenseEditViewModel: BaseViewModel {
     func didSelectPaymentType(item:PaymentTypeObject)  {
         onSetCurrentPaymentType?(item)
         self.item?.paymentTypeId = item.id
-        
     }
     
     func didSelectDate(date:Date)  {
@@ -73,7 +72,8 @@ class ExpenseEditViewModel: BaseViewModel {
                                                 errorHandler: {
                                                     [weak self] message in
                                                     self?.hideLoading()
-        })    }
+        })
+    }
     
     func getPhotoFromGallery() {
         DispatchQueue.global().async {

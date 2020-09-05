@@ -10,10 +10,10 @@ import UIKit
 
 class SectionHeaderCell: UITableViewCell, InitializedViewCell {
     
-    
-    
+    let dateFormatter =  DateFormatter()
     func initialize(item: Any) {
-        label.text = item as? String
+        let value = item as! Int
+        label.text = dateFormatter.monthSymbols[value - 1]
     }
     
     @IBOutlet weak var label: UILabel!

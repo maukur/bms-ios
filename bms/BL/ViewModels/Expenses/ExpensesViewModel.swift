@@ -34,37 +34,48 @@ class ExpensesViewModel: BaseViewModel {
         dateComponent.year = year
         return Calendar.current.date(byAdding: dateComponent, to: date) ?? date
     }
+    var dictionary:Dictionary<AnyHashable, [Any]> = [:]
     
     override func loadData() {
+        dictionary = [:]
         onDateUpdate?(date)
         let year = date.get(.year)
         showLoading()
-        DataServices.expenseDataService?.getAll(year: year, completionHandler: { items in
-                      
-                          var dictionary:Dictionary<AnyHashable, [Any]> = [:]
-                      
-                          items.forEach({ group in
-                              dictionary[group.mounth] = group.expenses
-                          })
-                          
-                          DispatchQueue.main.async {
-                              [weak self] in
-                              guard let self = self else { return }
-                              self.data = dictionary
-                              self.onDataUpdate?(self.data)
-                              self.hideLoading()
-                          }
-                      
-              },
-               errorHandler: {
-                  message in
-                  self.hideLoading()
-                  self.showAlert(title: message)
-              })
+        DataServices.expenseDataService?.getAll(year: year, completionHandler: {
+            [weak self] items in
+            guard let self = self else { return }
+            
+            let monthSet = Set(items.map(
+            {
+                value in (value.date.get(.month))
+            }))
+            
+            monthSet.forEach(
+                {
+                    [weak self] value in
+                    guard let self = self else { return }
+                    self.dictionary[value] = items.filter({
+                        $0.date.get(.month) == value
+                    })
+            })
+            
+            DispatchQueue.main.async {
+                [weak self] in
+                guard let self = self else { return }
+                self.data = self.dictionary
+                self.onDataUpdate?(self.data)
+                self.hideLoading()
+            }},
+            errorHandler: {
+                [weak self] message in
+                guard let self = self else { return }
+                self.hideLoading()
+                self.showAlert(title: message)
+        })
     }
-     
-        
-  
+    
+    
+    
     
     func editItem(value:Any){
         let item = value as! ExpenseObject

@@ -9,7 +9,7 @@
 import Foundation
 
 class ExpenseRemoteDataService: BaseRemoteDataService,ExpenseProtocol {
-    func getAll(year: Int, completionHandler: @escaping ([ExpenseGroupObject]) -> (), errorHandler: ((String) -> ())?) {
+    func getAll(year: Int, completionHandler: @escaping ([ExpenseObject]) -> (), errorHandler: ((String) -> ())?) {
         ex(url: EndPoints.getExpenses, parameters: ["year": String(year)], completionHandler: completionHandler, errorHandler: errorHandler)
     }
     

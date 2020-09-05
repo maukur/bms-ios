@@ -11,7 +11,7 @@ import UIKit
 class ExpensesViewCell: UITableViewCell, InitializedViewCell {
     func initialize(item: Any) {
         let value = item as? ExpenseObject
-        dayLabel.text = value?.date.toDate().get(.day).toString()
+        dayLabel.text = value?.date.get(.day).toString()
         descriptionLabel.text =  value?.description
         priceLabel.text =  String(value!.amount) + " Р"
     }
