@@ -150,11 +150,7 @@ class BaseRemoteDataService  {
     }
 }
 
-enum VendingMachineError: Error {
-    case invalidSelection
-    case insufficientFunds(coinsNeeded: Int)
-    case outOfStock
-}
+
 
 extension Encodable {
     func toJSONData() -> Data? { try? JSONEncoder().encode(self) }
