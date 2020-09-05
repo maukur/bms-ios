@@ -17,7 +17,7 @@ class CalendarViewModel: BaseViewModel {
     var selectedDate = Date()
     
     func addNewItem(dates:[Date])  {
-        navigateTo(modules: ["NewEvent"], mode: "modalNavigation")
+        navigateTo(modules: ["NewEvent"], mode: .modalNavigation)
         for date in dates {
             //events.append(EventObject(id: "", typeId: "", title: "test", startDate: NSDate(), endDate: Ns))
         }
