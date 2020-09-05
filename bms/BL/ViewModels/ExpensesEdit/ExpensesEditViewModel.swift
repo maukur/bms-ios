@@ -18,7 +18,7 @@ class ExpenseEditViewModel: BaseViewModel {
     var onSetCurrentDate: ((Date) -> Void)?
     var onSetCurrentPaymentType: ((PaymentTypeObject) -> Void)?
     var onSetCurrentItem: ((ExpenseDetailObject) -> Void)?
-    var didDataChange: (() -> Void)?
+    var didDataChange: () -> Void?
 
     var item: ExpenseDetailObject?
 
@@ -80,6 +80,7 @@ class ExpenseEditViewModel: BaseViewModel {
                 completionHandler: {
                     [weak self] in
                     self?.hideLoading()
+                    self?.didDataChange()
                     self?.navigateBack(mode: .modal)
                 },
                 errorHandler: {
@@ -115,7 +116,7 @@ class ExpenseEditViewModel: BaseViewModel {
         self.onSetCurrencies?(resultCurrencies!)
 
         let item = navigationParams["item"] as? ExpenseObject
-        self.didDataChange = navigationParams["didDataChange"] as? () -> ()
+        self.didDataChange = navigationParams["didDataChange"] as! () -> Void?
 
 
         if (item == nil) {
@@ -131,7 +132,7 @@ class ExpenseEditViewModel: BaseViewModel {
                     currencyId: resultCurrencies!.first!.id,
                     paymentMethodId: resultPaymentTypes!.first!.id,
                     image: nil,
-                    status: .none)
+                    status: .created)
             self.onSetCurrentItem?(self.item!)
             self.hideLoading()
 
