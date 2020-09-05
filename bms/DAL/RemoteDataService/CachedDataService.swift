@@ -30,14 +30,14 @@ class CachedDataService:BaseRemoteDataService{
     }
     
     func getExpenseCategoryList() -> [ExpenseCategoryObject] {
-        return cache.object(forKey: "expenseCategoryObject") as! [ExpenseCategoryObject]
+        return cache.object(forKey: "expenseCategoryObject") as? [ExpenseCategoryObject] ?? []
     }
     
     func getExpensePaymentList() -> [PaymentTypeObject] {
-        return cache.object(forKey: "paymentTypeObject") as! [PaymentTypeObject]
+        return cache.object(forKey: "paymentTypeObject") as? [PaymentTypeObject] ?? []
     }
     
     func getExpenseCurrnecyList() -> [CurrencyObject] {
-        return cache.object(forKey: "currencyObject") as! [CurrencyObject]
+        return cache.object(forKey: "currencyObject") as? [CurrencyObject] ?? []
     }
 }

@@ -11,19 +11,19 @@ import Foundation
 class LoginViewModel: BaseViewModel
 {
     func loginAction(login: String?, password: String?) {
-
+        
         DataServices.userDataService?.login(login: "artem.tischenko@binwell.com", password: "17443821", completionHandler: {
             [weak self] result in
             
-         
-                let userInfo = result
-                SettingsService.instance.token = result.token
-                self?.navigateTo(modules:["Expenses", "Calendar","Profile"], mode: "tab")
-
+            
+            let userInfo = result
+            SettingsService.instance.token = result.token
+            self?.navigateTo(modules:["Expenses", "Calendar","Profile"], mode: .tab)
+            
             
             
             }, errorHandler:   {
                 message in
-            })
+        })
     }
 }

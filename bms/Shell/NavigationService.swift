@@ -14,7 +14,15 @@ typealias setRootHandlerAlias = (UIViewController)  -> Void
 class NavigationService {
     
 
-    
+    public enum navigationMode {
+        
+        case normal
+        case navigation
+        case tab
+        case root
+        case modal
+        case modalNavigation
+    }
     private static let instance = NavigationService()
     
     private init() {
@@ -45,22 +53,22 @@ class NavigationService {
     private static func navigationTo(result: Any?) {
         let dic = result as! Dictionary<String, Any>
         
-        let mode = dic["mode"] as! String
+        let mode = dic["mode"] as! navigationMode
         let modules = dic["modules"] as! [String]
         let navigationParams = dic["navigationParams"] as! Dictionary<String, Any>
         
         switch mode {
-        case "normal":
+        case .normal:
             navigateNormalTo(module: modules.first!, navigationParams: navigationParams)
-        case "navigation":
+        case .navigation:
             navigateNavigationTo(module: modules.first!, navigationParams: navigationParams)
-        case "tab":
+        case .tab:
              navigateTabTo(modules: modules, navigationParams: navigationParams)
-        case "root":
+        case .root:
             navigateRootTo(module: modules.first!, navigationParams: navigationParams)
-        case "modal":
+        case .modal:
             navigateModalTo(module: modules.first!, navigationParams: navigationParams)
-        case "modalNavigation":
+        case .modalNavigation:
             navigateModalNavigationTo(module: modules.first!, navigationParams: navigationParams)
         default:
             return
