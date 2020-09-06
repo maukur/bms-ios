@@ -11,8 +11,8 @@ import UIKit
 class CalendarViewModel: BaseViewModel {
     
     var onSetEvents: (()  -> Void)?
-    var allEvents: [EventObject] = []
-    var events: [EventObject] = []
+    var allEvents: [Date] = []
+    //var events: [EventObject] = []
     var selectedDate = Date()
     
     func addNewItem(dates:[Date])  {
@@ -29,24 +29,24 @@ class CalendarViewModel: BaseViewModel {
     
     func didSelectDate(date:Date){
         selectedDate = date
-        events = allEvents.filter({ event -> Bool in
-            event.startDate < self.selectedDate && event.endDate > self.selectedDate
-        })
+//        events = allEvents.filter({ event -> Bool in
+//            event.startDate < self.selectedDate && event.endDate > self.selectedDate
+//        })
         onSetEvents?()
     }
     
     
     
     override func loadData() {
-        DataServices.calendarDataService?.getAllEvents(
+        DataServices.calendarDataService?.getAllEvents(year: 2020,
             completionHandler: {
                 [weak self] events in
                 guard let self = self else { return }
                 
                 self.allEvents = events
-                self.events = events.filter({ event -> Bool in
-                    event.startDate < self.selectedDate && event.endDate > self.selectedDate
-                })
+//                self.events = events.filter({ event -> Bool in
+//                    event.startDate < self.selectedDate && event.endDate > self.selectedDate
+//                })
                 self.onSetEvents?()
                 self.State = "normal"
                 

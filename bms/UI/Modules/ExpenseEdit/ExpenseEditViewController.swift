@@ -120,22 +120,22 @@ class ExpenseEditViewController: BaseViewController
     
     func createCategoryPickerView(items:[ExpenseCategoryObject]) {
         let pickerView = DefaultUIPickerView()
-        let pickerSettinngs = getCategoriesPickerDelegate(items: items)
-        pickerView.setSettings(settings: pickerSettinngs)
+        let pickerSettings = getCategoriesPickerDelegate(items: items)
+        pickerView.setSettings(settings: pickerSettings)
         pickerCategoryTextField.inputView = pickerView
     }
     
     func createPaymentTypePickerView(items:[PaymentTypeObject]) {
         let pickerView = DefaultUIPickerView()
-        let pickerSettinngs = getPaymentTypePickerDelegate(items: items)
-        pickerView.setSettings(settings: pickerSettinngs)
+        let pickerSettings = getPaymentTypePickerDelegate(items: items)
+        pickerView.setSettings(settings: pickerSettings)
         paymentTypeTextField.inputView = pickerView
     }
     
     func createCurrencyPickerView(items:[CurrencyObject]) {
         let pickerView = DefaultUIPickerView()
-        let pickerSettinngs = getCurrencyPickerDelegate(items: items)
-        pickerView.setSettings(settings: pickerSettinngs)
+        let pickerSettings = getCurrencyPickerDelegate(items: items)
+        pickerView.setSettings(settings: pickerSettings)
         currencyTextField.inputView = pickerView
     }
     

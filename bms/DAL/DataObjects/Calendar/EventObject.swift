@@ -7,11 +7,3 @@
 //
 
 import Foundation
-
-struct EventObject:Codable {
-    let id: String
-    let typeId: String
-    let title: String
-    let startDate: Date
-    let endDate:Date
-}

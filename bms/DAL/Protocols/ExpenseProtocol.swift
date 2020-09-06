@@ -13,5 +13,5 @@ protocol ExpenseProtocol {
     func getAll(year: Int, completionHandler: @escaping ([ExpenseObject]) -> (), errorHandler: ((String) -> ())?)
     func getById(guid: String, completionHandler: @escaping (ExpenseDetailObject) -> (), errorHandler: ((String) -> ())?)
     func removeById(guid: String, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?)
-    func update (expense:ExpenseDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?)
+    func addOrUpdate(expense:ExpenseDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?)
 }

@@ -5,6 +5,7 @@ class BaseRemoteDataService {
 
     let baseUrl: String
     let decoder: JSONDecoder
+    let encoder: JSONEncoder
     let getToken: () -> (String?)
     let unauthorized: () -> ()
 
@@ -18,6 +19,12 @@ class BaseRemoteDataService {
         self.decoder = decoder
         self.getToken = getToken
         self.unauthorized = unauthorized
+
+
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .formatted(formatter)
+        self.encoder = encoder
+
     }
 
     func ex<T: Codable>(url: String, method: HTTPMethod = .get, parameters: Parameters = [:], encoding: ParameterEncoding = URLEncoding.default, completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil) {
@@ -49,8 +56,8 @@ class BaseRemoteDataService {
             }
         }
     }
-
-    func ex(url: String, body: Encodable, method: HTTPMethod = .get, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())? = nil) {
+//func doStuff<T: Encodable>(payload: [String: T]) {
+    func ex<T: Encodable>(url: String, body: T, method: HTTPMethod = .get, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())? = nil) {
         var headers: HTTPHeaders = []
         let token = getToken()
         if (token != nil) {
@@ -65,7 +72,13 @@ class BaseRemoteDataService {
         request.httpMethod = method.rawValue
         request.headers = headers
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        request.httpBody = body.toJSONData()
+        var data: Data?
+    do{
+        data = try encoder.encode(body)}
+        catch {
+            print(error.localizedDescription)
+        }
+        request.httpBody = data!
         AF.request(request)
                 .validate(statusCode: 200..<300)
                 .response {
@@ -170,8 +183,3 @@ class BaseRemoteDataService {
 }
 
 
-extension Encodable {
-    func toJSONData() -> Data? {
-        try? JSONEncoder().encode(self)
-    }
-}

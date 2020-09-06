@@ -15,15 +15,15 @@ class DataServices {
     static private(set) var calendarDataService: CalendarProtocol?
     static private(set) var cachedDataService: CachedDataService?
 
-    static func initialize (isMock:Bool, baseUrl:String, getToken: @escaping ()->String?, unautorized: @escaping ()->()){
+    static func initialize (isMock:Bool, baseUrl:String, getToken: @escaping ()->String?, unauthorized: @escaping ()->()){
         if(isMock){
             userDataService = UserMockDataService()
          }
         else {
-            userDataService = UserRemoteDataService(baseUrl: baseUrl, unauthorized: unautorized, getToken: getToken)
-            expenseDataService = ExpenseRemoteDataService(baseUrl: baseUrl, unauthorized: unautorized, getToken: getToken)
-            calendarDataService = CalendarDataService(baseUrl: baseUrl, unauthorized: unautorized, getToken: getToken)
+            userDataService = UserRemoteDataService(baseUrl: baseUrl, unauthorized: unauthorized, getToken: getToken)
+            expenseDataService = ExpenseRemoteDataService(baseUrl: baseUrl, unauthorized: unauthorized, getToken: getToken)
+            calendarDataService = CalendarDataService(baseUrl: baseUrl, unauthorized: unauthorized, getToken: getToken)
         }
-        cachedDataService = CachedDataService(baseUrl: baseUrl, unauthorized: unautorized, getToken: getToken)
+        cachedDataService = CachedDataService(baseUrl: baseUrl, unauthorized: unauthorized, getToken: getToken)
     }
 }

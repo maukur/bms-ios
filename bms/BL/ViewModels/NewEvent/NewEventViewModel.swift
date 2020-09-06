@@ -10,11 +10,45 @@ import Foundation
 
 class NewEventViewModel: BaseViewModel {
     
-    var onEventTypListLoaded: (([EventTypeObject])  -> Void)?
-    var eventTypeList: [EventTypeObject] = []
-    
+    var onEventTypListLoaded: (([EventCategoryObject])  -> Void)?
+    var eventTypeList: [EventCategoryObject] = []
+    var event: EventDetailObject?
+
+
+    func didSelectEventType(item: EventCategoryObject) {
+        event?.eventCategoryId = item.id
+    }
+
+    func addOrUpdateEvent() {
+        showLoading()
+        DataServices.calendarDataService?.addOrUpdate(
+                event: event!,
+                completionHandler: {
+                    [weak self] in
+                    self?.hideLoading()
+                    self?.navigateBack(mode: .modal)
+                },
+                errorHandler: {
+                    [weak self] message in
+                    self?.navigateBack(mode: .modal)
+                    self?.showAlert(message: message)
+                })
+    }
+
     override func viewDidLoad() {
         showLoading()
+
+
+        if(event == nil){
+            event = EventDetailObject(id: "",
+                    eventCategoryId: "", //TODO
+                    reason: "",
+                    startDate: Date(),
+                    endDate: Date(),
+                    status: .created)
+        }
+
+
         DataServices.calendarDataService?.getEventTypeList(
             completionHandler: { data in
                 DispatchQueue.main.async {
@@ -33,6 +67,5 @@ class NewEventViewModel: BaseViewModel {
                 self.showAlert(title: message)
                 
         })
-        
     }
 }

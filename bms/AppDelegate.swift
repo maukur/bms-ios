@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NavigationService.initialize(modules: ["Expenses", "Calendar", "Profile"], setRootHandler: setRoot, mode: .tab)
         }
         DialogService.initialize(getTopViewController:getTopViewController)
-        DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unautorized: self.unautorized)
+        DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unauthorized: self.unautorized)
         ImagePickService.initialize(getTopViewController:getTopViewController)
          
         return true

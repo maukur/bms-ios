@@ -30,10 +30,10 @@ class NewEventViewController: BaseViewController {
         endDateField.textColor = selectDateFormatSwitch.isOn ? .black : .gray
     }
     @IBAction func onSaveButtonClicked(_ sender: Any) {
-        
+        viewModel.addOrUpdateEvent()
     }
     @IBAction func onCancelButtonClicked(_ sender: Any) {
-        
+        viewModel.navigateBack(mode: .modal)
     }
     
     
@@ -69,28 +69,30 @@ class NewEventViewController: BaseViewController {
     
     
     
-    func createEventTypePickerView(items:[EventTypeObject]) {
+    func createEventTypePickerView(items:[EventCategoryObject]) {
         let pickerView = DefaultUIPickerView()
-        let pickerSettinngs = getEventTypePickerDelegate(items: items)
-        pickerView.setSettings(settings: pickerSettinngs)
+        let pickerSettings = getEventTypePickerDelegate(items: items)
+        pickerView.setSettings(settings: pickerSettings)
         eventTypeField.inputView = pickerView
     }
     
-    func getEventTypePickerDelegate(items:[EventTypeObject]) ->  PickerSettings {
+    func getEventTypePickerDelegate(items:[EventCategoryObject]) ->  PickerSettings {
         let pickerDelegate = PickerSettings(
             items: items,
             numberOfComponents: 1,
             getDisplayValue:
             {
                 value in
-                let item = value as! EventTypeObject
+                let item = value as! EventCategoryObject
                 return item.name
-        },
+            },
             didSelectRow: {
                 [weak self]
                 value in
-                self?.eventTypeField.text = (value as? EventTypeObject)?.name
-        })
+                let eventTypeObject = (value as? EventCategoryObject)
+                self?.eventTypeField.text = eventTypeObject?.name
+                self?.viewModel.didSelectEventType(item: eventTypeObject!)
+            })
         return pickerDelegate
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EventTypeObject: Codable {
+class EventCategoryObject: Codable {
     let id: String
     let name: String
 }

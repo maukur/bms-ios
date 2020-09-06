@@ -21,7 +21,7 @@ class ExpenseRemoteDataService: BaseRemoteDataService,ExpenseProtocol {
         ex(url: EndPoints.postDeleteExpense, method: .post, parameters: ["expenseId" : guid], encoding: URLEncoding.queryString, completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func update (expense:ExpenseDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?){
+    func addOrUpdate(expense:ExpenseDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?){
         ex(url: EndPoints.postExpenseAddOrUpdate, body: expense, method: .post, completionHandler: completionHandler, errorHandler: errorHandler )
     }
 }

@@ -48,7 +48,6 @@ class ExpenseEditViewModel: BaseViewModel {
                     self?.showAlert(title: message)
 
                 })
-
     }
 
     func cancel() {
@@ -77,7 +76,7 @@ class ExpenseEditViewModel: BaseViewModel {
 
     func save() {
         showLoading()
-        DataServices.expenseDataService?.update(expense: item!,
+        DataServices.expenseDataService?.addOrUpdate(expense: item!,
                 completionHandler: {
                     [weak self] in
                     self?.hideLoading()
@@ -86,6 +85,7 @@ class ExpenseEditViewModel: BaseViewModel {
                 },
                 errorHandler: {
                     [weak self] message in
+                    self?.showAlert(message: message)
                     self?.hideLoading()
                 })
     }
