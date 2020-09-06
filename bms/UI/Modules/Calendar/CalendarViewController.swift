@@ -54,12 +54,14 @@ class CalendarViewController: BaseViewController {
 
 		viewModel.onSetEvents = {
 			[weak self] in
+			self?.calendarView.events = []
 			self?.viewModel.allEvents.forEach({
 				self?.calendarView.events.append(CalendarEvent(title: "", startDate: $0, endDate: $0))
 			})
 		}
 		viewModel.onSetEventsByDate = {
 			[weak self] in
+			self?.tableDelegate.items = self?.viewModel.events as! [Any]
 			self?.tableView.reloadData()
 		}
 	}
@@ -72,6 +74,7 @@ class CalendarViewController: BaseViewController {
 		let eventNib = UINib.init(nibName: "EventViewCell", bundle: nil)
 		tableView.separatorStyle = .none
 		tableView.register(eventNib, forCellReuseIdentifier: "DefaultCell")
+		tableView.delegate = tableDelegate
 		tableView.dataSource = self
 	}
 
@@ -102,7 +105,7 @@ extension CalendarViewController: CalendarViewDataSource, CalendarViewDelegate {
 	}
 
 	func calendar(_ calendar: CalendarView, canSelectDate date: Date) -> Bool {
-		return true
+		true
 	}
 
 	func calendar(_ calendar: CalendarView, didDeselectDate date: Date) {
@@ -117,8 +120,8 @@ extension CalendarViewController: CalendarViewDataSource, CalendarViewDelegate {
 		var dateComponents = DateComponents()
 		dateComponents.year = -1
 		let today = Date()
-		let prewYear = self.calendarView.calendar.date(byAdding: dateComponents, to: today)
-		return prewYear!
+		let preYear = self.calendarView.calendar.date(byAdding: dateComponents, to: today)
+		return preYear!
 	}
 
 	func endDate() -> Date {
@@ -130,7 +133,7 @@ extension CalendarViewController: CalendarViewDataSource, CalendarViewDelegate {
 	}
 
 	func headerString(_ date: Date) -> String? {
-		return nil
+		nil
 	}
 
 

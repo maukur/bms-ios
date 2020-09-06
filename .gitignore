@@ -92,3 +92,6 @@ bms.xcodeproj/xcuserdata/macos.xcuserdatad/xcschemes/xcschememanagement.plist
 .build/debug/ModuleCache/30B32LGTBP692/SwiftShims-2DA6NLEWJC11R.pcm
 .build/debug/ModuleCache/30B32LGTBP692/SystemConfiguration-35NU7VTB58HQC.pcm
 .build/debug/ModuleCache/30B32LGTBP692/XPC-3LIAJY90PG03M.pcm
+.build/debug/ModuleCache/CoreLocation-1ASZCQR8SIL8A.swiftmodule
+.build/debug/ModuleCache/30B32LGTBP692/CoreLocation-L7TM93RJXN1K.pcm
+.build/debug/ModuleCache/30B32LGTBP692/EventKit-27J98EVJEBTRY.pcm

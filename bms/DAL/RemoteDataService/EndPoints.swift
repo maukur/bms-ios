@@ -23,5 +23,7 @@ class EndPoints {
     static let getEventCategoryList = "/MobileApi/EventLogs/EventCategoryList"
     static let postEventAddOrUpdate = "/MobileApi/EventLogs/SaveOrUpdate"
     static let getEventsByDate = "/MobileApi/EventLogs/GetEventLogsByDate"
+    static let getEventDetailById = "/MobileApi/EventLogs/GetById"
+    static let postDeleteEventById = "/MobileApi/EventLogs/Delete"
 }
 

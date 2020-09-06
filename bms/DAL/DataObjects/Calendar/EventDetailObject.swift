@@ -12,7 +12,7 @@ struct EventDetailObject:Codable {
     var eventCategoryId: String
     var reason: String
     var startDate: Date
-    var endDate: Date
+    var endDate: Date?
     var status: StatusEnum
 }
 

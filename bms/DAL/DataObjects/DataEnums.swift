@@ -9,5 +9,5 @@ enum StatusEnum: Int, Codable {
         case none = -1
         case created = 0
         case approved = 1
-        case declined = 2
+        case denied = 2
 }

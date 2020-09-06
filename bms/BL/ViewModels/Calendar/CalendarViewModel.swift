@@ -17,20 +17,22 @@ class CalendarViewModel: BaseViewModel {
 	var selectedDate = Date()
 
 	func addNewItem(dates: [Date]) {
-		navigateTo(modules: ["NewEvent"], mode: .modalNavigation)
-		for date in dates {
-			//events.append(EventObject(id: "", typeId: "", title: "test", startDate: NSDate(), endDate: Ns))
-		}
-		onSetEvents?()
+		navigateTo(modules: ["EventEdit"], mode: .modalNavigation, navigationParams: ["didDataChange": {[weak self] in
+			self?.loadData()
+			self?.didSelectDate(date: self!.selectedDate)}])
 	}
 
 	func didSelectItem(item: Any) {
-
+		let eventId = (item as? EventObject)?.id
+		navigateTo(modules: ["EventEdit"], mode: .modalNavigation, navigationParams: ["eventId": eventId, "didDataChange": {[weak self] in
+			self?.loadData()
+			self?.didSelectDate(date: self!.selectedDate)}])
 	}
 
 	func didSelectDate(date: Date) {
 		selectedDate = date
 		showLoading()
+
 		DataServices.calendarDataService?.getEventsByDate(date: date,
 				completionHandler: {
 					[weak self] eventDetailObjects in
@@ -55,12 +57,8 @@ class CalendarViewModel: BaseViewModel {
 					}
 
 					self.allEvents = events
-//                self.events = events.filter({ event -> Bool in
-//                    event.startDate < self.selectedDate && event.endDate > self.selectedDate
-//                })
 					self.onSetEvents?()
 					self.State = "normal"
-
 				},
 				errorHandler: {
 					[weak self] message in

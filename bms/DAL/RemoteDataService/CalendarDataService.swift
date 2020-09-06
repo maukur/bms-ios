@@ -25,4 +25,14 @@ class CalendarDataService: BaseRemoteDataService, CalendarProtocol {
 	func getEventsByDate(date: Date, completionHandler: @escaping ([EventObject]) -> (), errorHandler: ((String) -> ())?) {
 		ex(url: EndPoints.getEventsByDate, parameters: ["date": date], completionHandler: completionHandler, errorHandler: errorHandler)
 	}
+
+	func getEventDetailObjectById(guid: String, completionHandler: @escaping (EventDetailObject) -> (), errorHandler: ((String) -> ())?) {
+		ex(url: EndPoints.getEventDetailById, parameters: ["eventLogId": guid], completionHandler: completionHandler, errorHandler: errorHandler)
+	}
+
+	func removeEventById(guid: String, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?){
+		ex(url: EndPoints.postDeleteEventById, method: .post, parameters: ["eventLogId": guid], encoding: URLEncoding.queryString, completionHandler: completionHandler, errorHandler: errorHandler)
+	}
+
+
 }

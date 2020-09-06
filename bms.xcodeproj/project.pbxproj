@@ -12,7 +12,7 @@
 		22412FA924EEEB3C00E5DA93 /* EventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22412FA824EEEB3C00E5DA93 /* EventEditViewController.swift */; };
 		225D640E24EBD66300F34076 /* EditableProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D640D24EBD66300F34076 /* EditableProfileView.xib */; };
 		225D641024EBD69400F34076 /* EditableProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D640F24EBD69400F34076 /* EditableProfileView.swift */; };
-		226B293F24F2782B00B22EFD /* NewEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B293E24F2782B00B22EFD /* NewEventViewModel.swift */; };
+		226B293F24F2782B00B22EFD /* EventEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B293E24F2782B00B22EFD /* EventEditViewModel.swift */; };
 		2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */; };
 		2283073024E6DE3D00A6E1A7 /* UserInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */; };
 		2283073224E6DF4900A6E1A7 /* UserInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283073124E6DF4900A6E1A7 /* UserInfoObject.swift */; };
@@ -98,7 +98,7 @@
 		22412FA824EEEB3C00E5DA93 /* EventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewController.swift; sourceTree = "<group>"; };
 		225D640D24EBD66300F34076 /* EditableProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableProfileView.xib; sourceTree = "<group>"; };
 		225D640F24EBD69400F34076 /* EditableProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableProfileView.swift; sourceTree = "<group>"; };
-		226B293E24F2782B00B22EFD /* NewEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewModel.swift; sourceTree = "<group>"; };
+		226B293E24F2782B00B22EFD /* EventEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewModel.swift; sourceTree = "<group>"; };
 		2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataService.swift; sourceTree = "<group>"; };
 		2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDto.swift; sourceTree = "<group>"; };
 		2283073124E6DF4900A6E1A7 /* UserInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoObject.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 		226B293D24F277CA00B22EFD /* NewEvent */ = {
 			isa = PBXGroup;
 			children = (
-				226B293E24F2782B00B22EFD /* NewEventViewModel.swift */,
+				226B293E24F2782B00B22EFD /* EventEditViewModel.swift */,
 			);
 			path = NewEvent;
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 				221BACE324F2C72E0080F590 /* EventCategoryObject.swift in Sources */,
 				D0A10E4C24DD5D82008EE4AF /* PhotoService.swift in Sources */,
 				22C881C024E5881E0069E07D /* ProfileViewModel.swift in Sources */,
-				226B293F24F2782B00B22EFD /* NewEventViewModel.swift in Sources */,
+				226B293F24F2782B00B22EFD /* EventEditViewModel.swift in Sources */,
 				D0729E1824FFE2FD0057A874 /* CachedDataService.swift in Sources */,
 				D02850F224D93F1B005AA6FF /* ExpenseCategoryObject.swift in Sources */,
 				D026EAE624A23D6800EF2248 /* UserProtocol.swift in Sources */,
