@@ -22,5 +22,6 @@ class EndPoints {
     static let postExpenseAddOrUpdate = "/MobileApi/Expenses/SaveOrUpdate"
     static let getEventCategoryList = "/MobileApi/EventLogs/EventCategoryList"
     static let postEventAddOrUpdate = "/MobileApi/EventLogs/SaveOrUpdate"
+    static let getEventsByDate = "/MobileApi/EventLogs/GetEventLogsByDate"
 }
 

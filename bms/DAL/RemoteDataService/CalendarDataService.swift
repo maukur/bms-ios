@@ -22,6 +22,7 @@ class CalendarDataService: BaseRemoteDataService, CalendarProtocol {
 		ex(url: EndPoints.postEventAddOrUpdate, body: event, method: .post, completionHandler: completionHandler, errorHandler: errorHandler)
 	}
 
-
-
+	func getEventsByDate(date: Date, completionHandler: @escaping ([EventObject]) -> (), errorHandler: ((String) -> ())?) {
+		ex(url: EndPoints.getEventsByDate, parameters: ["date": date], completionHandler: completionHandler, errorHandler: errorHandler)
+	}
 }

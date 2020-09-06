@@ -10,9 +10,9 @@ import UIKit
 
 class EventViewCell: UITableViewCell, InitializedViewCell {
     func initialize(item: Any) {
-        //let value = item as! EventObject
-        //descriptionLabel.text =  value.title
-        //descriptionLabel.font = .systemFont(ofSize: 12)
+        let value = item as! EventObject
+        descriptionLabel.text =  value.reason
+        descriptionLabel.font = .systemFont(ofSize: 12)
     }
     
     

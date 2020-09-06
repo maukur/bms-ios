@@ -20,8 +20,7 @@ class CalendarViewController: BaseViewController {
 		getViewModel()
 	}()
 	private lazy var tableDataSource: DefaultTableViewDataSource = {
-		DefaultTableViewDataSource(items: [])
-		//self.viewModel.events
+		DefaultTableViewDataSource(items: self.viewModel.events)
 	}()
 	private lazy var tableDelegate: DefaultTableViewDelegate = {
 		DefaultTableViewDelegate(didSelectRow: self.viewModel.didSelectItem)
@@ -58,6 +57,9 @@ class CalendarViewController: BaseViewController {
 			self?.viewModel.allEvents.forEach({
 				self?.calendarView.events.append(CalendarEvent(title: "", startDate: $0, endDate: $0))
 			})
+		}
+		viewModel.onSetEventsByDate = {
+			[weak self] in
 			self?.tableView.reloadData()
 		}
 	}
@@ -77,15 +79,14 @@ class CalendarViewController: BaseViewController {
 
 extension CalendarViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		0
-		//viewModel.events.count
+		viewModel.events.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell")!
 		let initializedCell = cell as? InitializedViewCell
-		//let item = viewModel.events[indexPath.row]
-		//initializedCell?.initialize(item: item )
+		let item = viewModel.events[indexPath.row]
+		initializedCell?.initialize(item: item )
 		return cell
 	}
 
