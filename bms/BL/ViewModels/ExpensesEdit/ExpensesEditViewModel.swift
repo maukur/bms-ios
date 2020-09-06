@@ -110,7 +110,7 @@ class ExpenseEditViewModel: BaseViewModel {
 
         let resultCategories = DataServices.cachedDataService?.getExpenseCategoryList()
         let resultPaymentTypes = DataServices.cachedDataService?.getExpensePaymentList()
-        let resultCurrencies = DataServices.cachedDataService?.getExpenseCurrnecyList()
+        let resultCurrencies = DataServices.cachedDataService?.getExpenseCurrencyList()
 
         self.onSetPaymentTypes?(resultPaymentTypes!)
         self.onSetCategories?(resultCategories!)

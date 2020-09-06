@@ -17,8 +17,12 @@ class CachedDataService:BaseRemoteDataService{
         ex(url: EndPoints.getCategoryList, completionHandler:  categoryCompletionHandler)
         ex(url: EndPoints.getPaymentTypeList, completionHandler: paymentCompletionHandler)
         ex(url: EndPoints.getCurrenciesList, completionHandler:  currencyCompletionHandler)
+        ex(url: EndPoints.getEventCategoryList, completionHandler: eventCategoryCompletionHandler)
     }
-    
+
+    private func eventCategoryCompletionHandler(result:[EventCategoryObject])  {
+        cache.setObject(result as NSArray, forKey: "eventCategoryObject")
+    }
     private func categoryCompletionHandler(result:[ExpenseCategoryObject])  {
         cache.setObject(result as NSArray, forKey: "expenseCategoryObject")
     }
@@ -30,14 +34,18 @@ class CachedDataService:BaseRemoteDataService{
     }
     
     func getExpenseCategoryList() -> [ExpenseCategoryObject] {
-        return cache.object(forKey: "expenseCategoryObject") as? [ExpenseCategoryObject] ?? []
+        cache.object(forKey: "expenseCategoryObject") as? [ExpenseCategoryObject] ?? []
     }
     
     func getExpensePaymentList() -> [PaymentTypeObject] {
-        return cache.object(forKey: "paymentTypeObject") as? [PaymentTypeObject] ?? []
+        cache.object(forKey: "paymentTypeObject") as? [PaymentTypeObject] ?? []
     }
     
-    func getExpenseCurrnecyList() -> [CurrencyObject] {
-        return cache.object(forKey: "currencyObject") as? [CurrencyObject] ?? []
+    func getExpenseCurrencyList() -> [CurrencyObject] {
+        cache.object(forKey: "currencyObject") as? [CurrencyObject] ?? []
+    }
+
+    func getEventCategoryList() -> [EventCategoryObject] {
+        cache.object(forKey: "eventCategoryObject") as? [EventCategoryObject] ?? []
     }
 }

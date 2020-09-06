@@ -15,10 +15,13 @@ class CalendarDataService: BaseRemoteDataService, CalendarProtocol {
 	}
 
 	func getEventTypeList(completionHandler: @escaping ([EventCategoryObject]) -> (), errorHandler: ((String) -> ())?) {
-		ex(url: EndPoints.getEventTypeList, completionHandler: completionHandler, errorHandler: errorHandler)
+		ex(url: EndPoints.getEventCategoryList, completionHandler: completionHandler, errorHandler: errorHandler)
 	}
 
 	func addOrUpdate(event: EventDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
 		ex(url: EndPoints.postEventAddOrUpdate, body: event, method: .post, completionHandler: completionHandler, errorHandler: errorHandler)
 	}
+
+	
+
 }

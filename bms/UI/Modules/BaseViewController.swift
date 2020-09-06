@@ -68,8 +68,7 @@ class BaseViewController: UIViewController {
         self.baseViewModel?.viewDidLoad()
         self.baseViewModel?.loadData()
     }
-    
-    
+
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

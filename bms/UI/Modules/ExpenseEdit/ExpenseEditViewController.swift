@@ -218,20 +218,7 @@ class ExpenseEditViewController: BaseViewController
     @IBAction func getPhotoFromCameraAction(_ sender: Any) {
         viewModel.getPhotoFromCamera()
     }
-    
-    func doneTextFieldButton(textField:UITextField) {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
-        toolBar.setItems([button], animated: true)
-        toolBar.isUserInteractionEnabled = true
-        textField.inputAccessoryView = toolBar
-    }
-    
-    @objc func action() {
-        view.endEditing(true)
-    }
-    
+
     @IBAction func priceChanged(_ sender: UITextField) {
         let value = Double(sender.text!) ?? 0.0
         viewModel.didSelectPrice(value: value)

@@ -29,11 +29,23 @@ class NewEventViewController: BaseViewController {
         endDateLabel.textColor = selectDateFormatSwitch.isOn ? .black : .gray
         endDateField.textColor = selectDateFormatSwitch.isOn ? .black : .gray
     }
+    
+    @objc func handleStartDatePicker(_ datePicker: UIDatePicker) {
+        startDateField.text = datePicker.date.toString()
+        viewModel.didStartDateChange(date: datePicker.date)
+    }
+    @objc func handleEndDatePicker(_ datePicker: UIDatePicker) {
+        endDateField.text = datePicker.date.toString()
+        viewModel.didEndDateChange(date: datePicker.date)
+    }
     @IBAction func onSaveButtonClicked(_ sender: Any) {
         viewModel.addOrUpdateEvent()
     }
     @IBAction func onCancelButtonClicked(_ sender: Any) {
         viewModel.navigateBack(mode: .modal)
+    }
+    @IBAction func descriptionTextChanged(_ sender: Any) {
+        viewModel.didDescriptionTextChange(text: descriptionField.text!)
     }
     
     
@@ -56,18 +68,10 @@ class NewEventViewController: BaseViewController {
             guard let self = self else { return }
             
             self.createEventTypePickerView(items: data)
-            self.eventTypeField.text = self.viewModel.eventTypeList.first?.name
+            self.eventTypeField.text = self.viewModel.eventCategoryList!.first!.name
         }
     }
-    
-    @objc func handleStartDatePicker(_ datePicker: UIDatePicker) {
-        startDateField.text = datePicker.date.toString()
-    }
-    @objc func handleEndDatePicker(_ datePicker: UIDatePicker) {
-        startDateField.text = datePicker.date.toString()
-    }
-    
-    
+
     
     func createEventTypePickerView(items:[EventCategoryObject]) {
         let pickerView = DefaultUIPickerView()

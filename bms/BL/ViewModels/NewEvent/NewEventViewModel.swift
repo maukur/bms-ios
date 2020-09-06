@@ -11,7 +11,7 @@ import Foundation
 class NewEventViewModel: BaseViewModel {
     
     var onEventTypListLoaded: (([EventCategoryObject])  -> Void)?
-    var eventTypeList: [EventCategoryObject] = []
+    var eventCategoryList: [EventCategoryObject]?
     var event: EventDetailObject?
 
 
@@ -19,6 +19,17 @@ class NewEventViewModel: BaseViewModel {
         event?.eventCategoryId = item.id
     }
 
+    func didDescriptionTextChange(text: String) {
+        event?.reason = text
+    }
+    
+    func didStartDateChange(date: Date) {
+        event?.startDate = date
+    }
+    func didEndDateChange(date: Date) {
+        event?.endDate = date
+    }
+    
     func addOrUpdateEvent() {
         showLoading()
         DataServices.calendarDataService?.addOrUpdate(
@@ -37,35 +48,16 @@ class NewEventViewModel: BaseViewModel {
 
     override func viewDidLoad() {
         showLoading()
-
-
+        //let resultCurrencies = DataServices.cachedDataService?.getExpenseCurrencyList()
+        eventCategoryList = DataServices.cachedDataService?.getEventCategoryList()
         if(event == nil){
             event = EventDetailObject(id: "",
-                    eventCategoryId: "", //TODO
+                    eventCategoryId: eventCategoryList!.first!.id,
                     reason: "",
                     startDate: Date(),
                     endDate: Date(),
                     status: .created)
         }
-
-
-        DataServices.calendarDataService?.getEventTypeList(
-            completionHandler: { data in
-                DispatchQueue.main.async {
-                    [weak self] in
-                    guard let self = self else { return }
-                    self.eventTypeList = data
-                    self.onEventTypListLoaded?(self.eventTypeList)
-                    self.hideLoading()
-                    
-                }
-        },
-            errorHandler: {
-                [weak self] message in
-                guard let self = self else { return }
-                self.hideLoading()
-                self.showAlert(title: message)
-                
-        })
+        self.onEventTypListLoaded?(self.eventCategoryList!)
     }
 }

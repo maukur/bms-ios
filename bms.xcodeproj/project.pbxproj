@@ -20,6 +20,7 @@
 		22C881BD24E583780069E07D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C881BC24E583780069E07D /* ProfileViewController.swift */; };
 		22C881C024E5881E0069E07D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C881BF24E5881E0069E07D /* ProfileViewModel.swift */; };
 		62D9B011E374F7909670BB48 /* EventDetailObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9B2C09AFDF32C08F993A8 /* EventDetailObject.swift */; };
+		62D9B0C42D00138673F62281 /* UIExtensions .swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9BA7E81DD2B2ABAAD9209 /* UIExtensions .swift */; };
 		62D9B8E229FECB3EA45E6186 /* DataEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9BD13573B2A5EEBDF9175 /* DataEnums.swift */; };
 		D00355B424BDCA5000C73CA5 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00355B324BDCA5000C73CA5 /* ExpensesViewModel.swift */; };
 		D00355B724BDCA9C00C73CA5 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00355B624BDCA9C00C73CA5 /* ExpensesViewController.swift */; };
@@ -105,6 +106,7 @@
 		22C881BC24E583780069E07D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		22C881BF24E5881E0069E07D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		62D9B2C09AFDF32C08F993A8 /* EventDetailObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailObject.swift; sourceTree = "<group>"; };
+		62D9BA7E81DD2B2ABAAD9209 /* UIExtensions .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIExtensions .swift"; sourceTree = "<group>"; };
 		62D9BD13573B2A5EEBDF9175 /* DataEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEnums.swift; sourceTree = "<group>"; };
 		D00355B324BDCA5000C73CA5 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
 		D00355B624BDCA9C00C73CA5 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				D026EA2924A2375800EF2248 /* BaseViewController.swift */,
 				D026EA3324A2375800EF2248 /* User */,
 				62D9B3F2AB31064291F4DFA4 /* NewEvent */,
+				62D9BA7E81DD2B2ABAAD9209 /* UIExtensions .swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -809,6 +812,7 @@
 				2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */,
 				62D9B8E229FECB3EA45E6186 /* DataEnums.swift in Sources */,
 				62D9B011E374F7909670BB48 /* EventDetailObject.swift in Sources */,
+				62D9B0C42D00138673F62281 /* UIExtensions .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
