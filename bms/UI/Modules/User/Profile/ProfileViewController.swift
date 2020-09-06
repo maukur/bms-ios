@@ -22,6 +22,16 @@ class ProfileViewController: BaseViewController {
     
     private lazy var viewModel: ProfileViewModel = { getViewModel() }()
     
+    @IBAction func didEditButtonClick(_ sender: Any) {
+        viewModel.updateUserInfo()
+    }
+    @IBAction func didExitButtonClick(_ sender: Any) {
+		viewModel.exit()
+    }
+    
+    @objc func phoneFieldDidChange(_: Any) {
+        viewModel.didPhoneChange(newPhone: self.phoneField.textField.text!)
+    }
     
     override func viewDidLoad() {
       
@@ -45,6 +55,7 @@ class ProfileViewController: BaseViewController {
         self.employedDateField.icon.isHidden = true
         self.seniorityField.titleLabel.text = "Стаж:"
         self.seniorityField.icon.isHidden = true
+        self.phoneField.textField.addTarget(self, action: #selector(phoneFieldDidChange(_:)), for: .editingChanged)
     }
 
     override func bind() {

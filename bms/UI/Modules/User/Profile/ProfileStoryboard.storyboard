@@ -66,7 +66,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlJ-6n-ak6">
-                                        <rect key="frame" x="20" y="764" width="374" height="44"/>
+                                        <rect key="frame" x="20" y="706" width="374" height="44"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Qyf-LC-oGI"/>
@@ -74,10 +74,27 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" title="Редактировать"/>
+                                        <connections>
+                                            <action selector="didEditButtonClick:" destination="6V1-vb-v0o" eventType="touchUpInside" id="ieT-j8-ilj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwd-dB-VRA">
+                                        <rect key="frame" x="20" y="758" width="374" height="44"/>
+                                        <color key="backgroundColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Oh2-lw-5cw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Выйти"/>
+                                        <connections>
+                                            <action selector="didExitButtonClick:" destination="6V1-vb-v0o" eventType="touchUpInside" id="ln3-NA-b9O"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="1DN-D3-caG" firstAttribute="bottom" secondItem="QSD-XF-DUU" secondAttribute="bottom" id="0AA-2A-n5x"/>
+                                    <constraint firstItem="Uwd-dB-VRA" firstAttribute="top" secondItem="FlJ-6n-ak6" secondAttribute="bottom" constant="8" id="0xX-pl-t7E"/>
                                     <constraint firstItem="1DN-D3-caG" firstAttribute="trailing" secondItem="QSD-XF-DUU" secondAttribute="trailing" constant="10" id="Dkd-6f-mZh"/>
                                     <constraint firstItem="1DN-D3-caG" firstAttribute="leading" secondItem="QSD-XF-DUU" secondAttribute="leading" constant="10" id="MfW-ZV-Tb1"/>
                                     <constraint firstItem="1DN-D3-caG" firstAttribute="top" secondItem="QSD-XF-DUU" secondAttribute="top" constant="10" id="dvT-us-wql"/>
@@ -91,11 +108,13 @@
                         <constraints>
                             <constraint firstItem="mdp-IQ-8Q2" firstAttribute="leading" secondItem="TAx-wV-OUL" secondAttribute="leading" id="8Qi-Bw-Hup"/>
                             <constraint firstItem="FlJ-6n-ak6" firstAttribute="leading" secondItem="TAx-wV-OUL" secondAttribute="leading" constant="20" id="9v4-yF-2l5"/>
+                            <constraint firstItem="TAx-wV-OUL" firstAttribute="trailing" secondItem="Uwd-dB-VRA" secondAttribute="trailing" constant="20" id="C07-3Y-TdY"/>
                             <constraint firstItem="TAx-wV-OUL" firstAttribute="trailing" secondItem="mdp-IQ-8Q2" secondAttribute="trailing" id="EKg-gd-SAV"/>
+                            <constraint firstItem="Uwd-dB-VRA" firstAttribute="leading" secondItem="TAx-wV-OUL" secondAttribute="leading" constant="20" id="Hy6-jC-g5d"/>
+                            <constraint firstItem="TAx-wV-OUL" firstAttribute="bottom" secondItem="Uwd-dB-VRA" secondAttribute="bottom" constant="16" id="Ocu-8E-vEa"/>
                             <constraint firstItem="mdp-IQ-8Q2" firstAttribute="top" secondItem="TAx-wV-OUL" secondAttribute="top" id="V27-NM-gAY"/>
                             <constraint firstItem="TAx-wV-OUL" firstAttribute="trailing" secondItem="FlJ-6n-ak6" secondAttribute="trailing" constant="20" id="sVt-sF-rBF"/>
                             <constraint firstItem="mdp-IQ-8Q2" firstAttribute="bottom" secondItem="TAx-wV-OUL" secondAttribute="bottom" id="u4E-GJ-pNv"/>
-                            <constraint firstItem="TAx-wV-OUL" firstAttribute="bottom" secondItem="FlJ-6n-ak6" secondAttribute="bottom" constant="10" id="w8s-Vi-Z71"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TAx-wV-OUL"/>
                     </view>

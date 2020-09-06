@@ -18,5 +18,9 @@ class UserRemoteDataService: BaseRemoteDataService, UserProtocol {
     func getUserInfo(completionHandler: @escaping (UserInfoDto) -> (), errorHandler: ((String) -> ())?) {
          ex(url: EndPoints.getUserInfo, completionHandler: completionHandler, errorHandler: errorHandler)
     }
+
+    func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
+        ex(url: EndPoints.postUpdateUserInto, body: userInfoForUpdate, method: .post, completionHandler: completionHandler, errorHandler: errorHandler)
+    }
     
 }

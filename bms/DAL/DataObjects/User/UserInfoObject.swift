@@ -10,9 +10,9 @@
 import Foundation
 
 struct UserInfoObject: Codable {
-    let fullName: String
-    let birthDate: Date
-    let employedDate: Date
-    let email: String
-    let phone: String
+    var fullName: String
+    var birthDate: Date
+    var employedDate: Date
+    var email: String
+    var phone: String
 }

@@ -16,7 +16,8 @@ class UserMockDataService: BaseMockDataService, UserProtocol {
     func getUserInfo(completionHandler: @escaping (UserInfoDto) -> (), errorHandler: ((String) -> ())?) {
             
     }
-   
-    
-    
+
+    func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
+
+    }
 }
