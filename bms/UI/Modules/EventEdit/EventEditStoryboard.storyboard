@@ -10,7 +10,7 @@
         <!--New Event View Controller-->
         <scene sceneID="NGr-hi-ChC">
             <objects>
-                <viewController id="xqK-Xm-s02" customClass="NewEventViewController" customModule="bms" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xqK-Xm-s02" customClass="EventEditViewController" customModule="bms" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="na6-Cy-fix">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

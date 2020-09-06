@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewEventViewController: BaseViewController {
+class EventEditViewController: BaseViewController {
     
     private lazy var viewModel: NewEventViewModel = { getViewModel() }()
     
