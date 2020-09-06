@@ -170,12 +170,15 @@
                         <viewLayoutGuide key="safeArea" id="rEl-R7-dhs"/>
                     </view>
                     <connections>
+                        <outlet property="createPhotoButton" destination="TAH-Cy-Kx8" id="9E1-a3-QPb"/>
                         <outlet property="currencyTextField" destination="cGF-9E-FdQ" id="GKn-l7-OrX"/>
                         <outlet property="datePickerTextField" destination="eOB-IP-0cX" id="Bqt-RH-IwX"/>
                         <outlet property="descriptionTextField" destination="ptJ-Uy-7d2" id="0RS-9n-8s6"/>
                         <outlet property="paymentTypeTextField" destination="lXR-eh-GXe" id="SUE-xx-ccI"/>
                         <outlet property="pickerCategoryTextField" destination="9OQ-6H-IyX" id="79v-ZY-bUX"/>
                         <outlet property="priceTextField" destination="BnQ-eX-81C" id="lbz-PE-9AV"/>
+                        <outlet property="saveButton" destination="tbT-Qo-ETI" id="hV7-5M-nIC"/>
+                        <outlet property="selectPhotoButton" destination="fBz-pv-otW" id="sGH-WC-yX7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nx7-IC-wB9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

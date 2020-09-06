@@ -15,7 +15,9 @@ class ExpenseEditViewController: BaseViewController
     @IBOutlet weak var paymentTypeTextField: UITextField!
     @IBOutlet weak var currencyTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
-    
+    @IBOutlet weak var createPhotoButton: UIButton!
+    @IBOutlet weak var selectPhotoButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var descriptionTextField: UITextField!
     
     private lazy var viewModel: ExpenseEditViewModel = { getViewModel() }()
@@ -66,19 +68,30 @@ class ExpenseEditViewController: BaseViewController
             self.priceTextField.text = String(value.amount)
             self.datePickerTextField.text =  value.date.toDate().toString()
             self.descriptionTextField.becomeFirstResponder()
-            if value.id == "" {
+        }
+        viewModel.didSetPageState = {
+            [weak self] status in
+            guard let self = self else { return }
+            switch status {
+            case .edit:
+                self.title = "Редактирование расходов"
+                let button = UIBarButtonItem(image: UIImage(named: "trash"), style: .plain, target: self, action: #selector(self.deleteButtonAction));
+                self.navigationItem.rightBarButtonItems = [button]
+                break
+            case .new:
                 self.title = "Добавление расходов"
                 let button = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.cancelButtonAction));
                 self.navigationItem.rightBarButtonItems = [button]
+                break
+            case .readOnly:
+                self.title = "Расходы"
+                let button = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.cancelButtonAction));
+                self.navigationItem.rightBarButtonItems = [button]
+                self.setReadOnlyState()
+                break
+            default:
+                break
             }
-            else {
-                self.title = "Редактирование расходов"
-                if value.status == .created  {
-                    let button = UIBarButtonItem(image: UIImage(named: "trash"), style: .plain, target: self, action: #selector(self.deleteButtonAction));
-                    self.navigationItem.rightBarButtonItems = [button]
-                }
-            }
-            
         }
         
     }
@@ -87,9 +100,22 @@ class ExpenseEditViewController: BaseViewController
     {
         viewModel.deleteItem()
     }
+    
     @objc func cancelButtonAction(sender: Any)
     {
-        viewModel.deleteItem()
+        viewModel.cancel()
+    }
+    
+    func setReadOnlyState() {
+        descriptionTextField.isEnabled = false
+        priceTextField.isEnabled = false
+        datePickerTextField.isEnabled = false
+        pickerCategoryTextField.isEnabled = false
+        currencyTextField.isEnabled = false
+        paymentTypeTextField.isEnabled = false
+        createPhotoButton.isHidden = true
+        selectPhotoButton.isHidden = true
+        saveButton.isHidden = true
     }
     
     func createCategoryPickerView(items:[ExpenseCategoryObject]) {

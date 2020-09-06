@@ -18,7 +18,8 @@ class ExpenseEditViewModel: BaseViewModel {
     var onSetCurrentDate: ((Date) -> Void)?
     var onSetCurrentPaymentType: ((PaymentTypeObject) -> Void)?
     var onSetCurrentItem: ((ExpenseDetailObject) -> Void)?
-    var didDataChange: () -> Void?
+    var didDataChange: (() -> ()?)?
+    var didSetPageState: ((expensePageState) -> Void)?
 
     var item: ExpenseDetailObject?
 
@@ -80,7 +81,7 @@ class ExpenseEditViewModel: BaseViewModel {
                 completionHandler: {
                     [weak self] in
                     self?.hideLoading()
-                    self?.didDataChange()
+                    self?.didDataChange?()
                     self?.navigateBack(mode: .modal)
                 },
                 errorHandler: {
@@ -116,10 +117,11 @@ class ExpenseEditViewModel: BaseViewModel {
         self.onSetCurrencies?(resultCurrencies!)
 
         let item = navigationParams["item"] as? ExpenseObject
-        self.didDataChange = navigationParams["didDataChange"] as! () -> Void?
+        self.didDataChange = navigationParams["didDataChange"] as! () -> ()?
 
 
         if (item == nil) {
+            self.didSetPageState?(.new)
             self.didSelectPaymentType(item: resultPaymentTypes!.first!)
             self.didSelectCurrency(item: resultCurrencies!.first!)
             self.didSelectCategory(item: resultCategories!.first!)
@@ -145,6 +147,10 @@ class ExpenseEditViewModel: BaseViewModel {
                         self.didSelectPaymentType(item: resultPaymentTypes!.first(where: { $0.id == result.paymentMethodId })!)
                         self.didSelectCurrency(item: resultCurrencies!.first(where: { $0.id == result.currencyId })!)
                         self.didSelectCategory(item: resultCategories!.first(where: { $0.id == result.expenseCategoryId })!)
+                        if result.status != .approved {
+                            self.didSetPageState?(.edit) }
+                        else {
+                            self.didSetPageState?(.readOnly) }
                         self.hideLoading()
                     },
                     errorHandler: {
@@ -155,4 +161,10 @@ class ExpenseEditViewModel: BaseViewModel {
 
 
     }
+}
+
+enum expensePageState {
+    case new
+    case edit
+    case readOnly
 }

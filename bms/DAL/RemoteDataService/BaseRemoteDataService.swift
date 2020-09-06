@@ -68,7 +68,7 @@ class BaseRemoteDataService {
         request.httpBody = body.toJSONData()
         AF.request(request)
                 .validate(statusCode: 200..<300)
-                .responseJSON {
+                .response {
             [weak self] response in
             guard let self = self else { return }
 
@@ -81,6 +81,7 @@ class BaseRemoteDataService {
                     self.unauthorized()
                 } else {
                     errorHandler?(error.errorDescription!)
+                    print(error)
                 }
             }
 
