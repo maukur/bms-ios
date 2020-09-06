@@ -14,7 +14,7 @@ class ProfileViewModel: BaseViewModel {
     var userInfo: UserInfoObject?
     var onDataLoaded: ((UserInfoObject?)  -> Void)?
 
-    
+
     func exit() {
         SettingsService.instance.token = ""
         self.navigateTo(modules: ["Login"], mode: .root)
@@ -40,7 +40,6 @@ class ProfileViewModel: BaseViewModel {
     override func viewDidLoad() {
         updateData()
     }
-    
     
     func updateData() {
         showLoading()

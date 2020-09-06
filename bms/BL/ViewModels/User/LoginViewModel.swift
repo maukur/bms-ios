@@ -12,7 +12,7 @@ class LoginViewModel: BaseViewModel {
     func loginAction(login: String?, password: String?) {
 
         showLoading()
-        DataServices.userDataService?.login(login: "sergey.selyutin@binwell.com", password: "473141481",
+        DataServices.userDataService?.login(login: login!, password: password!,
                 completionHandler: {
                     [weak self] result in
                     SettingsService.instance.token = result.token

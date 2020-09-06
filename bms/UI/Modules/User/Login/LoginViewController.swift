@@ -16,6 +16,10 @@ class LoginViewController: BaseViewController {
     
     private lazy var viewModel: LoginViewModel = { getViewModel() }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     @IBAction func loginAction(_ sender: Any) {
         viewModel.loginAction(login: self.login.text, password: self.password.text)
     }
