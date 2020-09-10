@@ -14,10 +14,5 @@ extension LoginDto {
 //    }
 }
 
-extension UserInfoDto {
-    var convert: UserInfoObject {
-        UserInfoObject(fullName: self.fullName, birthDate: self.birthDate.toDate(), employedDate: self.employedDate.toDate(), email: self.email, phone: self.phone)
-    }
-}
 
 

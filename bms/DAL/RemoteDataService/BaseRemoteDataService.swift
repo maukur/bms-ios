@@ -13,7 +13,7 @@ class BaseRemoteDataService {
         self.baseUrl = baseUrl
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd"
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(formatter)
         self.decoder = decoder
