@@ -49,7 +49,7 @@ class ProfileViewModel: BaseViewModel {
                 DispatchQueue.main.async {
                     [weak self] in
                     guard let self = self else { return }
-                    self.userInfo = userData.convert
+                    self.userInfo = userData
                     self.onDataLoaded?(self.userInfo)
                     self.hideLoading()
                 }

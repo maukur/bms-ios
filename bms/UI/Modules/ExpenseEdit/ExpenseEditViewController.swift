@@ -83,7 +83,7 @@ class ExpenseEditViewController: BaseViewController {
 			}
 			self.descriptionTextField.text = value.description
 			self.priceTextField.text = String(value.amount)
-			self.datePickerTextField.text = value.date.toDate().toString()
+			self.datePickerTextField.text = value.date.toString()
 			self.descriptionTextField.becomeFirstResponder()
 		}
 		viewModel.didSetPageState = {

@@ -31,7 +31,7 @@ class CalendarDataService: BaseRemoteDataService, CalendarProtocol {
 	}
 
 	func removeEventById(guid: String, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?){
-		ex(url: EndPoints.postDeleteEventById, method: .post, parameters: ["eventLogId": guid], encoding: URLEncoding.queryString, completionHandler: completionHandler, errorHandler: errorHandler)
+		ex(url: EndPoints.postDeleteEventById, method: .delete, parameters: ["eventLogId": guid], encoding: URLEncoding.queryString, completionHandler: completionHandler, errorHandler: errorHandler)
 	}
 
 

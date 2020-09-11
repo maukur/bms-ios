@@ -62,7 +62,7 @@ class ExpenseEditViewModel: BaseViewModel {
 
     func didSelectDate(date: Date) {
         onSetCurrentDate?(date)
-        self.item?.date = date.toString()
+        self.item?.date = date
 
     }
 
@@ -128,7 +128,7 @@ class ExpenseEditViewModel: BaseViewModel {
             self.item = ExpenseDetailObject(
                     id: "",
                     description: "",
-                    date: Date().toString(.dateTime),
+                    date: Date(),
                     amount: 0.0,
                     expenseCategoryId: resultCategories!.first!.id,
                     currencyId: resultCurrencies!.first!.id,
