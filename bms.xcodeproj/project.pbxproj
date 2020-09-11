@@ -23,6 +23,10 @@
 		62D9B0C42D00138673F62281 /* UIExtensions .swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9BA7E81DD2B2ABAAD9209 /* UIExtensions .swift */; };
 		62D9B8E229FECB3EA45E6186 /* DataEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9BD13573B2A5EEBDF9175 /* DataEnums.swift */; };
 		62D9BF96BE08C4650C4F0660 /* UserInfoForUpdateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9B22EB250C79186C625B8 /* UserInfoForUpdateObject.swift */; };
+		D0006D24250AB0AA00562FF5 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D026EA0724A235EB00EF2248 /* SDWebImageSwiftUI */; };
+		D0006D25250AB0AA00562FF5 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D026EA0A24A236B600EF2248 /* MBProgressHUD */; };
+		D0006D26250AB0AA00562FF5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D0DED8E024E4139A000C0407 /* Alamofire */; };
+		D0006D27250AB0AA00562FF5 /* KDCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D0082B5B24E570DD00ED1996 /* KDCalendar */; };
 		D00355B424BDCA5000C73CA5 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00355B324BDCA5000C73CA5 /* ExpensesViewModel.swift */; };
 		D00355B724BDCA9C00C73CA5 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00355B624BDCA9C00C73CA5 /* ExpensesViewController.swift */; };
 		D00355B924BDCAAE00C73CA5 /* ExpensesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00355B824BDCAAE00C73CA5 /* ExpensesStoryboard.storyboard */; };
@@ -76,6 +80,8 @@
 		D09C309A24C0BA1B00A214DD /* ExpensesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09C309924C0BA1B00A214DD /* ExpensesViewCell.xib */; };
 		D09C309C24C0BA3700A214DD /* ExpensesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C309B24C0BA3700A214DD /* ExpensesViewCell.swift */; };
 		D0A10E4C24DD5D82008EE4AF /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A10E4B24DD5D82008EE4AF /* PhotoService.swift */; };
+		D0AF19FA250BCC99005F1F23 /* SkyFloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AF19F9250BCC99005F1F23 /* SkyFloatingLabelTextField.framework */; };
+		D0AF19FB250BCC99005F1F23 /* SkyFloatingLabelTextField.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D0AF19F9250BCC99005F1F23 /* SkyFloatingLabelTextField.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D0C86A7E24F7C01900548D1D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C86A7D24F7C01900548D1D /* LoadingView.swift */; };
 		D0C86A8024F7C4B300548D1D /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0C86A7F24F7C4B300548D1D /* LoadingView.xib */; };
 		D0C86A8324F7C7A300548D1D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C86A8224F7C7A300548D1D /* ErrorView.swift */; };
@@ -92,6 +98,20 @@
 		D0EC947D24E139EB007D547A /* ExpenseRemoteDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC947C24E139EB007D547A /* ExpenseRemoteDataService.swift */; };
 		D0EC948024E16092007D547A /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC947F24E16092007D547A /* DateFormatters.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D0006D37250AB1FE00562FF5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D0AF19FB250BCC99005F1F23 /* SkyFloatingLabelTextField.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		221BACE224F2C72E0080F590 /* EventCategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategoryObject.swift; sourceTree = "<group>"; };
@@ -165,6 +185,7 @@
 		D09C309924C0BA1B00A214DD /* ExpensesViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpensesViewCell.xib; sourceTree = "<group>"; };
 		D09C309B24C0BA3700A214DD /* ExpensesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewCell.swift; sourceTree = "<group>"; };
 		D0A10E4B24DD5D82008EE4AF /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		D0AF19F9250BCC99005F1F23 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = Carthage/Build/iOS/SkyFloatingLabelTextField.framework; sourceTree = "<group>"; };
 		D0C86A7D24F7C01900548D1D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D0C86A7F24F7C4B300548D1D /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		D0C86A8224F7C7A300548D1D /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -187,6 +208,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0006D26250AB0AA00562FF5 /* Alamofire in Frameworks */,
+				D0006D25250AB0AA00562FF5 /* MBProgressHUD in Frameworks */,
+				D0AF19FA250BCC99005F1F23 /* SkyFloatingLabelTextField.framework in Frameworks */,
+				D0006D24250AB0AA00562FF5 /* SDWebImageSwiftUI in Frameworks */,
+				D0006D27250AB0AA00562FF5 /* KDCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +262,14 @@
 			path = EventEdit;
 			sourceTree = "<group>";
 		};
+		D0006D2A250AB17000562FF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0AF19F9250BCC99005F1F23 /* SkyFloatingLabelTextField.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D00355B224BDCA4100C73CA5 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +300,7 @@
 			children = (
 				D026E9BB24A2333400EF2248 /* bms */,
 				D026E9BA24A2333400EF2248 /* Products */,
+				D0006D2A250AB17000562FF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -663,6 +698,7 @@
 				D026E9B524A2333400EF2248 /* Sources */,
 				D026E9B624A2333400EF2248 /* Frameworks */,
 				D026E9B724A2333400EF2248 /* Resources */,
+				D0006D37250AB1FE00562FF5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -670,10 +706,10 @@
 			);
 			name = bms;
 			packageProductDependencies = (
-				D026EA0724A235EB00EF2248,
-				D026EA0A24A236B600EF2248,
-				D0DED8E024E4139A000C0407,
-				D0082B5B24E570DD00ED1996,
+				D026EA0724A235EB00EF2248 /* SDWebImageSwiftUI */,
+				D026EA0A24A236B600EF2248 /* MBProgressHUD */,
+				D0DED8E024E4139A000C0407 /* Alamofire */,
+				D0082B5B24E570DD00ED1996 /* KDCalendar */,
 			);
 			productName = bms;
 			productReference = D026E9B924A2333400EF2248 /* bms.app */;
@@ -704,10 +740,10 @@
 			);
 			mainGroup = D026E9B024A2333300EF2248;
 			packageReferences = (
-				D026EA0624A235EB00EF2248,
-				D026EA0924A236B600EF2248,
-				D0DED8DF24E4139A000C0407,
-				D0082B5A24E570DD00ED1996,
+				D026EA0624A235EB00EF2248 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				D026EA0924A236B600EF2248 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				D0DED8DF24E4139A000C0407 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D0082B5A24E570DD00ED1996 /* XCRemoteSwiftPackageReference "CalendarView" */,
 			);
 			productRefGroup = D026E9BA24A2333400EF2248 /* Products */;
 			projectDirPath = "";
@@ -954,6 +990,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G9XDHMDJ7N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = bms/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -972,6 +1012,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G9XDHMDJ7N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = bms/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1008,7 +1052,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D0082B5A24E570DD00ED1996 = {
+		D0082B5A24E570DD00ED1996 /* XCRemoteSwiftPackageReference "CalendarView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mmick66/CalendarView.git";
 			requirement = {
@@ -1016,7 +1060,7 @@
 				minimumVersion = 1.8.9;
 			};
 		};
-		D026EA0624A235EB00EF2248 = {
+		D026EA0624A235EB00EF2248 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
@@ -1024,7 +1068,7 @@
 				minimumVersion = 1.5.0;
 			};
 		};
-		D026EA0924A236B600EF2248 = {
+		D026EA0924A236B600EF2248 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
 			requirement = {
@@ -1032,7 +1076,7 @@
 				minimumVersion = 1.2.0;
 			};
 		};
-		D0DED8DF24E4139A000C0407 = {
+		D0DED8DF24E4139A000C0407 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1043,24 +1087,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D0082B5B24E570DD00ED1996 = {
+		D0082B5B24E570DD00ED1996 /* KDCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D0082B5A24E570DD00ED1996;
+			package = D0082B5A24E570DD00ED1996 /* XCRemoteSwiftPackageReference "CalendarView" */;
 			productName = KDCalendar;
 		};
-		D026EA0724A235EB00EF2248 = {
+		D026EA0724A235EB00EF2248 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D026EA0624A235EB00EF2248;
+			package = D026EA0624A235EB00EF2248 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
-		D026EA0A24A236B600EF2248 = {
+		D026EA0A24A236B600EF2248 /* MBProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D026EA0924A236B600EF2248;
+			package = D026EA0924A236B600EF2248 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
 			productName = MBProgressHUD;
 		};
-		D0DED8E024E4139A000C0407 = {
+		D0DED8E024E4139A000C0407 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D0DED8DF24E4139A000C0407;
+			package = D0DED8DF24E4139A000C0407 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -61,7 +61,7 @@ class CalendarViewController: BaseViewController {
 		}
 		viewModel.onSetEventsByDate = {
 			[weak self] in
-			self?.tableDelegate.items = self?.viewModel.events as! [Any]
+            self?.tableDelegate.items = self?.viewModel.events as! [Any]
 			self?.tableView.reloadData()
 		}
 	}

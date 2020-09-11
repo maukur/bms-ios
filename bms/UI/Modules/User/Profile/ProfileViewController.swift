@@ -56,6 +56,7 @@ class ProfileViewController: BaseViewController {
         self.seniorityField.titleLabel.text = "Стаж:"
         self.seniorityField.icon.isHidden = true
         self.phoneField.textField.addTarget(self, action: #selector(phoneFieldDidChange(_:)), for: .editingChanged)
+        
     }
 
     override func bind() {

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -24,7 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DialogService.initialize(getTopViewController:getTopViewController)
         DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unauthorized: self.unautorized)
         ImagePickService.initialize(getTopViewController:getTopViewController)
-         
+        
+       
+        
         return true
     }
     
@@ -43,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func unautorized() {
+        SettingsService.instance.token = ""
         let dic = ["modules": ["Login"],  "mode": NavigationService.navigationMode.root, "navigationParams": [:] as Dictionary<String, Any>] as [String : Any]
         SwiftEventBus.postToMainThread(Consts.instance.NavigationToMessage, sender: dic)
     }
