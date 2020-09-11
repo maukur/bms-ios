@@ -20,6 +20,5 @@ class SectionHeaderCell: UITableViewCell, InitializedViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .lightGray
     }
 }

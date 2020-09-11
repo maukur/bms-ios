@@ -82,6 +82,7 @@
 		D0A10E4C24DD5D82008EE4AF /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A10E4B24DD5D82008EE4AF /* PhotoService.swift */; };
 		D0AF19FA250BCC99005F1F23 /* SkyFloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AF19F9250BCC99005F1F23 /* SkyFloatingLabelTextField.framework */; };
 		D0AF19FB250BCC99005F1F23 /* SkyFloatingLabelTextField.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D0AF19F9250BCC99005F1F23 /* SkyFloatingLabelTextField.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D0AF1A00250C0723005F1F23 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AF19FF250C0723005F1F23 /* Styles.swift */; };
 		D0C86A7E24F7C01900548D1D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C86A7D24F7C01900548D1D /* LoadingView.swift */; };
 		D0C86A8024F7C4B300548D1D /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0C86A7F24F7C4B300548D1D /* LoadingView.xib */; };
 		D0C86A8324F7C7A300548D1D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C86A8224F7C7A300548D1D /* ErrorView.swift */; };
@@ -186,6 +187,7 @@
 		D09C309B24C0BA3700A214DD /* ExpensesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewCell.swift; sourceTree = "<group>"; };
 		D0A10E4B24DD5D82008EE4AF /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		D0AF19F9250BCC99005F1F23 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = Carthage/Build/iOS/SkyFloatingLabelTextField.framework; sourceTree = "<group>"; };
+		D0AF19FF250C0723005F1F23 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		D0C86A7D24F7C01900548D1D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D0C86A7F24F7C4B300548D1D /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		D0C86A8224F7C7A300548D1D /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				D026EA2524A2375800EF2248 /* Delegates */,
 				D026EA2824A2375800EF2248 /* Modules */,
 				D026EA3A24A2375800EF2248 /* Views */,
+				D0AF19FF250C0723005F1F23 /* Styles.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				D026EADF24A23D6800EF2248 /* LoginDto.swift in Sources */,
 				D026EA4424A2375800EF2248 /* LoginViewController.swift in Sources */,
 				2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */,
+				D0AF1A00250C0723005F1F23 /* Styles.swift in Sources */,
 				62D9B8E229FECB3EA45E6186 /* DataEnums.swift in Sources */,
 				62D9B011E374F7909670BB48 /* EventDetailObject.swift in Sources */,
 				62D9B0C42D00138673F62281 /* UIExtensions .swift in Sources */,

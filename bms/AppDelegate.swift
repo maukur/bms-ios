@@ -26,11 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unauthorized: self.unautorized)
         ImagePickService.initialize(getTopViewController:getTopViewController)
         
-       
-        
+        setupTabBar()
         return true
     }
-    
+    func setupTabBar(){
+        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().tintColor = .black
+        UITabBar.appearance().unselectedItemTintColor = Styles.colors.mainColor
+
+    }
     func getTopViewController() -> UIViewController? {
          if var topController = window?.rootViewController {
             while let presentedViewController = topController.presentedViewController {

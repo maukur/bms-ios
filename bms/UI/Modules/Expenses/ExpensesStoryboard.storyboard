@@ -27,15 +27,15 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="bS4-Oa-3jc"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="backward.end" catalog="system"/>
+                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="previousButtonAction:" destination="Uzb-IP-ed6" eventType="touchUpInside" id="NQU-Gc-lkn"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfh-CQ-Ih3">
                                         <rect key="frame" x="140" y="0.0" width="94" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                        <color key="textColor" red="0.0013262250000000001" green="0.76387274270000005" blue="0.82405644659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="right" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cna-cS-eNs">
@@ -44,7 +44,7 @@
                                             <constraint firstAttribute="height" constant="40" id="9Jk-aW-psE"/>
                                             <constraint firstAttribute="width" constant="20" id="asa-B3-xbX"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="forward.end" catalog="system"/>
+                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="nextButtonAction:" destination="Uzb-IP-ed6" eventType="touchUpInside" id="kLU-0E-AIC"/>
                                         </connections>
@@ -68,6 +68,8 @@
                         <viewLayoutGuide key="safeArea" id="Z2W-d2-DNy"/>
                     </view>
                     <connections>
+                        <outlet property="nextButton" destination="cna-cS-eNs" id="16T-8z-WW4"/>
+                        <outlet property="previousButton" destination="ciO-8R-Gkk" id="Rvb-XY-rN6"/>
                         <outlet property="tableView" destination="6jU-47-Ggp" id="rSr-EW-FUY"/>
                         <outlet property="yearLabel" destination="Mfh-CQ-Ih3" id="rPW-xw-l9B"/>
                     </connections>
@@ -77,8 +79,4 @@
             <point key="canvasLocation" x="-136.23188405797103" y="131.91964285714286"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="backward.end" catalog="system" width="128" height="120"/>
-        <image name="forward.end" catalog="system" width="128" height="120"/>
-    </resources>
 </document>

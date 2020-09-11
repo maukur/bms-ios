@@ -106,7 +106,7 @@ class NavigationService {
                 let title = Dictionaries.instance.tabBarSettings[modules[i]]!.0
                 let image = Dictionaries.instance.tabBarSettings[modules[i]]!.1
                 
-                tabBarController.tabBar.items?[i].image = UIImage(named: image)?.withRenderingMode(.alwaysOriginal)
+                tabBarController.tabBar.items?[i].image = UIImage(named: image)?.withRenderingMode(.alwaysTemplate)
                 tabBarController.tabBar.items?[i].title = title
             
         }

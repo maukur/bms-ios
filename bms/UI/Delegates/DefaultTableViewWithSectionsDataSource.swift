@@ -47,7 +47,6 @@ class DefaultTableViewWithSectionsDataSource:NSObject, UITableViewDataSource, UI
         initializedCell?.initialize(item: getKeyBySection(section: section))
         return cell
         
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,11 +56,14 @@ class DefaultTableViewWithSectionsDataSource:NSObject, UITableViewDataSource, UI
         return cell
     }
     
+     
+    
     let didSelectRow: (Any) -> Void
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectRow(items[getKeyBySection(section: indexPath.section)]![indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
