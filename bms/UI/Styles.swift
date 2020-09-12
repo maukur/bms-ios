@@ -21,7 +21,8 @@ class Styles {
         static let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
         static let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
         static let disabledColor = UIColor(red: 0.65, green: 0.66, blue: 0.66, alpha: 1.0)
-
+        static let accentColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
+        
     }
     class Fields {
         private init(){}
@@ -58,7 +59,14 @@ class Styles {
     class Buttons {
         private init(){}
         
-        
+        static func lightMainButton(view: UIView) {
+            guard let button = view as? UIButton else { return }
+            mainButton(view: button)
+            button.tintColor = Styles.Colors.mainColor
+            button.layer.borderColor = Styles.Colors.mainColor.cgColor
+            button.backgroundColor = .white
+            button.layer.borderWidth = 1
+        }
         static func mainButton(view: UIView) {
             guard let button = view as? UIButton else { return }
             button.backgroundColor = Styles.Colors.mainColor
