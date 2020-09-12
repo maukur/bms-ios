@@ -44,11 +44,6 @@ class EventViewCell: UITableViewCell, InitializedViewCell {
         descriptionLabel.text =  value.reason
         eventTypeLabel.text = value.type
         eventStatusView.backgroundColor = getColorByStatus(status: value.status)
-/*
-        startDateLabel.text = value.startDate.toString()
-        endDateLabel.text = value.endDate.toString()
-*/
-
     }
 
     
