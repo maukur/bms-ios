@@ -11,22 +11,29 @@ import UIKit
 class EventViewCell: UITableViewCell, InitializedViewCell {
 
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var eventTypeLabel: UILabel!
-    @IBOutlet weak var startDateLabel: UILabel!
-    @IBOutlet weak var endDateLabel: UILabel!
+    @IBOutlet weak var eventTypeLabel: UILabel!{
+        didSet{
+            eventTypeLabel.applayStyle(Styles.Labels.placeholderLabel(view:))
+        }
+    }
     @IBOutlet weak var eventStatusView: UIView!
+    @IBOutlet weak var container: UIView!{
+        didSet{
+            container.applayStyle(Styles.UIViews.shadowUIView)
+        }
+    }
     
 
     func getColorByStatus(status: StatusEnum) -> UIColor {
         switch status {
         case .created:
-             return .yellow
+            return UIColor(red: 154/255, green: 196/255, blue: 248/244, alpha: 1.0)
         case .approved:
-            return .green
+            return UIColor(red: 154/255, green: 237/255, blue: 204/244, alpha: 1.0)
         case .denied:
-            return .red
+            return UIColor(red: 227/255, green: 101/255, blue: 136/244, alpha: 1.0)
         case .none:
-            return .red
+            return UIColor(red: 227/255, green: 101/255, blue: 136/244, alpha: 1.0)
         }
 
     }

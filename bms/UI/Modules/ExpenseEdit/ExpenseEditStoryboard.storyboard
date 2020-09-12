@@ -48,7 +48,7 @@
                                             <constraint firstAttribute="height" constant="36" id="gpH-qg-hl5"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Сделать фото"/>
+                                        <state key="normal" title="Make photo"/>
                                         <connections>
                                             <action selector="getPhotoFromCameraAction:" destination="NI7-PE-erN" eventType="touchUpInside" id="o6l-EX-pCA"/>
                                         </connections>
@@ -57,7 +57,7 @@
                                         <rect key="frame" x="148" y="0.0" width="140" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Выбрать из галереи"/>
+                                        <state key="normal" title="Select from gallery"/>
                                         <connections>
                                             <action selector="getPhotoFromGalleryAction:" destination="NI7-PE-erN" eventType="touchUpInside" id="MKs-EW-HTU"/>
                                         </connections>
@@ -71,7 +71,7 @@
                                     <constraint firstAttribute="height" constant="36" id="jDH-v5-swl"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Сохранить"/>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveAction:" destination="NI7-PE-erN" eventType="touchUpInside" id="tFq-qx-Cjs"/>
                                 </connections>

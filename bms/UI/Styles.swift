@@ -49,10 +49,10 @@ class Styles {
         
         static func shadowUIView(view: UIView){
             view.layer.cornerRadius = 8
-            view.layer.shadowColor = UIColor.black.cgColor
-            view.layer.shadowOffset = CGSize(width: 0, height: 8.0)
+            view.layer.shadowColor = UIColor.gray.cgColor
+            view.layer.shadowOffset = CGSize(width: 0, height: 6.0)
             view.layer.shadowOpacity = 0.24
-            view.layer.shadowRadius = CGFloat(8.0)
+            view.layer.shadowRadius = CGFloat(6.0)
         }
     }
     
@@ -72,6 +72,22 @@ class Styles {
             button.backgroundColor = Styles.Colors.mainColor
             button.tintColor = .white
             button.layer.cornerRadius = 8
+        }
+    }
+    
+    class Labels {
+        static func placeholderLabel(view: UIView){
+            guard let label = view as? UILabel else { return }
+            label.textColor = UIColor.gray
+            label.font = .systemFont(ofSize: 13)
+        }
+        
+        static func dayLabel(view: UIView){
+            guard let label = view as? UILabel else { return }
+            label.layer.masksToBounds = true
+            label.layer.cornerRadius = 6
+            label.backgroundColor = Colors.mainColor
+            label.textColor = .white
         }
     }
     

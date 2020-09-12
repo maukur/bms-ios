@@ -10,8 +10,6 @@
 		221BACE324F2C72E0080F590 /* EventCategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BACE224F2C72E0080F590 /* EventCategoryObject.swift */; };
 		22412FA724EEEB1A00E5DA93 /* EventEditStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22412FA624EEEB1A00E5DA93 /* EventEditStoryboard.storyboard */; };
 		22412FA924EEEB3C00E5DA93 /* EventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22412FA824EEEB3C00E5DA93 /* EventEditViewController.swift */; };
-		225D640E24EBD66300F34076 /* EditableProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D640D24EBD66300F34076 /* EditableProfileView.xib */; };
-		225D641024EBD69400F34076 /* EditableProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D640F24EBD69400F34076 /* EditableProfileView.swift */; };
 		226B293F24F2782B00B22EFD /* EventEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B293E24F2782B00B22EFD /* EventEditViewModel.swift */; };
 		2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */; };
 		2283073024E6DE3D00A6E1A7 /* UserInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */; };
@@ -118,8 +116,6 @@
 		221BACE224F2C72E0080F590 /* EventCategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategoryObject.swift; sourceTree = "<group>"; };
 		22412FA624EEEB1A00E5DA93 /* EventEditStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventEditStoryboard.storyboard; sourceTree = "<group>"; };
 		22412FA824EEEB3C00E5DA93 /* EventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewController.swift; sourceTree = "<group>"; };
-		225D640D24EBD66300F34076 /* EditableProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableProfileView.xib; sourceTree = "<group>"; };
-		225D640F24EBD69400F34076 /* EditableProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableProfileView.swift; sourceTree = "<group>"; };
 		226B293E24F2782B00B22EFD /* EventEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewModel.swift; sourceTree = "<group>"; };
 		2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataService.swift; sourceTree = "<group>"; };
 		2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDto.swift; sourceTree = "<group>"; };
@@ -221,15 +217,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		220683F924E6F6F0001CE715 /* EditableProfileView */ = {
-			isa = PBXGroup;
-			children = (
-				225D640D24EBD66300F34076 /* EditableProfileView.xib */,
-				225D640F24EBD69400F34076 /* EditableProfileView.swift */,
-			);
-			path = EditableProfileView;
-			sourceTree = "<group>";
-		};
 		226B293D24F277CA00B22EFD /* NewEvent */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,7 +608,6 @@
 		D0C86A7A24F7BFC000548D1D /* States */ = {
 			isa = PBXGroup;
 			children = (
-				220683F924E6F6F0001CE715 /* EditableProfileView */,
 				D0C86A8424F7D46C00548D1D /* ErrorView */,
 				D0C86A8124F7C78900548D1D /* LoadingView */,
 				D019611624F7D7F700789A36 /* EmptyView.xib */,
@@ -766,7 +752,6 @@
 				D045409D24C09FCF00CA9A27 /* SectionHeaderCell.xib in Resources */,
 				D026E9C924A2333500EF2248 /* LaunchScreen.storyboard in Resources */,
 				D0C86A8624F7D48E00548D1D /* ErrorView.xib in Resources */,
-				225D640E24EBD66300F34076 /* EditableProfileView.xib in Resources */,
 				22C881BB24E583000069E07D /* ProfileStoryboard.storyboard in Resources */,
 				D01B9FCB24D238DA00E97A93 /* File.json in Resources */,
 				D09B475E24D87E52002ADD62 /* ExpenseEditStoryboard.storyboard in Resources */,
@@ -814,7 +799,6 @@
 				D026EADD24A23D6800EF2248 /* BaseMockDataService.swift in Sources */,
 				D0D5903624E694F700550C74 /* CalendarProtocol.swift in Sources */,
 				D026EA8E24A237F400EF2248 /* SettingsService.swift in Sources */,
-				225D641024EBD69400F34076 /* EditableProfileView.swift in Sources */,
 				D026EA8F24A237F400EF2248 /* NavigationService.swift in Sources */,
 				D0EC948024E16092007D547A /* DateFormatters.swift in Sources */,
 				D026EAE224A23D6800EF2248 /* EndPoints.swift in Sources */,

@@ -19,11 +19,7 @@ class ExpensesViewCell: UITableViewCell, InitializedViewCell {
     @IBOutlet weak var container: UIView!
            {
            didSet{
-               container.layer.cornerRadius = 8
-               container.layer.shadowColor = UIColor.black.cgColor
-               container.layer.shadowOffset = CGSize(width: 0, height: 4.0)
-               container.layer.shadowOpacity = 0.24
-               container.layer.shadowRadius = CGFloat(4.0)
+            container.applayStyle(Styles.UIViews.shadowUIView)
            }
        }
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -35,15 +31,7 @@ class ExpensesViewCell: UITableViewCell, InitializedViewCell {
     @IBOutlet weak var dayLabel: UILabel!
     {
         didSet{
-            dayLabel.layer.shouldRasterize = true;
-            dayLabel.layer.rasterizationScale = UIScreen.main.scale;
-            dayLabel.layer.masksToBounds = true
-            dayLabel.layer.cornerRadius = 6
-            dayLabel.layer.shadowColor = UIColor.black.cgColor
-            dayLabel.layer.shadowOffset = CGSize(width: 0, height: 10.0)
-            dayLabel.layer.shadowOpacity = 0.24
-            dayLabel.layer.shadowRadius = CGFloat(10.0)
-            dayLabel.textColor = .white
+            dayLabel.applayStyle(Styles.Labels.dayLabel)
         }
     }
     @IBOutlet weak var priceLabel: UILabel!

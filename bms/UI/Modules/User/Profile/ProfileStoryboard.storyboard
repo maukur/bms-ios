@@ -39,9 +39,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwp-QE-57F">
-                                <rect key="frame" x="16" y="418" width="288" height="46"/>
+                                <rect key="frame" x="16" y="428" width="288" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="puc-9e-X9F"/>
+                                    <constraint firstAttribute="height" constant="36" id="puc-9e-X9F"/>
                                 </constraints>
                                 <state key="normal" title="Save"/>
                                 <connections>
