@@ -11,41 +11,23 @@ import SkyFloatingLabelTextField
 
 class LoginViewController: BaseViewController {
     
-    let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
-    let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
-    let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
-    
+
     @IBOutlet weak var frame: UIView!
         {
         didSet{
-            frame.layer.cornerRadius = 8
-            frame.layer.shadowColor = UIColor.black.cgColor
-            frame.layer.shadowOffset = CGSize(width: 0, height: 8.0)
-            frame.layer.shadowOpacity = 0.24
-            frame.layer.shadowRadius = CGFloat(8.0)
+            frame.applayStyle(Styles.UIViews.shadowUIView)
         }
     }
     @IBOutlet weak var password: SkyFloatingLabelTextFieldWithIcon!  {
         didSet{
-            password.tintColor = overcastBlueColor
-            password.textColor = darkGreyColor
-            password.lineColor = lightGreyColor
-            password.iconType = .image
-            
-            password.selectedTitleColor = overcastBlueColor
-            password.selectedLineColor = overcastBlueColor
+            password.applayStyle(Styles.Fields.mainSkyFieldWithImage)
             password.iconImage = UIImage(named: "lock.fill")
         }
     }
     
     @IBOutlet weak var login: SkyFloatingLabelTextFieldWithIcon! {
         didSet{
-            login.tintColor = overcastBlueColor // the color of the blinking cursor
-            login.textColor = darkGreyColor
-            login.lineColor = lightGreyColor
-            login.iconType = .image
-            login.selectedTitleColor = overcastBlueColor
-            login.selectedLineColor = overcastBlueColor
+            login.applayStyle(Styles.Fields.mainSkyFieldWithImage)
             login.iconImage = UIImage(named: "person.fill")
         }
     }

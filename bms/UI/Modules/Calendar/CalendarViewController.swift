@@ -44,6 +44,7 @@ class CalendarViewController: BaseViewController {
 		calendarView.direction = .horizontal
 		calendarView.delegate = self
 		calendarView.dataSource = self
+		calendarView.style.cellEventColor = .orange
 		calendarView.multipleSelectionEnable = false
 		calendarView.setDisplayDate(today, animated: false)
 
@@ -72,10 +73,12 @@ class CalendarViewController: BaseViewController {
 
 	private func setupTableView() {
 		let eventNib = UINib.init(nibName: "EventViewCell", bundle: nil)
+        tableView.rowHeight = UITableView.automaticDimension
 		tableView.separatorStyle = .none
 		tableView.register(eventNib, forCellReuseIdentifier: "DefaultCell")
 		tableView.delegate = tableDelegate
 		tableView.dataSource = self
+        
 	}
 
 }

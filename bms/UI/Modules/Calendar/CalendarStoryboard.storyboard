@@ -23,14 +23,14 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-AV-i5G">
-                                <rect key="frame" x="20" y="434" width="374" height="428"/>
+                                <rect key="frame" x="0.0" y="434" width="414" height="428"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ulc-0k-IAn" firstAttribute="trailing" secondItem="f1z-AV-i5G" secondAttribute="trailing" constant="20" id="0QZ-Ky-CRW"/>
-                            <constraint firstItem="f1z-AV-i5G" firstAttribute="leading" secondItem="ulc-0k-IAn" secondAttribute="leading" constant="20" id="7H9-Fm-rSU"/>
+                            <constraint firstItem="ulc-0k-IAn" firstAttribute="trailing" secondItem="f1z-AV-i5G" secondAttribute="trailing" id="0QZ-Ky-CRW"/>
+                            <constraint firstItem="f1z-AV-i5G" firstAttribute="leading" secondItem="ulc-0k-IAn" secondAttribute="leading" id="7H9-Fm-rSU"/>
                             <constraint firstItem="vjQ-VQ-dH7" firstAttribute="leading" secondItem="ulc-0k-IAn" secondAttribute="leading" constant="20" id="KXr-Kt-jPR"/>
                             <constraint firstItem="vjQ-VQ-dH7" firstAttribute="top" secondItem="ulc-0k-IAn" secondAttribute="top" id="NU6-gV-1f4"/>
                             <constraint firstItem="f1z-AV-i5G" firstAttribute="top" secondItem="vjQ-VQ-dH7" secondAttribute="bottom" constant="8" id="Vh6-2N-VOW"/>
