@@ -44,6 +44,7 @@ class CalendarViewController: BaseViewController {
 		calendarView.direction = .horizontal
 		calendarView.delegate = self
 		calendarView.dataSource = self
+		calendarView.style.cellEventColor = .orange
 		calendarView.multipleSelectionEnable = false
 		calendarView.setDisplayDate(today, animated: false)
 

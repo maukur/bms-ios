@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupTabBar(){
         UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().tintColor = .black
-        UITabBar.appearance().unselectedItemTintColor = Styles.colors.mainColor
+        UITabBar.appearance().unselectedItemTintColor = Styles.Colors.mainColor
     }
     
     func setupNavigationBar() {
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.tintColor = .white
         navigationBarAppearace.barStyle = .black
         navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationBarAppearace.barTintColor = Styles.colors.navBarColor
+        navigationBarAppearace.barTintColor = Styles.Colors.navBarColor
         navigationBarAppearace.shadowImage =  UIImage()
     }
     

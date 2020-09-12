@@ -6,18 +6,22 @@
 //  Copyright © 2020 Artem Tischenko. All rights reserved.
 //
 
-import Foundation
+
 import UIKit
+import SkyFloatingLabelTextField
 
 class EditableProfileView: UIView {
 
     let nibName = "EditableProfileView"
     
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: SkyFloatingLabelTextField!{
+        didSet{
+            textField.applayStyle(Styles.Fields.mainSkyField)
+        }
+    }
     private var inEditing = false
     
     @objc func onIconClicked(sender: Any) {

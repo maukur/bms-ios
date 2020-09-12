@@ -95,3 +95,5 @@ bms.xcodeproj/xcuserdata/macos.xcuserdatad/xcschemes/xcschememanagement.plist
 .build/debug/ModuleCache/CoreLocation-1ASZCQR8SIL8A.swiftmodule
 .build/debug/ModuleCache/30B32LGTBP692/CoreLocation-L7TM93RJXN1K.pcm
 .build/debug/ModuleCache/30B32LGTBP692/EventKit-27J98EVJEBTRY.pcm
+Carthage
+Cartfile.resolved
