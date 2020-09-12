@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import KDCalendar
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,14 +26,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unauthorized: self.unautorized)
         ImagePickService.initialize(getTopViewController:getTopViewController)
         
-
+        
+        setupCalendarView()
         setupTabBar()
         setupNavigationBar()
         return true
     }
     
     
-    
+    func setupCalendarView()  {
+        let style = CalendarView.Style()
+                  
+        style.cellColorToday = Styles.colors.mainColor
+        style.cellTextColorToday = .white
+        
+        style.cellSelectedBorderWidth = 1.0
+        style.cellSelectedBorderColor  = Styles.colors.mainColor
+        
+        style.weekdaysBackgroundColor = Styles.colors.mainColor
+        style.weekdaysTextColor = .white
+        
+        style.headerBackgroundColor = Styles.colors.mainColor
+        style.headerTextColor = .white
+        
+        style.cellColorDefault = .white
+        style.cellTextColorDefault = Styles.colors.mainColor
+        style.cellBorderWidth = 1.0
+        style.cellBorderColor = Styles.colors.mainColor
+        
+        CalendarView.Style.Default = style
+    }
     
     func setupTabBar(){
         UITabBar.appearance().backgroundColor = .white
