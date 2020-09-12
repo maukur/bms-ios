@@ -13,9 +13,9 @@ import Foundation
     static let instance = Dictionaries()
 
     let tabBarSettings :Dictionary<String, (String, String)> = [
-        "Calendar":("Calendar", "calendar"),
-        "Expenses":("Expenses", "dollarsign.circle"),
-        "Profile":("Profile", "person.circle"),
+        "Calendar":("CALENDAR", "calendar"),
+        "Expenses":("EXPENSES", "dollarsign.circle"),
+        "Profile":("PROFILE", "person.circle"),
 
     ]
 }

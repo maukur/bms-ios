@@ -170,7 +170,7 @@ class BaseRemoteDataService {
 
     private func debugPrintResponse(response: AFDataResponse<Data?>) {
         #if DEBUG
-        print("URL: \(response.response?.url)")
+        print("URL: \(String(describing: response.response!.url))")
         if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
             print("Data: \(utf8Text)")
         }

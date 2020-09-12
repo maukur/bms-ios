@@ -26,17 +26,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unauthorized: self.unautorized)
         ImagePickService.initialize(getTopViewController:getTopViewController)
         
+
         setupTabBar()
+        setupNavigationBar()
         return true
     }
+    
+    
+    
+    
     func setupTabBar(){
         UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().tintColor = .black
         UITabBar.appearance().unselectedItemTintColor = Styles.colors.mainColor
-
     }
+    
+    func setupNavigationBar() {
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = .white
+        navigationBarAppearace.barStyle = .black
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationBarAppearace.barTintColor = Styles.colors.navBarColor
+        navigationBarAppearace.shadowImage =  UIImage()
+    }
+    
     func getTopViewController() -> UIViewController? {
-         if var topController = window?.rootViewController {
+        if var topController = window?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
             }

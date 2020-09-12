@@ -98,7 +98,7 @@ class EventEditViewModel: BaseViewModel {
 					completionHandler: {
 						[weak self] eventDetailObject in
 						self?.event = eventDetailObject
-						var eventStatus = eventDetailObject.status
+						let eventStatus = eventDetailObject.status
 						if (eventStatus == StatusEnum.created) {
 							self?.didSetPageState?(.edit)
 						}

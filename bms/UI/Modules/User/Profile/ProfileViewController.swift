@@ -36,7 +36,7 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
       
         super.viewDidLoad()
-        title = "Profile"
+        title = "PROFILE"
         dismissKeyboardAction = {
             [weak self]  field in
             guard let self = self else { return }

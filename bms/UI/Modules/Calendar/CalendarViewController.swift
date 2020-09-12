@@ -34,7 +34,7 @@ class CalendarViewController: BaseViewController {
 	}
 
 	func setupToolbar() {
-		title = "Calendar"
+		title = "CALENDAR"
 		let button = UIBarButtonItem(title: "Добавить", style: .plain, target: self, action: #selector(addTapped));
 		self.navigationItem.rightBarButtonItems = [button]
 	}
@@ -61,7 +61,7 @@ class CalendarViewController: BaseViewController {
 		}
 		viewModel.onSetEventsByDate = {
 			[weak self] in
-            self?.tableDelegate.items = self?.viewModel.events as! [Any]
+            self?.tableDelegate.items = (self?.viewModel.events)!
 			self?.tableView.reloadData()
 		}
 	}

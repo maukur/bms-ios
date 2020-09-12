@@ -23,7 +23,7 @@ class CalendarViewModel: BaseViewModel {
 	}
 
 	func didSelectItem(item: Any) {
-		let eventId = (item as? EventObject)?.id
+		let eventId = (item as? EventObject)!.id
 		navigateTo(modules: ["EventEdit"], mode: .modalNavigation, navigationParams: ["eventId": eventId, "didDataChange": {[weak self] in
 			self?.loadData()
 			self?.didSelectDate(date: self!.selectedDate)}])

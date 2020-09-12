@@ -117,7 +117,7 @@ class ExpenseEditViewModel: BaseViewModel {
         self.onSetCurrencies?(resultCurrencies!)
 
         let item = navigationParams["item"] as? ExpenseObject
-        self.didDataChange = navigationParams["didDataChange"] as! () -> ()?
+        self.didDataChange = navigationParams["didDataChange"] as? () -> ()?
 
 
         if (item == nil) {

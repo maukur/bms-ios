@@ -16,8 +16,9 @@ class Styles {
     
     class Colors {
         private init(){}
-        static let instance = Colors()
+        fileprivate static let instance = Colors()
 
-        let mainColor = UIColor(red: 0.0013262250000000001, green: 0.76387274270000005, blue: 0.82405644659999999, alpha: 1)
-    }
+        let navBarColor = UIColor(red: 0.0013262250000000001, green: 0.76387274270000005, blue: 0.82405644659999999, alpha: 1)
+        let mainColor = UIColor(red: 0.38310644030000002, green: 0.78301173449999995, blue: 0.83530688289999999, alpha: 1)
+     }
 }
