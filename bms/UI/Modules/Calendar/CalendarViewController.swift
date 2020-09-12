@@ -14,7 +14,12 @@ class CalendarViewController: BaseViewController {
 
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var calendarView: CalendarView!
-
+   
+    @IBOutlet weak var titleBackgoundView: UIView!{
+          didSet{
+              titleBackgoundView.backgroundColor = Styles.Colors.mainColor
+          }
+      }
 
 	private lazy var viewModel: CalendarViewModel = {
 		getViewModel()
@@ -26,7 +31,8 @@ class CalendarViewController: BaseViewController {
 		DefaultTableViewDelegate(didSelectRow: self.viewModel.didSelectItem)
 	}()
 
-	override func viewDidLoad() {
+  
+    override func viewDidLoad() {
 		setupToolbar()
 		setupCalendarView()
 		setupTableView()

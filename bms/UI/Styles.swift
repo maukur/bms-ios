@@ -24,6 +24,7 @@ class Styles {
         static let accentColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
         
     }
+    
     class Fields {
         private init(){}
         
