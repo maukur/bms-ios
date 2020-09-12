@@ -37,22 +37,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupCalendarView()  {
         let style = CalendarView.Style()
                   
-        style.cellColorToday = Styles.colors.mainColor
+        style.cellColorToday = Styles.Colors.mainColor
         style.cellTextColorToday = .white
         
         style.cellSelectedBorderWidth = 1.0
-        style.cellSelectedBorderColor  = Styles.colors.mainColor
+        style.cellSelectedBorderColor  = Styles.Colors.mainColor
         
-        style.weekdaysBackgroundColor = Styles.colors.mainColor
+        style.weekdaysBackgroundColor = Styles.Colors.mainColor
         style.weekdaysTextColor = .white
         
-        style.headerBackgroundColor = Styles.colors.mainColor
+        style.headerBackgroundColor = Styles.Colors.mainColor
         style.headerTextColor = .white
         
         style.cellColorDefault = .white
-        style.cellTextColorDefault = Styles.colors.mainColor
+        style.cellTextColorDefault = Styles.Colors.mainColor
         style.cellBorderWidth = 1.0
-        style.cellBorderColor = Styles.colors.mainColor
+        style.cellBorderColor = Styles.Colors.mainColor
         
         CalendarView.Style.Default = style
     }
