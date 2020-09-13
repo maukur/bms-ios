@@ -26,13 +26,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unauthorized: self.unautorized)
         ImagePickService.initialize(getTopViewController:getTopViewController)
         
-        
+
+        setupStatusBar()
         setupCalendarView()
         setupTabBar()
         setupNavigationBar()
         return true
     }
     
+    func setupStatusBar(){
+        if #available(iOS 13.0, *) {
+               let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+               let statusBar = UIView(frame: window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero)
+               statusBar.backgroundColor = Styles.Colors.mainColor
+               window?.addSubview(statusBar)
+        } else {
+               UIApplication.shared.statusBarStyle = .lightContent
+        }
+
+    }
     
     func setupCalendarView()  {
         let style = CalendarView.Style()
@@ -70,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationBarAppearace.barTintColor = Styles.Colors.navBarColor
         navigationBarAppearace.shadowImage =  UIImage()
+         
     }
     
     func getTopViewController() -> UIViewController? {
