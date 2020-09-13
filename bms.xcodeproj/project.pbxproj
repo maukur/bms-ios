@@ -134,7 +134,7 @@
 		D019611624F7D7F700789A36 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		D019611A24F7E0C200789A36 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D01B9FCA24D238DA00E97A93 /* File.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = File.json; sourceTree = "<group>"; };
-		D026E9B924A2333400EF2248 /* bms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bms.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D026E9B924A2333400EF2248 /* BMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D026E9BC24A2333400EF2248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D026E9C524A2333500EF2248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D026E9C824A2333500EF2248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 		D026E9BA24A2333400EF2248 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D026E9B924A2333400EF2248 /* bms.app */,
+				D026E9B924A2333400EF2248 /* BMS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -701,7 +701,7 @@
 				D0082B5B24E570DD00ED1996 /* KDCalendar */,
 			);
 			productName = bms;
-			productReference = D026E9B924A2333400EF2248 /* bms.app */;
+			productReference = D026E9B924A2333400EF2248 /* BMS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -988,7 +988,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.binwell.bms;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BMS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1010,7 +1010,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.binwell.bms;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BMS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
