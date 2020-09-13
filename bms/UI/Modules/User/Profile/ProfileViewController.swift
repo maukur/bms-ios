@@ -76,10 +76,22 @@ class ProfileViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "PROFILE"
-        let button = UIBarButtonItem(image: UIImage(named: "trash"), style: .plain, target: self, action: #selector(self.exitButtonAction));
-        self.navigationItem.rightBarButtonItems = [button]
+        setupLogoutButton()
+    }
+    
+    func setupLogoutButton() {
+        let logoutButton = UIButton(type: .custom)
+        logoutButton.frame(forAlignmentRect: CGRect(x: 0, y: 0, width: 20, height: 20))
+        logoutButton.setImage(UIImage(named: "logout")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        logoutButton.tintColor = .white
+        logoutButton.addTarget(self, action: #selector(self.exitButtonAction), for: .touchUpInside)
+        let logoutBarButtonItem = UIBarButtonItem(customView: logoutButton)
+        let currentWidth = logoutBarButtonItem.customView?.widthAnchor.constraint(equalToConstant: 20)
+        currentWidth?.isActive = true
+        let currentHeight = logoutBarButtonItem.customView?.heightAnchor.constraint(equalToConstant: 20)
+        currentHeight?.isActive = true
+        self.navigationItem.rightBarButtonItems = [logoutBarButtonItem]
     }
     
     override func bind() {

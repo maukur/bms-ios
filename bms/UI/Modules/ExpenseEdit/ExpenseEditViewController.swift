@@ -142,17 +142,17 @@ class ExpenseEditViewController: BaseViewController {
             }
             switch status {
             case .edit:
-                self.title = "Редактирование расходов"
+                self.title = "Editing expenses"
                 let button = UIBarButtonItem(image: UIImage(named: "trash"), style: .plain, target: self, action: #selector(self.deleteButtonAction));
                 self.navigationItem.rightBarButtonItems = [button]
                 break
             case .new:
-                self.title = "Добавление расходов"
+                self.title = "Adding expenses"
                 let button = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.cancelButtonAction));
                 self.navigationItem.rightBarButtonItems = [button]
                 break
             case .readOnly:
-                self.title = "Расходы"
+                self.title = "Expense"
                 let button = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.cancelButtonAction));
                 self.navigationItem.rightBarButtonItems = [button]
                 self.setReadOnlyState()

@@ -20,7 +20,7 @@ class Styles {
         static let mainColor = UIColor(red: 0.38310644030000002, green: 0.78301173449999995, blue: 0.83530688289999999, alpha: 1)
         static let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
         static let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
-        static let disabledColor = UIColor(red: 0.65, green: 0.66, blue: 0.66, alpha: 1.0)
+        static let disabledColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
         static let accentColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
         
     }
@@ -32,6 +32,8 @@ class Styles {
             guard let skyField = view as? SkyFloatingLabelTextFieldWithIcon else { return }
             skyField.iconType = .image
             skyField.iconColor = Styles.Colors.mainColor
+            skyField.iconWidth = 18
+            skyField.iconMarginBottom = 0
             mainSkyField(view: skyField)
         }
         static func mainSkyField(view: UIView) {
@@ -72,7 +74,7 @@ class Styles {
             guard let button = view as? UIButton else { return }
             button.backgroundColor = Styles.Colors.mainColor
             button.tintColor = .white
-            button.layer.cornerRadius = 8
+            button.layer.cornerRadius = 6
         }
     }
     

@@ -143,17 +143,17 @@ class EventEditViewController: BaseViewController {
             }
             switch status {
             case .edit:
-                self.title = "Редактирование события"
+                self.title = "Editing events"
                 let button = UIBarButtonItem(image: UIImage(named: "trash"), style: .plain, target: self, action: #selector(self.deleteButtonAction));
                 self.navigationItem.rightBarButtonItems = [button]
                 break
             case .new:
-                self.title = "Добавление события"
+                self.title = "Adding events"
                 let button = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.onCancelButtonClicked));
                 self.navigationItem.rightBarButtonItems = [button]
                 break
             case .readOnly:
-                self.title = "Событие"
+                self.title = "Event"
                 let button = UIBarButtonItem(image: UIImage(named: "cancel"), style: .plain, target: self, action: #selector(self.onCancelButtonClicked));
                 self.navigationItem.rightBarButtonItems = [button]
                 self.saveButton.isHidden = true
