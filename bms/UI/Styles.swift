@@ -53,9 +53,9 @@ class Styles {
         static func shadowUIView(view: UIView){
             view.layer.cornerRadius = 8
             view.layer.shadowColor = UIColor.gray.cgColor
-            view.layer.shadowOffset = CGSize(width: 0, height: 6.0)
+            view.layer.shadowOffset = CGSize(width: 0, height: 4.0)
             view.layer.shadowOpacity = 0.24
-            view.layer.shadowRadius = CGFloat(6.0)
+            view.layer.shadowRadius = CGFloat(4.0)
         }
     }
     

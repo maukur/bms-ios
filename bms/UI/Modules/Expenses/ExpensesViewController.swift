@@ -48,7 +48,7 @@ class ExpensesViewController: BaseViewController {
     
     override func viewDidLoad() {
         title = "EXPENSES"
-        let button = UIBarButtonItem(title: "ADD", style: .done, target: self, action: #selector(addTapped));
+        let button = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addTapped));
         self.navigationItem.rightBarButtonItems = [button]
         super.viewDidLoad()
     }

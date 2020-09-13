@@ -41,7 +41,7 @@ class CalendarViewController: BaseViewController {
 
 	func setupToolbar() {
 		title = "CALENDAR"
-		let button = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped));
+        let button = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addTapped));
 		self.navigationItem.rightBarButtonItems = [button]
 	}
 
