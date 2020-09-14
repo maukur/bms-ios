@@ -1,0 +1,10 @@
+diff a/bms/AppDelegate.swift b/bms/AppDelegate.swift	(rejected hunks)
+@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
+             NavigationService.initialize(modules: ["Expenses", "Calendar", "Profile"], setRootHandler: setRoot, mode: .tab)
+         }
+         DialogService.initialize(getTopViewController:getTopViewController)
+-        DataServices.initialize(isMock: false, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unauthorized: self.unautorized)
++        DataServices.initialize(isMock: true, baseUrl: Consts.instance.baseUrl, getToken: self.getToken, unauthorized: self.unautorized)
+         ImagePickService.initialize(getTopViewController:getTopViewController)
+         
+         

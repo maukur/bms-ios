@@ -1,30 +1,29 @@
 //
-//  CachedDataService.swift
+//  CachedMockDataService.swift
 //  bms
 //
-//  Created by Artem Tischenko on 02.09.2020.
+//  Created by Sergey on 14.09.2020.
 //  Copyright © 2020 Artem Tischenko. All rights reserved.
 //
 
 import Foundation
-
-class CachedDataService:BaseRemoteDataService, CachedProtocol{
-    
+class CachedMockDataService: BaseMockDataService, CachedProtocol {
     
     private var cache = NSCache<NSString, NSArray>()
     
-    override init(baseUrl: String, unauthorized: @escaping ()->(), getToken: @escaping () -> String?) {
-        super.init(baseUrl: baseUrl, unauthorized: unauthorized, getToken: getToken)
-        ex(url: EndPoints.getCategoryList, completionHandler:  categoryCompletionHandler)
-        ex(url: EndPoints.getPaymentTypeList, completionHandler: paymentCompletionHandler)
-        ex(url: EndPoints.getCurrenciesList, completionHandler:  currencyCompletionHandler)
-        ex(url: EndPoints.getEventCategoryList, completionHandler: eventCategoryCompletionHandler)
+    override init() {
+        super.init()
+        MakeRequestFromJson(fileName: "EventCategoryList", completionHandler: eventCategoryCompletionHandler)
+        MakeRequestFromJson(fileName: "ExpenseCategoryList", completionHandler: expenseCategoryCompletionHandler)
+        MakeRequestFromJson(fileName: "PaymentMethodList", completionHandler: paymentCompletionHandler)
+        MakeRequestFromJson(fileName: "CurrencyList", completionHandler: currencyCompletionHandler)
+        
     }
     
     private func eventCategoryCompletionHandler(result:[EventCategoryObject])  {
         cache.setObject(result as NSArray, forKey: "eventCategoryObject")
     }
-    private func categoryCompletionHandler(result:[ExpenseCategoryObject])  {
+    private func expenseCategoryCompletionHandler(result:[ExpenseCategoryObject])  {
         cache.setObject(result as NSArray, forKey: "expenseCategoryObject")
     }
     private func paymentCompletionHandler(result:[PaymentTypeObject])  {
@@ -33,6 +32,7 @@ class CachedDataService:BaseRemoteDataService, CachedProtocol{
     private func currencyCompletionHandler(result:[CurrencyObject])  {
         cache.setObject(result as NSArray, forKey: "currencyObject")
     }
+    
     
     func getExpenseCategoryList() -> [ExpenseCategoryObject] {
         cache.object(forKey: "expenseCategoryObject") as? [ExpenseCategoryObject] ?? []

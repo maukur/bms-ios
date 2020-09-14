@@ -10,14 +10,14 @@ import Foundation
 
 class UserMockDataService: BaseMockDataService, UserProtocol {
     func login(login: String, password: String, completionHandler: @escaping (LoginResponseObject) -> (), errorHandler: ((String) -> ())?) {
-        
+        MakeRequestFromJson(fileName: "Authenticate", completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
     func getUserInfo(completionHandler: @escaping (UserInfoObject) -> (), errorHandler: ((String) -> ())?) {
-            
+        MakeRequestFromJson(fileName: "Info", completionHandler: completionHandler, errorHandler: errorHandler)
     }
-
+    
     func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
-
+        completionHandler()
     }
 }

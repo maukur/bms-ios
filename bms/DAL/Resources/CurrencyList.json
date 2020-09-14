@@ -1,0 +1,26 @@
+[
+  {
+    "id": "834394d1-00cf-4b1a-9b97-599d0ddfcf73",
+    "name": "RUB"
+  },
+  {
+    "id": "fff2c883-f53e-4c7b-a69e-76d0989430b0",
+    "name": "EUR"
+  },
+  {
+    "id": "0579f165-e8d7-46c8-9b76-bd4cd18c79bc",
+    "name": "swiss frank"
+  },
+  {
+    "id": "ca5a6bb0-395f-4284-810b-db95b7ae711d",
+    "name": "yen"
+  },
+  {
+    "id": "a0189294-6877-48da-b4f8-e306841d9d9e",
+    "name": "british pound"
+  },
+  {
+    "id": "793aa59b-f6b5-4a22-be36-fc6408b97bed",
+    "name": "USD"
+  }
+]

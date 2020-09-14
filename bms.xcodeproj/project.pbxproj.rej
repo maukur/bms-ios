@@ -1,0 +1,9 @@
+diff a/bms.xcodeproj/project.pbxproj b/bms.xcodeproj/project.pbxproj	(rejected hunks)
+@@ -133,7 +163,6 @@
+ 		D006A0E124DAA4EE0069F21C /* DefaultUIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUIPickerView.swift; sourceTree = "<group>"; };
+ 		D019611624F7D7F700789A36 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+ 		D019611A24F7E0C200789A36 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+-		D01B9FCA24D238DA00E97A93 /* File.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = File.json; sourceTree = "<group>"; };
+ 		D026E9B924A2333400EF2248 /* bms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bms.app; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		D026E9BC24A2333400EF2248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+ 		D026E9C524A2333500EF2248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };

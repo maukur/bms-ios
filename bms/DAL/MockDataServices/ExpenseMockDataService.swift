@@ -1,36 +1,28 @@
 //
-//  Created by Artem Tischenko on 14.05.2020.
+//  ExpenseMockDataService.swift
+//  bms
+//
+//  Created by Sergey on 14.09.2020.
 //  Copyright © 2020 Artem Tischenko. All rights reserved.
 //
 
 import Foundation
 
 class ExpenseMockDataService: BaseMockDataService, ExpenseProtocol {
-    func getAll(token: String, year: Int) -> RequestResult<[ExpenseGroupObject]> {
-        return  RequestResult<[ExpenseGroupObject]>()
+    func getAll(year: Int, completionHandler: @escaping ([ExpenseObject]) -> (), errorHandler: ((String) -> ())?) {
+        MakeRequestFromJson(fileName: "Expenses", completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func getAll(token: String) -> RequestResult<[ExpenseGroupObject]> {
-        return RequestResult<[ExpenseGroupObject]>()
-
+    func getById(guid: String, completionHandler: @escaping (ExpenseDetailObject) -> (), errorHandler: ((String) -> ())?) {
+        MakeRequestFromJson(fileName: "GetExpenseById", completionHandler: completionHandler, errorHandler: errorHandler)
     }
     
-    func getCategories() -> RequestResult<[ExpenseCategoryObject]> {
-        return RequestResult<[ExpenseCategoryObject]>()
+    func removeById(guid: String, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
+        completionHandler()
     }
     
-    func getCurrencies() -> RequestResult<[CurrencyObject]> {
-    return RequestResult<[CurrencyObject]>()
-
-    }
-    
-    func getPaymentTypes() -> RequestResult<[PaymentTypeObject]> {
-        return RequestResult<[PaymentTypeObject]>()
-
-    }
-    
-    func getById(guid: String) -> RequestResult<ExpenseDetailObject> {
-        return RequestResult<ExpenseDetailObject>()
+    func addOrUpdate(expense: ExpenseDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
+        completionHandler()
     }
     
     
