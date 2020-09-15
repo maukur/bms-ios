@@ -13,7 +13,6 @@ class ProfileViewModel: BaseViewModel {
     
     var userInfo: UserInfoObject?
     var onDataLoaded: ((UserInfoObject?)  -> Void)?
-    var setErrorStateForPhoneNumberField: (() -> Void)?
 
 
     func exit() {
@@ -25,18 +24,7 @@ class ProfileViewModel: BaseViewModel {
         userInfo?.phone = newPhone
     }
     
-    func checkValidData() -> Bool {
-        if(userInfo?.phone.count ?? 0 > 10){
-            return true
-        } else {
-            setErrorStateForPhoneNumberField?()
-            return false
-        }
-    }
-    
     func updateUserInfo() {
-        guard checkValidData() else { return }
-        
         showLoading()
         DataServices.userDataService?.updateUserInfo(
                 userInfoForUpdate: UserInfoForUpdateObject(fullName: userInfo!.fullName, birthDate: userInfo!.birthDate, phone: userInfo!.phone),

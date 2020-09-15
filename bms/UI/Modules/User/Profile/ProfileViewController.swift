@@ -65,6 +65,12 @@ class ProfileViewController: BaseViewController {
     private lazy var viewModel: ProfileViewModel = { getViewModel() }()
     
     @IBAction func saveButtonAction(_ sender: Any) {
+        do {
+            try _ =  phoneNumberField.validatedText(validationType: .phoneNumber)
+        } catch let error {
+            phoneNumberField.errorMessage = (error as! ValidationError).message
+            return
+        }
         viewModel.updateUserInfo()
     }
     @objc func exitButtonAction(_ sender: Any) {
@@ -108,10 +114,6 @@ class ProfileViewController: BaseViewController {
             self.birthDayTextField.text = data?.birthDate.toString()
             self.employmentDayTextField.text = data?.employedDate.toString()
             self.seniorityTextField.text = Date.calculateTimeDifference(from: data?.employedDate)
-        }
-        viewModel.setErrorStateForPhoneNumberField = {
-            [weak self] in
-            self?.phoneNumberField.errorMessage = "Invalid phone number"
         }
     }
 }

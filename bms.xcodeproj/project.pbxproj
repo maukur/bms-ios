@@ -24,6 +24,7 @@
 		221BACE324F2C72E0080F590 /* EventCategoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BACE224F2C72E0080F590 /* EventCategoryObject.swift */; };
 		22412FA724EEEB1A00E5DA93 /* EventEditStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22412FA624EEEB1A00E5DA93 /* EventEditStoryboard.storyboard */; };
 		22412FA924EEEB3C00E5DA93 /* EventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22412FA824EEEB3C00E5DA93 /* EventEditViewController.swift */; };
+		2259CAF8251124B8003AFFFB /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259CAF7251124B8003AFFFB /* Validators.swift */; };
 		226B293F24F2782B00B22EFD /* EventEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B293E24F2782B00B22EFD /* EventEditViewModel.swift */; };
 		2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */; };
 		2283073024E6DE3D00A6E1A7 /* UserInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */; };
@@ -132,6 +133,7 @@
 		221BACE224F2C72E0080F590 /* EventCategoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategoryObject.swift; sourceTree = "<group>"; };
 		22412FA624EEEB1A00E5DA93 /* EventEditStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventEditStoryboard.storyboard; sourceTree = "<group>"; };
 		22412FA824EEEB3C00E5DA93 /* EventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewController.swift; sourceTree = "<group>"; };
+		2259CAF7251124B8003AFFFB /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		226B293E24F2782B00B22EFD /* EventEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewModel.swift; sourceTree = "<group>"; };
 		2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataService.swift; sourceTree = "<group>"; };
 		2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDto.swift; sourceTree = "<group>"; };
@@ -163,7 +165,6 @@
 		D006A0E124DAA4EE0069F21C /* DefaultUIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUIPickerView.swift; sourceTree = "<group>"; };
 		D019611624F7D7F700789A36 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		D019611A24F7E0C200789A36 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		D01B9FCA24D238DA00E97A93 /* File.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = File.json; sourceTree = "<group>"; };
 		D026E9B924A2333400EF2248 /* BMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D026E9BC24A2333400EF2248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D026E9C524A2333500EF2248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -309,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				D019611A24F7E0C200789A36 /* UIViewExtensions.swift */,
+				2259CAF7251124B8003AFFFB /* Validators.swift */,
 			);
 			path = Shell;
 			sourceTree = "<group>";
@@ -871,6 +873,7 @@
 				D088863824CF5B340044ABE4 /* ExpenseObject.swift in Sources */,
 				D026EA3D24A2375800EF2248 /* DefaultTableViewDelegate.swift in Sources */,
 				D019611B24F7E0C200789A36 /* UIViewExtensions.swift in Sources */,
+				2259CAF8251124B8003AFFFB /* Validators.swift in Sources */,
 				D026EA8124A237B200EF2248 /* BaseViewModel.swift in Sources */,
 				D03C081824DC255100E88B96 /* PaymentTypeObject.swift in Sources */,
 				D006A0E224DAA4EE0069F21C /* DefaultUIPickerView.swift in Sources */,

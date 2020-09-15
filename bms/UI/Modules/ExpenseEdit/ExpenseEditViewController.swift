@@ -157,11 +157,6 @@ class ExpenseEditViewController: BaseViewController {
                 break
             }
         }
-        viewModel.setErrorStateForDesctiptionField = {
-            [weak self] in
-            self?.descriptionTextField.errorMessage = "Enter description"
-        }
-        
     }
     
     @objc func deleteButtonAction(sender: Any) {
@@ -296,6 +291,12 @@ class ExpenseEditViewController: BaseViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
+        do {
+            _ = try self.descriptionTextField.validatedText(validationType: .notNilOrEmpty)
+        } catch let error {
+            descriptionTextField.errorMessage = (error as! ValidationError).message
+            return
+        }
         viewModel.save()
     }
     

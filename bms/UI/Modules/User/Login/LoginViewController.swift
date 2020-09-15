@@ -39,16 +39,6 @@ class LoginViewController: BaseViewController {
         passwordField.errorMessage = ""
     }
     
-    override func bind() {
-        viewModel.setErrorStateForEmailField = {
-            [weak self] in
-            self?.loginField.errorMessage = "Invalid email"
-        }
-        viewModel.setErrorStateForPasswordField = {
-            [weak self] in
-            self?.passwordField.errorMessage = "Invalid password"
-        }
-    }
     
     @IBOutlet weak var loginButton: UIButton!{
         didSet{
@@ -63,7 +53,21 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
-        viewModel.loginAction(login: self.loginField.text, password: self.passwordField.text)
+        var email: String
+        var password: String
+        do {
+            email = try loginField.validatedText(validationType: .email)
+        } catch (let errorMessage) {
+            loginField.errorMessage = (errorMessage as! ValidationError).message
+            return
+        }
+        do {
+            password = try passwordField.validatedText(validationType: .password)
+        } catch (let errorMessage) {
+            passwordField.errorMessage = (errorMessage as! ValidationError).message
+            return
+        }
+        viewModel.loginAction(login: email, password: password)
     }
     
 }

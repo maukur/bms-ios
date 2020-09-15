@@ -81,6 +81,17 @@ class EventEditViewController: BaseViewController {
     }
     
     @IBAction func onSaveButtonClicked(_ sender: Any) {
+        do {
+            try _ =  descriptionField.validatedText(validationType: .notNilOrEmpty)
+        } catch let error {
+            descriptionField.errorMessage = (error as! ValidationError).message
+            return
+        }
+        if(viewModel.event!.startDate > viewModel.event!.endDate ?? viewModel.event!.startDate){ //TODO 
+            endDateField.errorMessage = "Invalid date"
+            return
+        }
+        
         viewModel.addOrUpdateEvent(onlyStartDate: !self.selectDateFormatSwitch.isOn)
     }
     
@@ -161,14 +172,6 @@ class EventEditViewController: BaseViewController {
                 self.setReadOnlyState()
                 break
             }
-        }
-        viewModel.setErrorStateForDesctiptionField = {
-            [weak self] in
-            self?.descriptionField.errorMessage = "Enter description"
-        }
-        viewModel.setErrorStateForEndDateField = {
-            [weak self] in
-            self?.endDateField.errorMessage = "Invalid date"
         }
     }
     

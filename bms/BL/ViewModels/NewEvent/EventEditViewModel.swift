@@ -15,9 +15,6 @@ class EventEditViewModel: BaseViewModel {
     var event: EventDetailObject?
     var didSetPageState: ((eventEditPageState) -> Void)?
     var didDataChange: (() -> ()?)?
-    var setErrorStateForDesctiptionField: (() -> Void)?
-    var setErrorStateForEndDateField: (() -> Void)?
-    
     
     enum eventEditPageState {
         case new
@@ -56,28 +53,8 @@ class EventEditViewModel: BaseViewModel {
         })
     }
     
-    func checkValidData(onlyStartDate: Bool) -> Bool {
-        
-        var isValid = true
-        if(event?.reason == ""){
-            setErrorStateForDesctiptionField?()
-            isValid = false
-        }
-        
-        if (event?.startDate == event?.endDate || onlyStartDate == true) {
-            return isValid
-        }
-        
-        if(event!.endDate ?? event!.startDate < event!.startDate) {
-            setErrorStateForEndDateField?()
-            return false
-        }
-        return isValid;
-    }
     func addOrUpdateEvent(onlyStartDate: Bool = true) {
-        
-        guard checkValidData(onlyStartDate: onlyStartDate) else { return }
-        
+                
         showLoading()
         if (event?.startDate == event?.endDate || onlyStartDate == true) {
             event?.endDate = nil

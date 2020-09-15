@@ -69,8 +69,6 @@ class NavigationService {
             navigateModalTo(module: modules.first!, navigationParams: navigationParams)
         case .modalNavigation:
             navigateModalNavigationTo(module: modules.first!, navigationParams: navigationParams)
-        default:
-            return
         }
         
     }
