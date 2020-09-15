@@ -10,25 +10,43 @@ import UIKit
 import SkyFloatingLabelTextField
 
 class LoginViewController: BaseViewController {
-    
-
+        
     @IBOutlet weak var frame: UIView!
         {
         didSet{
             frame.applayStyle(Styles.UIViews.shadowUIView)
         }
     }
-    @IBOutlet weak var password: SkyFloatingLabelTextFieldWithIcon!  {
+    @IBOutlet weak var passwordField: SkyFloatingLabelTextFieldWithIcon!  {
         didSet{
-            password.applayStyle(Styles.Fields.mainSkyFieldWithImage)
-            password.iconImage = UIImage(named: "lock.fill")
+            passwordField.applayStyle(Styles.Fields.mainSkyFieldWithImage)
+            passwordField.iconImage = UIImage(named: "lock.fill")
         }
     }
     
-    @IBOutlet weak var login: SkyFloatingLabelTextFieldWithIcon! {
+    @IBOutlet weak var loginField: SkyFloatingLabelTextFieldWithIcon! {
         didSet{
-            login.applayStyle(Styles.Fields.mainSkyFieldWithImage)
-            login.iconImage = UIImage(named: "person.fill")
+            loginField.applayStyle(Styles.Fields.mainSkyFieldWithImage)
+            loginField.iconImage = UIImage(named: "person.fill")
+        }
+    }
+   
+    @IBAction func loginTextChanged(_ sender: Any) {
+        loginField.errorMessage = ""
+    }
+    
+    @IBAction func passwordTextChanged(_ sender: Any) {
+        passwordField.errorMessage = ""
+    }
+    
+    override func bind() {
+        viewModel.setErrorStateForEmailField = {
+            [weak self] in
+            self?.loginField.errorMessage = "Invalid email"
+        }
+        viewModel.setErrorStateForPasswordField = {
+            [weak self] in
+            self?.passwordField.errorMessage = "Invalid password"
         }
     }
     
@@ -45,7 +63,7 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
-        viewModel.loginAction(login: self.login.text, password: self.password.text)
+        viewModel.loginAction(login: self.loginField.text, password: self.passwordField.text)
     }
     
 }

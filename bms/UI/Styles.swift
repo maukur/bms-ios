@@ -22,7 +22,7 @@ class Styles {
         static let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
         static let disabledColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
         static let accentColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1.0)
-        
+        static let errorColor = UIColor(red: 255/255, green: 100/255, blue: 100/255, alpha: 1.0)
     }
     
     class Fields {
@@ -44,6 +44,8 @@ class Styles {
             skyField.selectedTitleColor = Styles.Colors.mainColor
             skyField.selectedLineColor = Styles.Colors.mainColor
             skyField.disabledColor = Styles.Colors.disabledColor
+            skyField.errorColor = Styles.Colors.errorColor
+            
         }
         
     }
