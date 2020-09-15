@@ -20,7 +20,7 @@ class ExpenseEditViewModel: BaseViewModel {
     var onSetCurrentItem: ((ExpenseDetailObject) -> Void)?
     var didDataChange: (() -> ()?)?
     var didSetPageState: ((expensePageState) -> Void)?
-
+    var setErrorStateForDesctiptionField: (() -> Void)?
     var item: ExpenseDetailObject?
 
 
@@ -66,7 +66,7 @@ class ExpenseEditViewModel: BaseViewModel {
 
     }
 
-    func didSelectDescription(description: String) {
+    func didDescriptionChange(description: String) {
         item?.description = description
     }
 
@@ -74,7 +74,19 @@ class ExpenseEditViewModel: BaseViewModel {
         item?.amount = Double(value)
     }
 
+    func isDataValid() -> Bool {
+        if(item?.description == ""){
+            setErrorStateForDesctiptionField?()
+            return false
+        }
+        return true
+    }
     func save() {
+        
+        guard isDataValid() else {
+            return
+        }
+        
         showLoading()
         DataServices.expenseDataService?.addOrUpdate(expense: item!,
                 completionHandler: {

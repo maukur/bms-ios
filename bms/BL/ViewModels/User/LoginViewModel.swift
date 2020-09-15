@@ -35,6 +35,7 @@ class LoginViewModel: BaseViewModel {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         let isValidEmail = emailPred.evaluate(with: email)
         let isValidPassword = password?.count ?? 0 >= 6 ? true : false
+        
         if(!isValidEmail) {
             setErrorStateForEmailField?()
         }

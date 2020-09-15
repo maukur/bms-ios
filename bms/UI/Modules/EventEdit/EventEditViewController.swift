@@ -90,6 +90,7 @@ class EventEditViewController: BaseViewController {
     
     @IBAction func descriptionTextChanged(_ sender: Any) {
         viewModel.didDescriptionTextChange(text: descriptionField.text!)
+        descriptionField.errorMessage = ""
     }
     
     @objc func deleteButtonAction() {
@@ -159,9 +160,15 @@ class EventEditViewController: BaseViewController {
                 self.saveButton.isHidden = true
                 self.setReadOnlyState()
                 break
-            default:
-                break
             }
+        }
+        viewModel.setErrorStateForDesctiptionField = {
+            [weak self] in
+            self?.descriptionField.errorMessage = "Enter description"
+        }
+        viewModel.setErrorStateForEndDateField = {
+            [weak self] in
+            self?.endDateField.errorMessage = "Invalid date"
         }
     }
     

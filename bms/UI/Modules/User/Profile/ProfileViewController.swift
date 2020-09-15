@@ -26,12 +26,12 @@ class ProfileViewController: BaseViewController {
             self.emailTextField.isEnabled = false
         }
     }
-    @IBOutlet weak var phoneTextField: SkyFloatingLabelTextField!{
+    @IBOutlet weak var phoneNumberField: SkyFloatingLabelTextField!{
         didSet{
-            phoneTextField.applayStyle(Styles.Fields.mainSkyField)
+            phoneNumberField.applayStyle(Styles.Fields.mainSkyField)
             
-            self.phoneTextField.placeholder = "Phone"
-            self.phoneTextField.keyboardType = .phonePad
+            self.phoneNumberField.placeholder = "Phone"
+            self.phoneNumberField.keyboardType = .phonePad
             
         }
     }
@@ -72,12 +72,14 @@ class ProfileViewController: BaseViewController {
     }
     
     @IBAction func phoneFieldTextChanged(_ sender: Any) {
-        viewModel.didPhoneChange(newPhone: self.phoneTextField.text!)
+        viewModel.didPhoneChange(newPhone: self.phoneNumberField.text!)
+        phoneNumberField.errorMessage = ""
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "PROFILE"
         setupLogoutButton()
+        doneTextFieldButton(textField: phoneNumberField)
     }
     
     func setupLogoutButton() {
@@ -102,10 +104,14 @@ class ProfileViewController: BaseViewController {
             guard let self = self else { return }
             self.nameTextField.text = data?.fullName
             self.emailTextField.text = data?.email
-            self.phoneTextField.text = data?.phone
+            self.phoneNumberField.text = data?.phone
             self.birthDayTextField.text = data?.birthDate.toString()
             self.employmentDayTextField.text = data?.employedDate.toString()
             self.seniorityTextField.text = Date.calculateTimeDifference(from: data?.employedDate)
+        }
+        viewModel.setErrorStateForPhoneNumberField = {
+            [weak self] in
+            self?.phoneNumberField.errorMessage = "Invalid phone number"
         }
     }
 }

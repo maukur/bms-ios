@@ -49,8 +49,6 @@ class ExpenseEditViewController: BaseViewController {
             paymentTypeTextField.placeholder = "Payment method"
         }
     }
-
-    
     
     @IBOutlet weak var createPhotoButton: UIButton!{
         didSet{
@@ -157,9 +155,11 @@ class ExpenseEditViewController: BaseViewController {
                 self.navigationItem.rightBarButtonItems = [button]
                 self.setReadOnlyState()
                 break
-            default:
-                break
             }
+        }
+        viewModel.setErrorStateForDesctiptionField = {
+            [weak self] in
+            self?.descriptionTextField.errorMessage = "Enter description"
         }
         
     }
@@ -291,7 +291,8 @@ class ExpenseEditViewController: BaseViewController {
     }
     
     @IBAction func descriptionTextChanged(_ sender: UITextField) {
-        viewModel.didSelectDescription(description: sender.text!)
+        viewModel.didDescriptionChange(description: sender.text!)
+        descriptionTextField.errorMessage = ""
     }
     
     @IBAction func saveAction(_ sender: Any) {
