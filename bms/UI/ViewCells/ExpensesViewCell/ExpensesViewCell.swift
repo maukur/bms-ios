@@ -15,38 +15,30 @@ class ExpensesViewCell: UITableViewCell, InitializedViewCell {
         descriptionLabel.text =  value?.description
         priceLabel.text =  String(Int(value!.amount)) + " ₽"
     }
-    
-    @IBOutlet weak var container: UIView!
-           {
-           didSet{
+    @IBOutlet weak var container: UIView! {
+        didSet {
             container.applayStyle(Styles.UIViews.shadowUIView)
-           }
-       }
-    @IBOutlet weak var descriptionLabel: UILabel!
-    {
-        didSet{
-           
         }
     }
-    @IBOutlet weak var dayLabel: UILabel!
-    {
-        didSet{
+    @IBOutlet weak var descriptionLabel: UILabel! {
+        didSet {
+        }
+    }
+    @IBOutlet weak var dayLabel: UILabel! {
+        didSet {
             dayLabel.applayStyle(Styles.Labels.dayLabel)
         }
     }
-    @IBOutlet weak var priceLabel: UILabel!
-    {
-        didSet{
-//            container.layer.cornerRadius = 8
-//            container.layer.shadowColor = UIColor.black.cgColor
-//            container.layer.shadowOffset = CGSize(width: 0, height: 4.0)
-//            container.layer.shadowOpacity = 0.24
-//            container.layer.shadowRadius = CGFloat(4.0)
+    @IBOutlet weak var priceLabel: UILabel! {
+        didSet {
+            //            container.layer.cornerRadius = 8
+            //            container.layer.shadowColor = UIColor.black.cgColor
+            //            container.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+            //            container.layer.shadowOpacity = 0.24
+            //            container.layer.shadowRadius = CGFloat(4.0)
         }
     }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 }
-

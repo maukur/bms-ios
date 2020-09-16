@@ -10,7 +10,13 @@ import Foundation
 
 protocol UserProtocol {
     
-    func login(login: String, password: String, completionHandler: @escaping (LoginResponseObject) -> (), errorHandler: ((String) -> ())?)
-    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> (), errorHandler: ((String) -> ())?)
-    func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?)
+    func login(login: String,
+               password: String,
+               completionHandler: @escaping (LoginResponseObject) -> Void,
+               errorHandler: ((String) -> Void)?)
+    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> Void,
+                     errorHandler: ((String) -> Void)?)
+    func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject,
+                        completionHandler: @escaping () -> Void,
+                        errorHandler: ((String) -> Void)?)
 }

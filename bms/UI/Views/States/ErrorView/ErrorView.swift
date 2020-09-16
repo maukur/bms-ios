@@ -9,7 +9,6 @@
 import UIKit
 
 class ErrorView: UIView {
-    
      @IBOutlet weak var errorLabel: UILabel! {
              didSet {
                 errorLabel.textColor = .red

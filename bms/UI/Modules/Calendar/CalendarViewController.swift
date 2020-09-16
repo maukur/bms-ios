@@ -11,12 +11,10 @@ import UIKit
 
 class CalendarViewController: BaseViewController {
 
-
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var calendarView: CalendarView!
-   
-    @IBOutlet weak var titleBackgoundView: UIView!{
-          didSet{
+    @IBOutlet weak var titleBackgoundView: UIView! {
+          didSet {
             titleBackgoundView.backgroundColor = Styles.Colors.mainColor
           }
       }
@@ -24,14 +22,13 @@ class CalendarViewController: BaseViewController {
 	private lazy var viewModel: CalendarViewModel = {
 		getViewModel()
 	}()
-	private lazy var tableDataSource: DefaultTableViewDataSource = {
-		DefaultTableViewDataSource(items: self.viewModel.events)
+	private lazy var tableDataSource: DefaultTableViewDataSource = { [weak self] in
+        DefaultTableViewDataSource(items: self!.viewModel.events)
 	}()
-	private lazy var tableDelegate: DefaultTableViewDelegate = {
-		DefaultTableViewDelegate(didSelectRow: self.viewModel.didSelectItem)
+	private lazy var tableDelegate: DefaultTableViewDelegate = { [weak self] in
+		return DefaultTableViewDelegate(didSelectRow: self!.viewModel.didSelectItem)
 	}()
 
-  
     override func viewDidLoad() {
 		setupToolbar()
 		setupCalendarView()
@@ -41,7 +38,7 @@ class CalendarViewController: BaseViewController {
 
 	func setupToolbar() {
 		title = "CALENDAR"
-        let button = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addTapped));
+        let button = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addTapped))
 		self.navigationItem.rightBarButtonItems = [button]
 	}
 
@@ -82,7 +79,6 @@ class CalendarViewController: BaseViewController {
 		tableView.register(eventNib, forCellReuseIdentifier: "DefaultCell")
 		tableView.delegate = tableDelegate
 		tableView.dataSource = self
-        
 	}
 
 }
@@ -99,7 +95,6 @@ extension CalendarViewController: UITableViewDataSource {
 		initializedCell?.initialize(item: item )
 		return cell
 	}
-
 }
 
 extension CalendarViewController: CalendarViewDataSource, CalendarViewDelegate {
@@ -142,6 +137,4 @@ extension CalendarViewController: CalendarViewDataSource, CalendarViewDelegate {
 	func headerString(_ date: Date) -> String? {
 		nil
 	}
-
-
 }

@@ -9,15 +9,12 @@
 import UIKit
 
 class SectionHeaderCell: UITableViewCell, InitializedViewCell {
-    
     let dateFormatter =  DateFormatter()
     func initialize(item: Any) {
         let value = item as! Int
         label.text = dateFormatter.monthSymbols[value - 1]
     }
-    
     @IBOutlet weak var label: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

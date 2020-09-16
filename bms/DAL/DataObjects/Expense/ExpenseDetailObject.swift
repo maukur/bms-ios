@@ -11,4 +11,3 @@ struct ExpenseDetailObject: Codable {
     var image: Data?
     var status: StatusEnum
 }
-

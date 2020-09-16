@@ -9,10 +9,21 @@
 import Foundation
 
 protocol CalendarProtocol {
-    func getAllEvents(year: Int, completionHandler: @escaping ([Date]) -> (), errorHandler: ((String) -> ())?)
-    func getEventTypeList(completionHandler: @escaping ([EventCategoryObject]) -> (), errorHandler: ((String) -> ())?)
-    func addOrUpdate(event:EventDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?)
-    func getEventsByDate(date: Date, completionHandler: @escaping ([EventObject]) -> (), errorHandler: ((String) -> ())?)
-    func getEventDetailObjectById(guid: String, completionHandler: @escaping (EventDetailObject) -> (), errorHandler: ((String) -> ())?)
-    func removeEventById(guid: String, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?)
+    func getAllEvents(year: Int,
+                      completionHandler: @escaping ([Date]) -> Void,
+                      errorHandler: ((String) -> Void)?)
+    func getEventTypeList(completionHandler: @escaping ([EventCategoryObject]) -> Void,
+                          errorHandler: ((String) -> Void)?)
+    func addOrUpdate(event:eventDetailObject,
+                     completionHandler: @escaping () -> Void,
+                     errorHandler: ((String) -> Void)?)
+    func getEventsByDate(date: Date,
+                         completionHandler: @escaping ([EventObject]) -> Void,
+                         errorHandler: ((String) -> Void)?)
+    func getEventDetailObjectById(guid: String,
+                                  completionHandler: @escaping (eventDetailObject) -> Void,
+                                  errorHandler: ((String) -> Void)?)
+    func removeEventById(guid: String,
+                         completionHandler: @escaping () -> Void,
+                         errorHandler: ((String) -> Void)?)
 }

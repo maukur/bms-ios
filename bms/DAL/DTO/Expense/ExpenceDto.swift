@@ -9,8 +9,8 @@
 import Foundation
 
 struct ExpenseDto: Codable {
-    let Name:String
-    let Date:String
-    let Price: Double
-    let Status: String
+    let name: String
+    let date: String
+    let price: Double
+    let status: String
 }

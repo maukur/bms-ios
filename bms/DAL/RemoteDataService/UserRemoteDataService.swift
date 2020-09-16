@@ -10,17 +10,29 @@ import Foundation
 import Alamofire
 
 class UserRemoteDataService: BaseRemoteDataService, UserProtocol {
-   
-    func login(login: String, password: String, completionHandler: @escaping (LoginResponseObject) -> (), errorHandler: ((String) -> ())?) {
-        ex(url: EndPoints.postLogin, method: .post, parameters: ["username": login, "password":password],  encoding: JSONEncoding.default, completionHandler: completionHandler, errorHandler: errorHandler)
+    func login(login: String,
+               password: String,
+               completionHandler: @escaping (LoginResponseObject) -> Void,
+               errorHandler: ((String) -> Void)?) {
+        ex(url: EndPoints.postLogin,
+           method: .post,
+           parameters: ["username": login, "password": password],
+           encoding: JSONEncoding.default,
+           completionHandler: completionHandler,
+           errorHandler: errorHandler)
     }
-    
-    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> (), errorHandler: ((String) -> ())?) {
-         ex(url: EndPoints.getUserInfo, completionHandler: completionHandler, errorHandler: errorHandler)
+    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> Void,
+                     errorHandler: ((String) -> Void)?) {
+         ex(url: EndPoints.getUserInfo, completionHandler: completionHandler,
+            errorHandler: errorHandler)
     }
-
-    func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
-        ex(url: EndPoints.postUpdateUserInto, body: userInfoForUpdate, method: .post, completionHandler: completionHandler, errorHandler: errorHandler)
+    func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject,
+                        completionHandler: @escaping () -> Void,
+                        errorHandler: ((String) -> Void)?) {
+        ex(url: EndPoints.postUpdateUserInto,
+           body: userInfoForUpdate,
+           method: .post,
+           completionHandler: completionHandler,
+           errorHandler: errorHandler)
     }
-    
 }

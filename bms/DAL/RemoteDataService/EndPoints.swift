@@ -27,4 +27,3 @@ class EndPoints {
     static let postDeleteEventById = "/MobileApi/EventLogs/Delete"
     static let postUpdateUserInto = "/MobileApi/Account/Update"
 }
-

@@ -8,16 +8,12 @@
 
 import UIKit
 
-
 class LoadingView: UIView {
-    
- 
     @IBOutlet weak var indicator: UIActivityIndicatorView! {
           didSet {
             indicator.color = .red
             indicator.startAnimating()
             indicator.translatesAutoresizingMaskIntoConstraints = false
           }
-      }
-    
+    }
 }

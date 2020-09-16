@@ -8,22 +8,17 @@
 
 import Foundation
 
-class Consts{
+class Consts {
     
     static let instance = Consts()
     
-    let NavigationToMessage = "NavigationToMessage"
-    let NavigationBackMessage = "NavigationBackMessage"
-    
+    let navigationToMessage = "NavigationToMessage"
+    let navigationBackMessage = "NavigationBackMessage"
     let dialogShowLoading = "dialogShowLoading"
     let dialogHideLoading = "dialogHideLoading"
     let showAlert = "showAlert"
     let showActionSheet = "showActionSheet"
-
     let getPhotoMessage = "getPhotoMessage"
-
     let unautorized = "unautorized"
-
-    
     let baseUrl = "https://bmsbackendd-dev.azurewebsites.net"
 }

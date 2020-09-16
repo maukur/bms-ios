@@ -2,14 +2,12 @@ import Foundation
 import Alamofire
 
 class BaseRemoteDataService {
-
     let baseUrl: String
     let decoder: JSONDecoder
     let encoder: JSONEncoder
     let getToken: () -> (String?)
-    let unauthorized: () -> ()
-
-    init(baseUrl: String, unauthorized: @escaping () -> (), getToken: @escaping () -> String?) {
+    let unauthorized: () -> Void
+    init(baseUrl: String, unauthorized: @escaping () -> Void, getToken: @escaping () -> String?) {
         self.baseUrl = baseUrl
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
@@ -19,15 +17,16 @@ class BaseRemoteDataService {
         self.decoder = decoder
         self.getToken = getToken
         self.unauthorized = unauthorized
-
-
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .formatted(formatter)
         self.encoder = encoder
-
     }
-
-    func ex<T: Codable>(url: String, method: HTTPMethod = .get, parameters: Parameters = [:], encoding: ParameterEncoding = URLEncoding.default, completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil) {
+    func ex<T: Codable>(url: String,
+                        method: HTTPMethod = .get,
+                        parameters: Parameters = [:],
+                        encoding: ParameterEncoding = URLEncoding.default,
+                        completionHandler: @escaping (T) -> Void,
+                        errorHandler: ((String) -> Void)? = nil) {
         var headers: HTTPHeaders = []
         let token = getToken()
         if (token != nil) {
@@ -36,28 +35,29 @@ class BaseRemoteDataService {
         }
         let fullUrl = getFulUrl(url)
         AF.request(fullUrl, method: method, parameters: parameters, encoding: encoding, headers: headers)
-                .validate(statusCode: 200..<300)
-                .response {
-            [weak self] response in
-            guard let self = self else { return }
-
-            switch response.result {
-            case .success(_):
-                print("finish")
-                self.onResponse(response: response, completionHandler: completionHandler, errorHandler: errorHandler)
-                break
-            case .failure(let error):
-                if (response.response?.statusCode == 401) {
-                    self.unauthorized()
-                } else {
-                    errorHandler?(error.errorDescription!)
+            .validate(statusCode: 200..<300)
+            .response { [weak self] response in
+                guard let self = self else { return }
+                switch response.result {
+                case .success:
+                    print("finish")
+                    self.onResponse(response: response,
+                                    completionHandler: completionHandler,
+                                    errorHandler: errorHandler)
+                case .failure(let error):
+                    if (response.response?.statusCode == 401) {
+                        self.unauthorized()
+                    } else {
+                        errorHandler?(error.errorDescription!)
+                    }
                 }
-                break
-            }
         }
     }
-//func doStuff<T: Encodable>(payload: [String: T]) {
-    func ex<T: Encodable>(url: String, body: T, method: HTTPMethod = .get, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())? = nil) {
+    //func doStuff<T: Encodable>(payload: [String: T]) {
+    func ex<T: Encodable>(url: String,
+                          body: T, method: HTTPMethod = .get,
+                          completionHandler: @escaping () -> Void,
+                          errorHandler: ((String) -> Void)? = nil) {
         var headers: HTTPHeaders = []
         let token = getToken()
         if (token != nil) {
@@ -65,46 +65,39 @@ class BaseRemoteDataService {
             headers.add(authHeader)
         }
         let fullUrl = getFulUrl(url)
-
-
         var request = URLRequest(url: fullUrl)
-
         request.httpMethod = method.rawValue
         request.headers = headers
         request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         var data: Data?
-    do{
-        data = try encoder.encode(body)}
-        catch {
+        do { data = try encoder.encode(body)} catch {
             print(error.localizedDescription)
         }
         request.httpBody = data!
         AF.request(request)
-                .validate(statusCode: 200..<300)
-                .response {
-            [weak self] response in
-            guard let self = self else { return }
-
-            switch response.result {
-            case .success(_):
-                print("finish")
-                completionHandler()
-            case .failure(let error):
-                if (response.response?.statusCode == 401) {
-                    self.unauthorized()
-                } else {
-                    errorHandler?(error.errorDescription!)
-                    print(error)
+            .validate(statusCode: 200..<300)
+            .response { [weak self] response in
+                guard let self = self else { return }
+                switch response.result {
+                case .success:
+                    print("finish")
+                    completionHandler()
+                case .failure(let error):
+                    if (response.response?.statusCode == 401) {
+                        self.unauthorized()
+                    } else {
+                        errorHandler?(error.errorDescription!)
+                        print(error)
+                    }
                 }
-            }
-
         }
-
-
     }
-
-    func ex(url: String, method: HTTPMethod = .get, parameters: Parameters = [:], encoding: ParameterEncoding = URLEncoding.default, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())? = nil) {
-
+    func ex(url: String,
+            method: HTTPMethod = .get,
+            parameters: Parameters = [:],
+            encoding: ParameterEncoding = URLEncoding.default,
+            completionHandler: @escaping () -> Void,
+            errorHandler: ((String) -> Void)? = nil) {
         var headers: HTTPHeaders = []
         let token = getToken()
         if (token != nil) {
@@ -113,26 +106,27 @@ class BaseRemoteDataService {
         }
         let fullUrl = getFulUrl(url)
         AF.request(fullUrl, method: method, parameters: parameters, encoding: encoding, headers: headers)
-                .validate(statusCode: 200..<300)
-                .response {
-            [weak self] response in
-            guard let self = self else { return }
-
-            switch response.result {
-            case .success(_):
-                print("finish")
-                self.onResponse(response: response, completionHandler: completionHandler, errorHandler: errorHandler)
-            case .failure(let error):
-                if (response.response?.statusCode == 401) {
-                    self.unauthorized()
-                } else {
-                    errorHandler?(error.errorDescription!)
+            .validate(statusCode: 200..<300)
+            .response { [weak self] response in
+                guard let self = self else { return }
+                switch response.result {
+                case .success:
+                    print("finish")
+                    self.onResponse(response: response,
+                                    completionHandler: completionHandler,
+                                    errorHandler: errorHandler)
+                case .failure(let error):
+                    if (response.response?.statusCode == 401) {
+                        self.unauthorized()
+                    } else {
+                        errorHandler?(error.errorDescription!)
+                    }
                 }
-            }
         }
     }
-
-    private func onResponse<T: Codable>(response: AFDataResponse<Data?>, completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil) {
+    private func onResponse<T: Codable>(response: AFDataResponse<Data?>,
+                                        completionHandler: @escaping (T) -> Void,
+                                        errorHandler: ((String) -> Void)? = nil) {
         do {
             if let error = response.error {
                 errorHandler?(error.localizedDescription)
@@ -158,8 +152,9 @@ class BaseRemoteDataService {
             print("error: ", error)
         }
     }
-
-    private func onResponse(response: AFDataResponse<Data?>, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())? = nil) {
+    private func onResponse(response: AFDataResponse<Data?>,
+                            completionHandler: @escaping () -> Void,
+                            errorHandler: ((String) -> Void)? = nil) {
         if let error = response.error {
             errorHandler?(error.localizedDescription)
             return
@@ -167,7 +162,6 @@ class BaseRemoteDataService {
         self.debugPrintResponse(response: response)
         completionHandler()
     }
-
     private func debugPrintResponse(response: AFDataResponse<Data?>) {
         #if DEBUG
         print("URL: \(String(describing: response.response!.url))")
@@ -176,10 +170,7 @@ class BaseRemoteDataService {
         }
         #endif
     }
-
     private func getFulUrl(_ url: String) -> URL {
         URL(string: baseUrl + url)!
     }
 }
-
-

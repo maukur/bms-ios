@@ -9,5 +9,5 @@
 import Foundation
 
 protocol InitializedViewCell {
-    func initialize(item: Any) 
+    func initialize(item: Any)
 }

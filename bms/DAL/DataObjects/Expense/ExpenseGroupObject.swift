@@ -9,7 +9,7 @@
 
 import Foundation
 
-struct ExpenseGroupObject:Codable {
+struct ExpenseGroupObject: Codable {
     let mounth: String
     let expenses: [ExpenseObject]
 }

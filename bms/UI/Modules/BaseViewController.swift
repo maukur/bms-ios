@@ -8,62 +8,41 @@
 
 import UIKit
 
-
 class BaseViewController: UIViewController {
-    private var baseViewModel : BaseViewModel? = nil
-
-    
-    
-   
-    var dismissKeyboardAction: ((UITextField)  -> Void)?
-    
-    func getViewModel<T>() -> T{
+    private var baseViewModel: BaseViewModel?
+    var dismissKeyboardAction: ((UITextField) -> Void)?
+    func getViewModel<T>() -> T {
         baseViewModel as! T
     }
-    
-    func setViewModel(viewModel:BaseViewModel){
+    func setViewModel(viewModel: BaseViewModel) {
         self.baseViewModel = viewModel
         self.bind()
     }
     var topView: UIView?
-    
-    func bind(){
-        
-        func getStateView(name:String) -> UIView {
+    func bind() {
+        func getStateView(name: String) -> UIView {
             let view = Bundle.main.loadNibNamed(name, owner: self, options: nil)?.first as! UIView
             return view
         }
-        
-        baseViewModel?.stateDidChange = {
-            
-            [weak self] state in
+        baseViewModel?.stateDidChange = { [weak self] state in
             guard let self = self else { return }
-            
             self.topView?.removeFromSuperview()
-            
             switch state {
-                
             case "loading":
                 let view = getStateView(name: "LoadingView")
                 self.topView = view
-                self.view.addSubview(view, stretchToFit:true)
-                break;
+                self.view.addSubview(view, stretchToFit: true)
             case "error":
                 let view = getStateView(name: "ErrorView")
                 self.topView = view
-                self.view.addSubview(view, stretchToFit:true)
-                break;
+                self.view.addSubview(view, stretchToFit: true)
             case "empty":
                 let view = getStateView(name: "EmptyView")
                 self.topView = view
-                self.view.addSubview(view, stretchToFit:true)
-                break;
+                self.view.addSubview(view, stretchToFit: true)
             default:
                 self.topView = nil
-                break
             }
-            
- 
         }
     }
     override func viewDidLoad() {
@@ -71,17 +50,11 @@ class BaseViewController: UIViewController {
         self.baseViewModel?.viewDidLoad()
         self.baseViewModel?.loadData()
     }
-
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         self.baseViewModel?.viewDidDisappear()
     }
-    
     func retryAction() {
         baseViewModel?.loadData()
     }
-
 }
-

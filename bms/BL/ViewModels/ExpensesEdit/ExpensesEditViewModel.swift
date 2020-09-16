@@ -18,10 +18,9 @@ class ExpenseEditViewModel: BaseViewModel {
     var onSetCurrentDate: ((Date) -> Void)?
     var onSetCurrentPaymentType: ((PaymentTypeObject) -> Void)?
     var onSetCurrentItem: ((ExpenseDetailObject) -> Void)?
-    var didDataChange: (() -> ()?)?
-    var didSetPageState: ((expensePageState) -> Void)?
+    var didDataChange: (() -> Void?)?
+    var didSetPageState: ((ExpensePageState) -> Void)?
     var item: ExpenseDetailObject?
-
 
     func didSelectCategory(item: ExpenseCategoryObject) {
         onSetCurrentCategory?(item)
@@ -36,16 +35,13 @@ class ExpenseEditViewModel: BaseViewModel {
     func deleteItem() {
         showLoading()
         DataServices.expenseDataService?.removeById(guid: item!.id,
-                completionHandler: {
-                    [weak self] in
+                completionHandler: { [weak self] in
                     self?.didDataChange?()
                     self?.navigateBack(mode: .modal)
                 },
-                errorHandler: {
-                    [weak self] message in
+                errorHandler: { [weak self] message in
                     self?.hideLoading()
                     self?.showAlert(title: message)
-
                 })
     }
 
@@ -62,7 +58,6 @@ class ExpenseEditViewModel: BaseViewModel {
     func didSelectDate(date: Date) {
         onSetCurrentDate?(date)
         self.item?.date = date
-
     }
 
     func didDescriptionChange(description: String) {
@@ -76,14 +71,12 @@ class ExpenseEditViewModel: BaseViewModel {
     func save() {
         showLoading()
         DataServices.expenseDataService?.addOrUpdate(expense: item!,
-                completionHandler: {
-                    [weak self] in
+                completionHandler: { [weak self] in
                     self?.hideLoading()
                     self?.didDataChange?()
                     self?.navigateBack(mode: .modal)
                 },
-                errorHandler: {
-                    [weak self] message in
+                errorHandler: { [weak self] message in
                     self?.showAlert(message: message)
                     self?.hideLoading()
                 })
@@ -103,7 +96,6 @@ class ExpenseEditViewModel: BaseViewModel {
         }
     }
 
-
     override func loadData() {
         showLoading()
 
@@ -116,8 +108,7 @@ class ExpenseEditViewModel: BaseViewModel {
         self.onSetCurrencies?(resultCurrencies!)
 
         let item = navigationParams["item"] as? ExpenseObject
-        self.didDataChange = navigationParams["didDataChange"] as? () -> ()?
-
+        self.didDataChange = navigationParams["didDataChange"] as? () -> Void?
 
         if (item == nil) {
             self.didSetPageState?(.new)
@@ -139,30 +130,30 @@ class ExpenseEditViewModel: BaseViewModel {
 
         } else {
             DataServices.expenseDataService!.getById(guid: item!.id,
-                    completionHandler: {
-                        result in
-                        self.item = result
-                        self.onSetCurrentItem?(result)
-                        self.didSelectPaymentType(item: resultPaymentTypes!.first(where: { $0.id == result.paymentMethodId })!)
-                        self.didSelectCurrency(item: resultCurrencies!.first(where: { $0.id == result.currencyId })!)
-                        self.didSelectCategory(item: resultCategories!.first(where: { $0.id == result.expenseCategoryId })!)
+                    completionHandler: { [weak self] result in
+                        self?.item = result
+                        self?.onSetCurrentItem?(result)
+                        self?.didSelectPaymentType(item: resultPaymentTypes!
+                            .first(where: { $0.id == result.paymentMethodId })!)
+                        self?.didSelectCurrency(item: resultCurrencies!
+                            .first(where: { $0.id == result.currencyId })!)
+                        self?.didSelectCategory(item: resultCategories!
+                            .first(where: { $0.id == result.expenseCategoryId })!)
                         if result.status != .approved {
-                            self.didSetPageState?(.edit) }
-                        else {
-                            self.didSetPageState?(.readOnly) }
-                        self.hideLoading()
+                            self?.didSetPageState?(.edit)
+                        } else {
+                            self?.didSetPageState?(.readOnly)
+                        }
+                        self?.hideLoading()
                     },
-                    errorHandler: {
-                        message in
+                    errorHandler: { _ in
                         self.hideLoading()
                     })
         }
-
-
     }
 }
 
-enum expensePageState {
+enum ExpensePageState {
     case new
     case edit
     case readOnly

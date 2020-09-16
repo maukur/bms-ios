@@ -5,9 +5,7 @@
 
 import Foundation
 
-
-
-struct EventDetailObject:Codable {
+struct eventDetailObject: Codable {
     var id: String
     var eventCategoryId: String
     var reason: String
@@ -15,6 +13,3 @@ struct EventDetailObject:Codable {
     var endDate: Date?
     var status: StatusEnum
 }
-
-
-

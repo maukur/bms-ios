@@ -5,8 +5,8 @@
 
 import UIKit
 
-extension UIViewController{
-    func doneTextFieldButton(textField:UITextField) {
+extension UIViewController {
+    func doneTextFieldButton(textField: UITextField) {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))

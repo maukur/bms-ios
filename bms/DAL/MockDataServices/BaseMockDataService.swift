@@ -18,41 +18,31 @@ class BaseMockDataService {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(formatter)
         self.decoder = decoder
-        
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .formatted(formatter)
         self.encoder = encoder
     }
     private func loadJson(fileName: String) -> Data {
-        
         let url = Bundle.main.path(forResource: fileName, ofType: "json")!
         
         do {
             return try String(contentsOfFile: url).data(using: .utf8)!
+        } catch {
         }
-        catch {
-            
-        }
-        
         return Data()
     }
-    
-    func MakeRequestFromJson<T>(fileName: String, completionHandler: @escaping (T) -> (), errorHandler: ((String) -> ())? = nil) where T: Decodable {
-        
+    func makeRequestFromJson<T>(fileName: String,
+                                completionHandler: @escaping (T) -> Void,
+                                errorHandler: ((String) -> Void)? = nil) where T: Decodable {
         let data = loadJson(fileName: fileName)
-        
         do {
-            
             let jsonData: T = try decoder.decode(T.self, from: data)
             completionHandler(jsonData)
-            
-        }
-        catch let DecodingError.typeMismatch(type, context)  {
+        } catch let DecodingError.typeMismatch(type, context) {
             print("Type '\(type)' mismatch:", context.debugDescription)
             print("codingPath:", context.codingPath)
             errorHandler?("Error")
-        }
-        catch {
+        } catch {
             errorHandler?("Error")
         }
     }

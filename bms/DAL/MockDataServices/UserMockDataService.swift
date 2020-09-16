@@ -9,15 +9,23 @@
 import Foundation
 
 class UserMockDataService: BaseMockDataService, UserProtocol {
-    func login(login: String, password: String, completionHandler: @escaping (LoginResponseObject) -> (), errorHandler: ((String) -> ())?) {
-        MakeRequestFromJson(fileName: "Authenticate", completionHandler: completionHandler, errorHandler: errorHandler)
+    func login(login: String,
+               password: String,
+               completionHandler: @escaping (LoginResponseObject) -> Void,
+               errorHandler: ((String) -> Void)?) {
+        makeRequestFromJson(fileName: "Authenticate",
+                            completionHandler: completionHandler,
+                            errorHandler: errorHandler)
     }
-    
-    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> (), errorHandler: ((String) -> ())?) {
-        MakeRequestFromJson(fileName: "Info", completionHandler: completionHandler, errorHandler: errorHandler)
+    func getUserInfo(completionHandler: @escaping (UserInfoObject) -> Void,
+                     errorHandler: ((String) -> Void)?) {
+        makeRequestFromJson(fileName: "Info",
+                            completionHandler: completionHandler,
+                            errorHandler: errorHandler)
     }
-    
-    func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
+    func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject,
+                        completionHandler: @escaping () -> Void,
+                        errorHandler: ((String) -> Void)?) {
         completionHandler()
     }
 }

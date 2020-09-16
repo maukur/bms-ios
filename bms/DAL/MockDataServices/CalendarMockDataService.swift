@@ -9,27 +9,39 @@
 import Foundation
 
 class CalendarMockDataService: BaseMockDataService, CalendarProtocol {
-    func getAllEvents(year: Int, completionHandler: @escaping ([Date]) -> (), errorHandler: ((String) -> ())?) {
-        MakeRequestFromJson(fileName: "EventsLogs", completionHandler: completionHandler, errorHandler: errorHandler)
+    func getAllEvents(year: Int,
+                      completionHandler: @escaping ([Date]) -> Void,
+                      errorHandler: ((String) -> Void)?) {
+        makeRequestFromJson(fileName: "EventsLogs", completionHandler: completionHandler, errorHandler: errorHandler)
     }
-    
-    func getEventTypeList(completionHandler: @escaping ([EventCategoryObject]) -> (), errorHandler: ((String) -> ())?) {
-        MakeRequestFromJson(fileName: "EventCategoryList", completionHandler: completionHandler, errorHandler: errorHandler)
+    func getEventTypeList(completionHandler: @escaping ([EventCategoryObject]) -> Void,
+                          errorHandler: ((String) -> Void)?) {
+        makeRequestFromJson(fileName: "EventCategoryList",
+                            completionHandler: completionHandler,
+                            errorHandler: errorHandler)
     }
-    
-    func addOrUpdate(event: EventDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
+    func addOrUpdate(event: eventDetailObject,
+                     completionHandler: @escaping () -> Void,
+                     errorHandler: ((String) -> Void)?) {
         completionHandler()
     }
-    
-    func getEventsByDate(date: Date, completionHandler: @escaping ([EventObject]) -> (), errorHandler: ((String) -> ())?) {
-        MakeRequestFromJson(fileName: "GetEventLogsByDate", completionHandler: completionHandler, errorHandler: errorHandler)
+    func getEventsByDate(date: Date,
+                         completionHandler: @escaping ([EventObject]) -> Void,
+                         errorHandler: ((String) -> Void)?) {
+        makeRequestFromJson(fileName: "GetEventLogsByDate",
+                            completionHandler: completionHandler,
+                            errorHandler: errorHandler)
     }
-    
-    func getEventDetailObjectById(guid: String, completionHandler: @escaping (EventDetailObject) -> (), errorHandler: ((String) -> ())?) {
-        MakeRequestFromJson(fileName: "GetEventLogById", completionHandler: completionHandler, errorHandler: errorHandler)
+    func getEventDetailObjectById(guid: String,
+                                  completionHandler: @escaping (eventDetailObject) -> Void,
+                                  errorHandler: ((String) -> Void)?) {
+        makeRequestFromJson(fileName: "GetEventLogById",
+                            completionHandler: completionHandler,
+                            errorHandler: errorHandler)
     }
-    
-    func removeEventById(guid: String, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?) {
+    func removeEventById(guid: String,
+                         completionHandler: @escaping () -> Void,
+                         errorHandler: ((String) -> Void)?) {
         completionHandler()
     }
 }

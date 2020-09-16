@@ -10,8 +10,16 @@ import Foundation
 
 protocol ExpenseProtocol {
     
-    func getAll(year: Int, completionHandler: @escaping ([ExpenseObject]) -> (), errorHandler: ((String) -> ())?)
-    func getById(guid: String, completionHandler: @escaping (ExpenseDetailObject) -> (), errorHandler: ((String) -> ())?)
-    func removeById(guid: String, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?)
-    func addOrUpdate(expense:ExpenseDetailObject, completionHandler: @escaping () -> (), errorHandler: ((String) -> ())?)
+    func getAll(year: Int,
+                completionHandler: @escaping ([ExpenseObject]) -> Void,
+                errorHandler: ((String) -> Void)?)
+    func getById(guid: String,
+                 completionHandler: @escaping (ExpenseDetailObject) -> Void,
+                 errorHandler: ((String) -> Void)?)
+    func removeById(guid: String,
+                    completionHandler: @escaping () -> Void,
+                    errorHandler: ((String) -> Void)?)
+    func addOrUpdate(expense: ExpenseDetailObject,
+                     completionHandler: @escaping () -> Void,
+                     errorHandler: ((String) -> Void)?)
 }

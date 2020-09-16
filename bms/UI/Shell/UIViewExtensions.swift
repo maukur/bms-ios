@@ -19,7 +19,6 @@ extension UIView {
             bottomAnchor.constraint(equalTo: subview.bottomAnchor).isActive = true
         }
     }
-    
 }
 
 extension UIView {

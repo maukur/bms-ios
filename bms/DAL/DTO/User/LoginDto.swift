@@ -9,7 +9,7 @@
 import Foundation
 
 class LoginDto: Decodable {
-   var token : String?
-   var email : String?
-   var phone : String?
+   var token: String?
+   var email: String?
+   var phone: String?
 }

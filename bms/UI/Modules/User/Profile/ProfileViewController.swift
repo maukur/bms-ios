@@ -10,60 +10,54 @@ import UIKit
 import SkyFloatingLabelTextField
 
 class ProfileViewController: BaseViewController {
-    
-    @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!{
-        didSet{
+    @IBOutlet weak var nameTextField: SkyFloatingLabelTextField! {
+        didSet {
             nameTextField.applayStyle(Styles.Fields.mainSkyField)
             self.nameTextField.placeholder = "FIO"
             self.nameTextField.isEnabled = false
-            
         }
     }
-    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!{
-        didSet{
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField! {
+        didSet {
             emailTextField.applayStyle(Styles.Fields.mainSkyField)
             self.emailTextField.placeholder = "Email"
             self.emailTextField.isEnabled = false
         }
     }
-    @IBOutlet weak var phoneNumberField: SkyFloatingLabelTextField!{
-        didSet{
+    @IBOutlet weak var phoneNumberField: SkyFloatingLabelTextField! {
+        didSet {
             phoneNumberField.applayStyle(Styles.Fields.mainSkyField)
-            
             self.phoneNumberField.placeholder = "Phone"
             self.phoneNumberField.keyboardType = .phonePad
-            
         }
     }
-    @IBOutlet weak var birthDayTextField: SkyFloatingLabelTextField!{
-        didSet{
+    @IBOutlet weak var birthDayTextField: SkyFloatingLabelTextField! {
+        didSet {
             birthDayTextField.applayStyle(Styles.Fields.mainSkyField)
             self.birthDayTextField.placeholder = "Birth day"
             self.birthDayTextField.isEnabled = false
         }
     }
-    @IBOutlet weak var employmentDayTextField: SkyFloatingLabelTextField!{
-        didSet{
+    @IBOutlet weak var employmentDayTextField: SkyFloatingLabelTextField! {
+        didSet {
             employmentDayTextField.applayStyle(Styles.Fields.mainSkyField)
             self.employmentDayTextField.placeholder = "Date of employment"
             self.employmentDayTextField.isEnabled = false
         }
     }
-    @IBOutlet weak var seniorityTextField: SkyFloatingLabelTextField!{
-        didSet{
+    @IBOutlet weak var seniorityTextField: SkyFloatingLabelTextField! {
+        didSet {
             seniorityTextField.applayStyle(Styles.Fields.mainSkyField)
             self.seniorityTextField.placeholder = "Seniority"
             self.seniorityTextField.isEnabled = false
         }
     }
-    @IBOutlet weak var saveButton: UIButton!{
-        didSet{
+    @IBOutlet weak var saveButton: UIButton! {
+        didSet {
             saveButton.applayStyle(Styles.Buttons.mainButton)
         }
     }
-    
     private lazy var viewModel: ProfileViewModel = { getViewModel() }()
-    
     @IBAction func saveButtonAction(_ sender: Any) {
         do {
             try _ =  phoneNumberField.validatedText(validationType: .phoneNumber)
@@ -76,7 +70,6 @@ class ProfileViewController: BaseViewController {
     @objc func exitButtonAction(_ sender: Any) {
         viewModel.exit()
     }
-    
     @IBAction func phoneFieldTextChanged(_ sender: Any) {
         viewModel.didPhoneChange(newPhone: self.phoneNumberField.text!)
         phoneNumberField.errorMessage = ""
@@ -87,7 +80,6 @@ class ProfileViewController: BaseViewController {
         setupLogoutButton()
         doneTextFieldButton(textField: phoneNumberField)
     }
-    
     func setupLogoutButton() {
         let logoutButton = UIButton(type: .custom)
         logoutButton.frame(forAlignmentRect: CGRect(x: 0, y: 0, width: 20, height: 20))
@@ -101,12 +93,9 @@ class ProfileViewController: BaseViewController {
         currentHeight?.isActive = true
         self.navigationItem.rightBarButtonItems = [logoutBarButtonItem]
     }
-    
     override func bind() {
         super.bind()
-        
-        viewModel.onDataLoaded = {
-            [weak self]  data in
+        viewModel.onDataLoaded = { [weak self]  data in
             guard let self = self else { return }
             self.nameTextField.text = data?.fullName
             self.emailTextField.text = data?.email
