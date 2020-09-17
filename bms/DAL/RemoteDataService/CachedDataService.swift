@@ -14,10 +14,10 @@ class CachedDataService:BaseRemoteDataService, CachedProtocol{
     
     override init(baseUrl: String, unauthorized: @escaping () -> Void, getToken: @escaping () -> String?) {
         super.init(baseUrl: baseUrl, unauthorized: unauthorized, getToken: getToken)
-        ex(url: EndPoints.getCategoryList, completionHandler:  categoryCompletionHandler)
-        ex(url: EndPoints.getPaymentTypeList, completionHandler: paymentCompletionHandler)
-        ex(url: EndPoints.getCurrenciesList, completionHandler:  currencyCompletionHandler)
-        ex(url: EndPoints.getEventCategoryList, completionHandler: eventCategoryCompletionHandler)
+        ex(url: EndPoints.getCategoryList, converter: ExpenseCategoryDto.toObjects, completionHandler:  categoryCompletionHandler)
+        ex(url: EndPoints.getPaymentTypeList, converter: PaymentTypeDto.toObjects,  completionHandler: paymentCompletionHandler)
+        ex(url: EndPoints.getCurrenciesList, converter: CurrencyDto.toObjects, completionHandler:  currencyCompletionHandler)
+        ex(url: EndPoints.getEventCategoryList, converter: EventCategoryDto.toObjects, completionHandler: eventCategoryCompletionHandler)
     }
     
     private func eventCategoryCompletionHandler(result: [EventCategoryObject]) {

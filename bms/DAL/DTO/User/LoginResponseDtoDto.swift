@@ -8,8 +8,6 @@
 
 import Foundation
 
-class LoginDto: Decodable {
-   var token: String?
-   var email: String?
-   var phone: String?
+struct LoginResponseDto: Codable {
+    let token: String
 }

@@ -13,6 +13,7 @@ class ExpenseRemoteDataService: BaseRemoteDataService, ExpenseProtocol {
     func getAll(year: Int, completionHandler: @escaping ([ExpenseObject]) -> Void, errorHandler: ((String) -> Void)?) {
         ex(url: EndPoints.getExpenses,
            parameters: ["year": String(year)],
+           converter: ExpenseDto.toObjects,
            completionHandler: completionHandler,
            errorHandler: errorHandler)
     }
@@ -22,6 +23,7 @@ class ExpenseRemoteDataService: BaseRemoteDataService, ExpenseProtocol {
                  errorHandler: ((String) -> Void)?) {
         ex(url: EndPoints.getExpenseByGuid,
            parameters: ["expenseId": guid],
+           converter: ExpenseDetailDto.toObject,
            completionHandler: completionHandler,
            errorHandler: errorHandler)
     }

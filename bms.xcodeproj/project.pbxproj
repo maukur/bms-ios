@@ -26,6 +26,15 @@
 		22412FA924EEEB3C00E5DA93 /* EventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22412FA824EEEB3C00E5DA93 /* EventEditViewController.swift */; };
 		2259CAF8251124B8003AFFFB /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259CAF7251124B8003AFFFB /* Validators.swift */; };
 		226B293F24F2782B00B22EFD /* EventEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B293E24F2782B00B22EFD /* EventEditViewModel.swift */; };
+		228128572513C2CD000D6072 /* EventDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228128562513C2CD000D6072 /* EventDto.swift */; };
+		228128592513C2EC000D6072 /* EventCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228128582513C2EC000D6072 /* EventCategoryDto.swift */; };
+		2281285B2513C300000D6072 /* EventDetailDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281285A2513C300000D6072 /* EventDetailDto.swift */; };
+		2281285D2513C31B000D6072 /* ExpenseGroupDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281285C2513C31B000D6072 /* ExpenseGroupDto.swift */; };
+		2281285F2513C34D000D6072 /* ExpenseCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281285E2513C34D000D6072 /* ExpenseCategoryDto.swift */; };
+		228128612513C35F000D6072 /* CurrencyDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228128602513C35F000D6072 /* CurrencyDto.swift */; };
+		228128632513C372000D6072 /* PaymentTypeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228128622513C372000D6072 /* PaymentTypeDto.swift */; };
+		228128652513C385000D6072 /* ExpenseDetailDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228128642513C385000D6072 /* ExpenseDetailDto.swift */; };
+		228128682513C3C7000D6072 /* UserInfoForUpdateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228128672513C3C7000D6072 /* UserInfoForUpdateDto.swift */; };
 		2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */; };
 		2283073024E6DE3D00A6E1A7 /* UserInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */; };
 		2283073224E6DF4900A6E1A7 /* UserInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283073124E6DF4900A6E1A7 /* UserInfoObject.swift */; };
@@ -67,7 +76,7 @@
 		D026EADC24A23D6800EF2248 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026EAC824A23D6800EF2248 /* DataServices.swift */; };
 		D026EADD24A23D6800EF2248 /* BaseMockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026EACA24A23D6800EF2248 /* BaseMockDataService.swift */; };
 		D026EADE24A23D6800EF2248 /* UserMockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026EACB24A23D6800EF2248 /* UserMockDataService.swift */; };
-		D026EADF24A23D6800EF2248 /* LoginDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026EACE24A23D6800EF2248 /* LoginDto.swift */; };
+		D026EADF24A23D6800EF2248 /* LoginResponseDtoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026EACE24A23D6800EF2248 /* LoginResponseDtoDto.swift */; };
 		D026EAE124A23D6800EF2248 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026EAD124A23D6800EF2248 /* RequestResult.swift */; };
 		D026EAE224A23D6800EF2248 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026EAD324A23D6800EF2248 /* EndPoints.swift */; };
 		D026EAE324A23D6800EF2248 /* BaseRemoteDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026EAD424A23D6800EF2248 /* BaseRemoteDataService.swift */; };
@@ -135,6 +144,15 @@
 		22412FA824EEEB3C00E5DA93 /* EventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewController.swift; sourceTree = "<group>"; };
 		2259CAF7251124B8003AFFFB /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		226B293E24F2782B00B22EFD /* EventEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewModel.swift; sourceTree = "<group>"; };
+		228128562513C2CD000D6072 /* EventDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDto.swift; sourceTree = "<group>"; };
+		228128582513C2EC000D6072 /* EventCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCategoryDto.swift; sourceTree = "<group>"; };
+		2281285A2513C300000D6072 /* EventDetailDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailDto.swift; sourceTree = "<group>"; };
+		2281285C2513C31B000D6072 /* ExpenseGroupDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseGroupDto.swift; sourceTree = "<group>"; };
+		2281285E2513C34D000D6072 /* ExpenseCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryDto.swift; sourceTree = "<group>"; };
+		228128602513C35F000D6072 /* CurrencyDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDto.swift; sourceTree = "<group>"; };
+		228128622513C372000D6072 /* PaymentTypeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTypeDto.swift; sourceTree = "<group>"; };
+		228128642513C385000D6072 /* ExpenseDetailDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailDto.swift; sourceTree = "<group>"; };
+		228128672513C3C7000D6072 /* UserInfoForUpdateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoForUpdateDto.swift; sourceTree = "<group>"; };
 		2283072D24E6DD5F00A6E1A7 /* UserRemoteDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataService.swift; sourceTree = "<group>"; };
 		2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDto.swift; sourceTree = "<group>"; };
 		2283073124E6DF4900A6E1A7 /* UserInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoObject.swift; sourceTree = "<group>"; };
@@ -186,7 +204,7 @@
 		D026EAC824A23D6800EF2248 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		D026EACA24A23D6800EF2248 /* BaseMockDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMockDataService.swift; sourceTree = "<group>"; };
 		D026EACB24A23D6800EF2248 /* UserMockDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMockDataService.swift; sourceTree = "<group>"; };
-		D026EACE24A23D6800EF2248 /* LoginDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDto.swift; sourceTree = "<group>"; };
+		D026EACE24A23D6800EF2248 /* LoginResponseDtoDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseDtoDto.swift; sourceTree = "<group>"; };
 		D026EAD124A23D6800EF2248 /* RequestResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		D026EAD324A23D6800EF2248 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		D026EAD424A23D6800EF2248 /* BaseRemoteDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRemoteDataService.swift; sourceTree = "<group>"; };
@@ -253,6 +271,16 @@
 				226B293E24F2782B00B22EFD /* EventEditViewModel.swift */,
 			);
 			path = NewEvent;
+			sourceTree = "<group>";
+		};
+		228128552513C238000D6072 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				228128562513C2CD000D6072 /* EventDto.swift */,
+				228128582513C2EC000D6072 /* EventCategoryDto.swift */,
+				2281285A2513C300000D6072 /* EventDetailDto.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		22C881B924E582EC0069E07D /* Profile */ = {
@@ -507,6 +535,7 @@
 		D026EACC24A23D6800EF2248 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				228128552513C238000D6072 /* Calendar */,
 				D05F295924D21C66005C55C2 /* Expense */,
 				D026EACD24A23D6800EF2248 /* User */,
 			);
@@ -516,8 +545,9 @@
 		D026EACD24A23D6800EF2248 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				D026EACE24A23D6800EF2248 /* LoginDto.swift */,
+				D026EACE24A23D6800EF2248 /* LoginResponseDtoDto.swift */,
 				2283072F24E6DE3D00A6E1A7 /* UserInfoDto.swift */,
+				228128672513C3C7000D6072 /* UserInfoForUpdateDto.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -607,6 +637,11 @@
 			isa = PBXGroup;
 			children = (
 				D088863524CF5A530044ABE4 /* ExpenceDto.swift */,
+				2281285C2513C31B000D6072 /* ExpenseGroupDto.swift */,
+				2281285E2513C34D000D6072 /* ExpenseCategoryDto.swift */,
+				228128602513C35F000D6072 /* CurrencyDto.swift */,
+				228128622513C372000D6072 /* PaymentTypeDto.swift */,
+				228128642513C385000D6072 /* ExpenseDetailDto.swift */,
 			);
 			path = Expense;
 			sourceTree = "<group>";
@@ -832,6 +867,7 @@
 				D026EAE424A23D6800EF2248 /* ConverterExtensions.swift in Sources */,
 				D03C081624DC1FA100E88B96 /* CurrencyObject.swift in Sources */,
 				D09B476324D8804D002ADD62 /* ExpensesEditViewModel.swift in Sources */,
+				228128652513C385000D6072 /* ExpenseDetailDto.swift in Sources */,
 				D026EA8B24A237F400EF2248 /* Consts.swift in Sources */,
 				D0DED8E724E4228C000C0407 /* CalendarViewController.swift in Sources */,
 				D03C081A24DC2C5D00E88B96 /* ExpenseDetailObject.swift in Sources */,
@@ -839,7 +875,10 @@
 				D0C86A8324F7C7A300548D1D /* ErrorView.swift in Sources */,
 				D09C309C24C0BA3700A214DD /* ExpensesViewCell.swift in Sources */,
 				D026EA3C24A2375800EF2248 /* DefaultTableViewDataSource.swift in Sources */,
+				228128612513C35F000D6072 /* CurrencyDto.swift in Sources */,
 				2283073024E6DE3D00A6E1A7 /* UserInfoDto.swift in Sources */,
+				228128682513C3C7000D6072 /* UserInfoForUpdateDto.swift in Sources */,
+				228128632513C372000D6072 /* PaymentTypeDto.swift in Sources */,
 				D0EC947D24E139EB007D547A /* ExpenseRemoteDataService.swift in Sources */,
 				D045409B24C0926A00CA9A27 /* DefaultTableViewWithSectionsDataSource.swift in Sources */,
 				D00355B424BDCA5000C73CA5 /* ExpensesViewModel.swift in Sources */,
@@ -869,15 +908,18 @@
 				22412FA924EEEB3C00E5DA93 /* EventEditViewController.swift in Sources */,
 				D088863C24CF5D2F0044ABE4 /* ExpenseProtocol.swift in Sources */,
 				228BADC6250FA20800C7D268 /* ExpenseMockDataService.swift in Sources */,
+				228128592513C2EC000D6072 /* EventCategoryDto.swift in Sources */,
 				D00355B724BDCA9C00C73CA5 /* ExpensesViewController.swift in Sources */,
 				D088863824CF5B340044ABE4 /* ExpenseObject.swift in Sources */,
 				D026EA3D24A2375800EF2248 /* DefaultTableViewDelegate.swift in Sources */,
+				2281285D2513C31B000D6072 /* ExpenseGroupDto.swift in Sources */,
 				D019611B24F7E0C200789A36 /* UIViewExtensions.swift in Sources */,
 				2259CAF8251124B8003AFFFB /* Validators.swift in Sources */,
 				D026EA8124A237B200EF2248 /* BaseViewModel.swift in Sources */,
 				D03C081824DC255100E88B96 /* PaymentTypeObject.swift in Sources */,
 				D006A0E224DAA4EE0069F21C /* DefaultUIPickerView.swift in Sources */,
 				D026EADE24A23D6800EF2248 /* UserMockDataService.swift in Sources */,
+				228128572513C2CD000D6072 /* EventDto.swift in Sources */,
 				D026EADC24A23D6800EF2248 /* DataServices.swift in Sources */,
 				221BACE324F2C72E0080F590 /* EventCategoryObject.swift in Sources */,
 				D0A10E4C24DD5D82008EE4AF /* PhotoService.swift in Sources */,
@@ -892,11 +934,13 @@
 				D026EAE524A23D6800EF2248 /* LoginResponseObject.swift in Sources */,
 				D026EA9324A238F700EF2248 /* InitializedViewCell.swift in Sources */,
 				D0D5903824E695A000550C74 /* CalendarRemoteDataService.swift in Sources */,
-				D026EADF24A23D6800EF2248 /* LoginDto.swift in Sources */,
+				2281285F2513C34D000D6072 /* ExpenseCategoryDto.swift in Sources */,
+				D026EADF24A23D6800EF2248 /* LoginResponseDtoDto.swift in Sources */,
 				D026EA4424A2375800EF2248 /* LoginViewController.swift in Sources */,
 				2283072E24E6DD5F00A6E1A7 /* UserRemoteDataService.swift in Sources */,
 				D0AF1A00250C0723005F1F23 /* Styles.swift in Sources */,
 				62D9B8E229FECB3EA45E6186 /* DataEnums.swift in Sources */,
+				2281285B2513C300000D6072 /* EventDetailDto.swift in Sources */,
 				62D9B011E374F7909670BB48 /* EventDetailObject.swift in Sources */,
 				62D9B0C42D00138673F62281 /* UIExtensions .swift in Sources */,
 				62D9BF96BE08C4650C4F0660 /* UserInfoForUpdateObject.swift in Sources */,

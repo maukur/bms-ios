@@ -14,13 +14,19 @@ class CalendarDataService: BaseRemoteDataService, CalendarProtocol {
     func getAllEvents(year: Int, completionHandler: @escaping ([Date]) -> Void, errorHandler: ((String) -> Void)?) {
         ex(url: EndPoints.getEventList,
            parameters: ["year": year],
+           converter: {(dto: [Date]) -> [Date] in
+            return dto
+        },
            completionHandler: completionHandler,
            errorHandler: errorHandler)
-    }
+    } // todo
     
     func getEventTypeList(completionHandler: @escaping ([EventCategoryObject]) -> Void,
                           errorHandler: ((String) -> Void)?) {
-        ex(url: EndPoints.getEventCategoryList, completionHandler: completionHandler, errorHandler: errorHandler)
+        ex(url: EndPoints.getEventCategoryList,
+           converter: EventCategoryDto.toObjects,
+           completionHandler: completionHandler,
+           errorHandler: errorHandler)
     }
     
     func addOrUpdate(event: EventDetailObject,
@@ -38,6 +44,7 @@ class CalendarDataService: BaseRemoteDataService, CalendarProtocol {
                          errorHandler: ((String) -> Void)?) {
         ex(url: EndPoints.getEventsByDate,
            parameters: ["date": date],
+           converter: EventDto.toObjects,
            completionHandler: completionHandler,
            errorHandler: errorHandler)
     }
@@ -47,6 +54,7 @@ class CalendarDataService: BaseRemoteDataService, CalendarProtocol {
                                   errorHandler: ((String) -> Void)?) {
         ex(url: EndPoints.getEventDetailById,
            parameters: ["eventLogId": guid],
+           converter: EventDetailDto.toObject,
            completionHandler: completionHandler,
            errorHandler: errorHandler)
     }

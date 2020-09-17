@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct EventObject:Codable {
+struct EventObject: Codable {
 	var id: String
 	var reason: String
 	var type: String

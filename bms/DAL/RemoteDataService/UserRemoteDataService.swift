@@ -19,13 +19,16 @@ class UserRemoteDataService: BaseRemoteDataService, UserProtocol {
            method: .post,
            parameters: ["username": login, "password": password],
            encoding: JSONEncoding.default,
+           converter: LoginResponseDto.toObject,
            completionHandler: completionHandler,
            errorHandler: errorHandler)
     }
     
     func getUserInfo(completionHandler: @escaping (UserInfoObject) -> Void,
                      errorHandler: ((String) -> Void)?) {
-         ex(url: EndPoints.getUserInfo, completionHandler: completionHandler,
+         ex(url: EndPoints.getUserInfo,
+            converter: UserInfoDto.toObject,
+            completionHandler: completionHandler,
             errorHandler: errorHandler)
     }
     

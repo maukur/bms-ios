@@ -24,10 +24,11 @@ class BaseRemoteDataService {
         self.encoder = encoder
     }
     
-    func ex<T: Codable>(url: String,
+    func ex<T: Codable, D: Codable>(url: String,
                         method: HTTPMethod = .get,
                         parameters: Parameters = [:],
                         encoding: ParameterEncoding = URLEncoding.default,
+                        converter: @escaping (D) -> T,
                         completionHandler: @escaping (T) -> Void,
                         errorHandler: ((String) -> Void)? = nil) {
         var headers: HTTPHeaders = []
@@ -45,6 +46,7 @@ class BaseRemoteDataService {
                 case .success:
                     print("finish")
                     self.onResponse(response: response,
+                                    converter: converter,
                                     completionHandler: completionHandler,
                                     errorHandler: errorHandler)
                 case .failure(let error):
@@ -129,7 +131,8 @@ class BaseRemoteDataService {
         }
     }
     
-    private func onResponse<T: Codable>(response: AFDataResponse<Data?>,
+    private func onResponse<T: Codable, D: Codable>(response: AFDataResponse<Data?>,
+                                                    converter: (D) -> T,
                                         completionHandler: @escaping (T) -> Void,
                                         errorHandler: ((String) -> Void)? = nil) {
         do {
@@ -138,8 +141,8 @@ class BaseRemoteDataService {
                 return
             }
             self.debugPrintResponse(response: response)
-            let jsonData: T = try self.decoder.decode(T.self, from: response.data!)
-            completionHandler(jsonData)
+            let jsonData: D = try self.decoder.decode(D.self, from: response.data!)
+            completionHandler(converter(jsonData))
         } catch let DecodingError.dataCorrupted(context) {
             errorHandler?("dataCorrupted")
             print("error: ", context)
