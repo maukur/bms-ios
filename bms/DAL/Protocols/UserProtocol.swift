@@ -14,8 +14,10 @@ protocol UserProtocol {
                password: String,
                completionHandler: @escaping (LoginResponseObject) -> Void,
                errorHandler: ((String) -> Void)?)
+    
     func getUserInfo(completionHandler: @escaping (UserInfoObject) -> Void,
                      errorHandler: ((String) -> Void)?)
+    
     func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject,
                         completionHandler: @escaping () -> Void,
                         errorHandler: ((String) -> Void)?)

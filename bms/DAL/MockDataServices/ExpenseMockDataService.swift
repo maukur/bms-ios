@@ -9,9 +9,11 @@
 import Foundation
 
 class ExpenseMockDataService: BaseMockDataService, ExpenseProtocol {
+    
     func getAll(year: Int, completionHandler: @escaping ([ExpenseObject]) -> Void, errorHandler: ((String) -> Void)?) {
         makeRequestFromJson(fileName: "Expenses", completionHandler: completionHandler, errorHandler: errorHandler)
     }
+    
     func getById(guid: String,
                  completionHandler: @escaping (ExpenseDetailObject) -> Void,
                  errorHandler: ((String) -> Void)?) {
@@ -19,9 +21,11 @@ class ExpenseMockDataService: BaseMockDataService, ExpenseProtocol {
                             completionHandler: completionHandler,
                             errorHandler: errorHandler)
     }
+    
     func removeById(guid: String, completionHandler: @escaping () -> Void, errorHandler: ((String) -> Void)?) {
         completionHandler()
     }
+    
     func addOrUpdate(expense: ExpenseDetailObject,
                      completionHandler: @escaping () -> Void,
                      errorHandler: ((String) -> Void)?) {

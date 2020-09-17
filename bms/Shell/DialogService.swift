@@ -12,6 +12,7 @@ class DialogService {
     
     private static let instance = DialogService()
     private init() {}
+    
     static func initialize(getTopViewController: (() -> UIViewController?)? = nil) {
         self.instance.getTopViewController = getTopViewController
         SwiftEventBus.onMainThread(self, name: Consts.instance.dialogShowLoading) { result in
@@ -27,12 +28,15 @@ class DialogService {
             DialogService.showActionSheet(result: result?.object)
         }
     }
+    
     static func showLoading(result: Any?) {
         MBProgressHUD.showAdded(to: (self.instance.getTopViewController!()?.view!)!, animated: true)
     }
+    
     static func hideLoading() {
         MBProgressHUD.hide(for: (self.instance.getTopViewController!()?.view!)!, animated: true)
     }
+    
     static func showAlert(result: Any?) {
         let dic = result as! Dictionary<String, Any?>
         let title = dic["title"] as! String?
@@ -49,6 +53,7 @@ class DialogService {
         }
         self.instance.getTopViewController!()!.present(alert, animated: true)
     }
+    
     static func showActionSheet(result: Any?) {
         let dic = result as! [String: Any]
         let title = dic["title"] as! String?
@@ -65,5 +70,6 @@ class DialogService {
         alert.addAction(cancelAction)
         self.instance.getTopViewController!()!.present(alert, animated: true)
     }
+    
     var getTopViewController: (() -> UIViewController?)?
 }

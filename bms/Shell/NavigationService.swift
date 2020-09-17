@@ -23,6 +23,7 @@ class NavigationService {
     private static let instance = NavigationService()
     private init() {}
     static private var setRoot: SetRootHandlerAlias?
+    
     static func initialize(modules: [String],
                            setRootHandler:@escaping SetRootHandlerAlias,
                            mode: NavigationMode) {
@@ -43,6 +44,7 @@ class NavigationService {
             NavigationService.navigationBack(result: result?.object)
         }
     }
+    
     private static func navigationTo(result: Any?) {
         let dic = result as! [String: Any]
         let mode = dic["mode"] as! NavigationMode
@@ -63,6 +65,7 @@ class NavigationService {
             navigateModalNavigationTo(module: modules.first!, navigationParams: navigationParams)
         }
     }
+    
     private static func navigateNormalTo(module: String, navigationParams: [String: Any]) {
         let viewController = getModule(moduleName: module, navigationParams: navigationParams)
         let tabNavigationController =
@@ -70,11 +73,13 @@ class NavigationService {
         tabNavigationController.pushViewController(viewController, animated: true)
         NavigationService.instance.topNavigationController?.pushViewController(viewController, animated: true)
     }
+    
     private static func navigateNavigationTo(module: String, navigationParams: [String: Any]) {
         let viewController = getModule(moduleName: module, navigationParams: navigationParams)
         let navigationController = UINavigationController(rootViewController: viewController)
         setRoot?(navigationController)
     }
+    
     private static func navigateTabTo(modules: [String], navigationParams: [String: Any]) {
         var controllers: [UIViewController] = []
         let tabBarController = UITabBarController()
@@ -93,19 +98,23 @@ class NavigationService {
 
         setRoot?(tabBarController)
     }
+    
     private static func navigateRootTo(module: String, navigationParams: [String: Any]) {
         let viewController = getModule(moduleName: module, navigationParams: navigationParams)
         setRoot?(viewController)
     }
+    
     private static func navigateModalTo(module: String, navigationParams: [String: Any]) {
         let viewController = getModule(moduleName: module, navigationParams: navigationParams)
         NavigationService.instance.anyTopController?.present(viewController, animated: true)
     }
+    
     private static func navigateModalNavigationTo(module: String, navigationParams: [String: Any]) {
         let viewController = getModule(moduleName: module, navigationParams: navigationParams)
         let navigationViewController = UINavigationController(rootViewController: viewController)
         NavigationService.instance.anyTopController?.present(navigationViewController, animated: true)
     }
+    
     private static func navigationBack(result: Any?) {
         let dic = result as! [String: Any]
         let mode = dic["mode"] as! NavigationMode
@@ -118,18 +127,21 @@ class NavigationService {
             return
         }
     }
+    
     private static func navigateNormalBack() {
         let tabNavigationController =
             NavigationService.instance.topTabBarController?.selectedViewController as! UINavigationController
         tabNavigationController.popViewController(animated: true)
         NavigationService.instance.topNavigationController?.popViewController(animated: true)
     }
+    
     private static func navigateModalBack() {
         let tabNavigationController =
             NavigationService.instance.topTabBarController?.selectedViewController as! UINavigationController
         tabNavigationController.dismiss(animated: true)
         NavigationService.instance.anyTopController?.dismiss(animated: true)
     }
+    
     private static func getModule(moduleName: String, navigationParams: [String: Any]) -> UIViewController {
         let vcName = moduleName + "ViewController"
         let vmName = moduleName + "ViewModel"
@@ -145,12 +157,14 @@ class NavigationService {
         viewController.setViewModel(viewModel: vm)
         return viewController
     }
+    
     private var rootController: UIViewController? {
         let app = UIApplication.shared
         let topWindow = app.windows.first { $0.isKeyWindow }
         let rootVC = topWindow?.rootViewController
         return rootVC
     }
+    
     private var topViewController: UIViewController? {
         let split = topSplitController
         let navigation = topNavigationController
@@ -160,18 +174,23 @@ class NavigationService {
         }
         return rootController
     }
+    
     private  var anyTopController: UIViewController? {
         rootController
     }
+    
     private var topSplitController: UISplitViewController? {
         rootController as? UISplitViewController
     }
+    
     private var topNavigationController: UINavigationController? {
         rootController as? UINavigationController
     }
+    
     private var topTabBarController: UITabBarController? {
         rootController as? UITabBarController
     }
+    
     private static func stringClassFromString(_ className: String) -> AnyClass! {
         /// get namespace
         let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String

@@ -1,7 +1,5 @@
 import Foundation
 
-
-
 struct ExpenseObject:Codable {
     let id :String
     let description:String

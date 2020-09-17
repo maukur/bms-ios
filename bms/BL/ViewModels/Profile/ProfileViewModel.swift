@@ -12,13 +12,16 @@ class ProfileViewModel: BaseViewModel {
     
     var userInfo: UserInfoObject?
     var onDataLoaded: ((UserInfoObject?) -> Void)?
+    
     func exit() {
         SettingsService.instance.token = ""
         self.navigateTo(modules: ["Login"], mode: .root)
     }
+    
     func didPhoneChange(newPhone: String) {
         userInfo?.phone = newPhone
     }
+    
     func updateUserInfo() {
         showLoading()
         DataServices.userDataService?.updateUserInfo(
@@ -33,9 +36,11 @@ class ProfileViewModel: BaseViewModel {
                 self?.showAlert(message: message)
         })
     }
+    
     override func viewDidLoad() {
         updateData()
     }
+    
     func updateData() {
         showLoading()
         DataServices.userDataService?.getUserInfo(

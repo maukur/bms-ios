@@ -9,6 +9,7 @@
 import Alamofire
 
 class ExpenseRemoteDataService: BaseRemoteDataService, ExpenseProtocol {
+    
     func getAll(year: Int, completionHandler: @escaping ([ExpenseObject]) -> Void, errorHandler: ((String) -> Void)?) {
         ex(url: EndPoints.getExpenses,
            parameters: ["year": String(year)],
@@ -33,6 +34,7 @@ class ExpenseRemoteDataService: BaseRemoteDataService, ExpenseProtocol {
            completionHandler: completionHandler,
            errorHandler: errorHandler)
     }
+    
     func addOrUpdate(expense: ExpenseDetailObject,
                      completionHandler: @escaping () -> Void,
                      errorHandler: ((String) -> Void)?) {

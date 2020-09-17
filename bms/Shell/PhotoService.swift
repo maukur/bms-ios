@@ -9,15 +9,18 @@
 import UIKit
 
 class ImagePickService: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     private static let instance = ImagePickService()
     var imageDidSelect: ((UIImage?) -> Void)?
     var getTopViewController: (() -> UIViewController?)?
+    
     static func initialize(getTopViewController: @escaping () -> UIViewController?) {
         self.instance.getTopViewController = getTopViewController
         SwiftEventBus.onMainThread(self, name: Consts.instance.getPhotoMessage) { result in
             ImagePickService.pickImage(result: result?.object)
         }
     }
+    
     static func pickImage(result: Any?) {
         let topVc = self.instance.getTopViewController!()
         let dic = result as! [String: Any?]
@@ -32,12 +35,14 @@ class ImagePickService: UIViewController, UIImagePickerControllerDelegate, UINav
             topVc!.present(vc, animated: true)
         }
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         DispatchQueue.global().async {
             self.imageDidSelect?(nil)
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage

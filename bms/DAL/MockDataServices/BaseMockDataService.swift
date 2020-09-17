@@ -9,8 +9,10 @@
 import Foundation
 
 class BaseMockDataService {
+    
     let decoder: JSONDecoder
     let encoder: JSONEncoder
+    
     init() {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
@@ -22,6 +24,7 @@ class BaseMockDataService {
         encoder.dateEncodingStrategy = .formatted(formatter)
         self.encoder = encoder
     }
+    
     private func loadJson(fileName: String) -> Data {
         let url = Bundle.main.path(forResource: fileName, ofType: "json")!
         
@@ -31,6 +34,7 @@ class BaseMockDataService {
         }
         return Data()
     }
+    
     func makeRequestFromJson<T>(fileName: String,
                                 completionHandler: @escaping (T) -> Void,
                                 errorHandler: ((String) -> Void)? = nil) where T: Decodable {

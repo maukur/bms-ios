@@ -14,22 +14,28 @@ class ExpensesViewModel: BaseViewModel {
     var data: [AnyHashable: [Any]] = [:]
     var onDateUpdate: ((Date) -> Void)?
     var onDataUpdate: (([AnyHashable: [Any]]) -> Void)?
+    var dictionary: [AnyHashable: [Any]] = [:]
+    
     func goToTheNextYear() {
         date = changeYear(year: 1)
         onDateUpdate?(date)
         loadData()
     }
+    
     func goToThePreviousYear() {
         date = changeYear(year: -1)
         onDateUpdate?(date)
         loadData()
     }
+    
     func changeYear(year: Int) -> Date {
         var dateComponent = DateComponents()
         dateComponent.year = year
         return Calendar.current.date(byAdding: dateComponent, to: date) ?? date
     }
-    var dictionary: [AnyHashable: [Any]] = [:]
+    
+    
+    
     override func loadData() {
         dictionary = [:]
         onDateUpdate?(date)
@@ -59,12 +65,14 @@ class ExpensesViewModel: BaseViewModel {
                                                     self.showAlert(title: message)
         })
     }
+    
     func editItem(value: Any) {
         let item = value as! ExpenseObject
         navigateTo(modules: ["ExpenseEdit"],
                    mode: .modalNavigation,
                    navigationParams: ["item": item, "didDataChange": {[weak self] in self?.loadData()}])
     }
+    
     func addNewItem() {
         navigateTo(modules: ["ExpenseEdit"],
                    mode: .modalNavigation,

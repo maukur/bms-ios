@@ -1,6 +1,6 @@
 import Foundation
 
-class PaymentTypeObject: Codable {
+struct PaymentTypeObject: Codable {
     let name: String
     let id: String
 }

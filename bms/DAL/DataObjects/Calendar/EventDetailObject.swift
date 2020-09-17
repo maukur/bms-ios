@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct eventDetailObject: Codable {
+struct EventDetailObject: Codable {
     var id: String
     var eventCategoryId: String
     var reason: String

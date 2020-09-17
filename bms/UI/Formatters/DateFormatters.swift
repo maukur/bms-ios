@@ -9,23 +9,31 @@
 import Foundation
 
 extension String {
+    
     private static let dateFomatter = DateFormatter()
+    
     func toDate() -> Date {
         String.self.dateFomatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return String.self.dateFomatter.date(from: self)!
     }
 }
+
 extension Int {
+    
     func toString() -> String {
         return String(self)
     }
 }
+
 extension Date {
+    
     private static let dateFomatter = DateFormatter()
+    
     enum Format {
         case date
         case dateTime
     }
+    
     func toString (_ format: Format = .date) -> String {
         switch format {
         case .date:
@@ -35,9 +43,11 @@ extension Date {
         }
         return Date.self.dateFomatter.string(from: self)
     }
+    
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
         return calendar.component(component, from: self)
     }
+    
     static func calculateTimeDifference(from dateTime1: Date?, to dateTime2: Date? = Date()) -> String {
         guard dateTime1 != nil && dateTime2 != nil else { return "" }
         let components: NSCalendar.Unit = [.hour, .day, .month, .year]

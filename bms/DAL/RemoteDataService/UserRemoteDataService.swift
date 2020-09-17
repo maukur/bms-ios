@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 class UserRemoteDataService: BaseRemoteDataService, UserProtocol {
+    
     func login(login: String,
                password: String,
                completionHandler: @escaping (LoginResponseObject) -> Void,
@@ -21,11 +22,13 @@ class UserRemoteDataService: BaseRemoteDataService, UserProtocol {
            completionHandler: completionHandler,
            errorHandler: errorHandler)
     }
+    
     func getUserInfo(completionHandler: @escaping (UserInfoObject) -> Void,
                      errorHandler: ((String) -> Void)?) {
          ex(url: EndPoints.getUserInfo, completionHandler: completionHandler,
             errorHandler: errorHandler)
     }
+    
     func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject,
                         completionHandler: @escaping () -> Void,
                         errorHandler: ((String) -> Void)?) {

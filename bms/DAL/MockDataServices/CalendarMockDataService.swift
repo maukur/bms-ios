@@ -9,22 +9,26 @@
 import Foundation
 
 class CalendarMockDataService: BaseMockDataService, CalendarProtocol {
+    
     func getAllEvents(year: Int,
                       completionHandler: @escaping ([Date]) -> Void,
                       errorHandler: ((String) -> Void)?) {
         makeRequestFromJson(fileName: "EventsLogs", completionHandler: completionHandler, errorHandler: errorHandler)
     }
+    
     func getEventTypeList(completionHandler: @escaping ([EventCategoryObject]) -> Void,
                           errorHandler: ((String) -> Void)?) {
         makeRequestFromJson(fileName: "EventCategoryList",
                             completionHandler: completionHandler,
                             errorHandler: errorHandler)
     }
-    func addOrUpdate(event: eventDetailObject,
+    
+    func addOrUpdate(event: EventDetailObject,
                      completionHandler: @escaping () -> Void,
                      errorHandler: ((String) -> Void)?) {
         completionHandler()
     }
+    
     func getEventsByDate(date: Date,
                          completionHandler: @escaping ([EventObject]) -> Void,
                          errorHandler: ((String) -> Void)?) {
@@ -32,13 +36,15 @@ class CalendarMockDataService: BaseMockDataService, CalendarProtocol {
                             completionHandler: completionHandler,
                             errorHandler: errorHandler)
     }
+    
     func getEventDetailObjectById(guid: String,
-                                  completionHandler: @escaping (eventDetailObject) -> Void,
+                                  completionHandler: @escaping (EventDetailObject) -> Void,
                                   errorHandler: ((String) -> Void)?) {
         makeRequestFromJson(fileName: "GetEventLogById",
                             completionHandler: completionHandler,
                             errorHandler: errorHandler)
     }
+    
     func removeEventById(guid: String,
                          completionHandler: @escaping () -> Void,
                          errorHandler: ((String) -> Void)?) {

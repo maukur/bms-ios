@@ -2,11 +2,13 @@ import Foundation
 import Alamofire
 
 class BaseRemoteDataService {
+    
     let baseUrl: String
     let decoder: JSONDecoder
     let encoder: JSONEncoder
     let getToken: () -> (String?)
     let unauthorized: () -> Void
+    
     init(baseUrl: String, unauthorized: @escaping () -> Void, getToken: @escaping () -> String?) {
         self.baseUrl = baseUrl
         let formatter = DateFormatter()
@@ -21,6 +23,7 @@ class BaseRemoteDataService {
         encoder.dateEncodingStrategy = .formatted(formatter)
         self.encoder = encoder
     }
+    
     func ex<T: Codable>(url: String,
                         method: HTTPMethod = .get,
                         parameters: Parameters = [:],
@@ -53,7 +56,7 @@ class BaseRemoteDataService {
                 }
         }
     }
-    //func doStuff<T: Encodable>(payload: [String: T]) {
+    
     func ex<T: Encodable>(url: String,
                           body: T, method: HTTPMethod = .get,
                           completionHandler: @escaping () -> Void,
@@ -92,6 +95,7 @@ class BaseRemoteDataService {
                 }
         }
     }
+    
     func ex(url: String,
             method: HTTPMethod = .get,
             parameters: Parameters = [:],
@@ -124,6 +128,7 @@ class BaseRemoteDataService {
                 }
         }
     }
+    
     private func onResponse<T: Codable>(response: AFDataResponse<Data?>,
                                         completionHandler: @escaping (T) -> Void,
                                         errorHandler: ((String) -> Void)? = nil) {
@@ -152,6 +157,7 @@ class BaseRemoteDataService {
             print("error: ", error)
         }
     }
+    
     private func onResponse(response: AFDataResponse<Data?>,
                             completionHandler: @escaping () -> Void,
                             errorHandler: ((String) -> Void)? = nil) {
@@ -162,6 +168,7 @@ class BaseRemoteDataService {
         self.debugPrintResponse(response: response)
         completionHandler()
     }
+    
     private func debugPrintResponse(response: AFDataResponse<Data?>) {
         #if DEBUG
         print("URL: \(String(describing: response.response!.url))")
@@ -170,6 +177,7 @@ class BaseRemoteDataService {
         }
         #endif
     }
+    
     private func getFulUrl(_ url: String) -> URL {
         URL(string: baseUrl + url)!
     }

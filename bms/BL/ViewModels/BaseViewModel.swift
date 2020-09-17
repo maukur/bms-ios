@@ -21,6 +21,7 @@ class BaseViewModel {
             stateDidChange?(newValue)
         }
     }
+    
     func navigateTo(modules: [String],
                     mode: NavigationService.NavigationMode,
                     masterModule: String = "",
@@ -31,14 +32,17 @@ class BaseViewModel {
                    "navigationParams": navigationParams] as [String: Any]
         SwiftEventBus.postToMainThread(Consts.instance.navigationToMessage, sender: dic)
     }
+    
     func navigateBack(mode: NavigationService.NavigationMode) {
         let dic = ["mode": mode] as [String: Any]
         SwiftEventBus.postToMainThread(Consts.instance.navigationBackMessage, sender: dic)
     }
+    
     func showLoading(_ text: String = "", isBlocking: Bool = false) {
         let dic = ["text": text, "isBlocking": isBlocking] as [String: Any]
         SwiftEventBus.postToMainThread(Consts.instance.dialogShowLoading, sender: dic)
     }
+    
     func showAlert(title: String? = nil,
                    message: String? = nil,
                    action: String = "ok",
@@ -53,6 +57,7 @@ class BaseViewModel {
             ] as [String: Any?]
         SwiftEventBus.postToMainThread(Consts.instance.showAlert, sender: dic)
     }
+    
     func showActionSheet(title: String? = nil,
                          message: String? = nil,
                          actions: [String] = [],
@@ -67,9 +72,11 @@ class BaseViewModel {
             ] as [String: Any?]
         SwiftEventBus.postToMainThread(Consts.instance.showActionSheet, sender: dic)
     }
+    
     func hideLoading() {
         SwiftEventBus.postToMainThread(Consts.instance.dialogHideLoading)
     }
+    
     func pickImage(sourceType: UIImagePickerController.SourceType) -> UIImage? {
         let semaphore = DispatchSemaphore(value: 0)
         var result: UIImage?
@@ -85,6 +92,7 @@ class BaseViewModel {
         semaphore.wait()
         return result
     }
+    
     func viewDidLoad() {}
     func viewDidDisappear() {}
     func loadData() {}

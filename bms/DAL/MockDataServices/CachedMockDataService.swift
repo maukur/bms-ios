@@ -17,27 +17,35 @@ class CachedMockDataService: BaseMockDataService, CachedProtocol {
         makeRequestFromJson(fileName: "PaymentMethodList", completionHandler: paymentCompletionHandler)
         makeRequestFromJson(fileName: "CurrencyList", completionHandler: currencyCompletionHandler)
     }
+    
     private func eventCategoryCompletionHandler(result: [EventCategoryObject]) {
         cache.setObject(result as NSArray, forKey: "eventCategoryObject")
     }
+    
     private func expenseCategoryCompletionHandler(result: [ExpenseCategoryObject]) {
         cache.setObject(result as NSArray, forKey: "expenseCategoryObject")
     }
+    
     private func paymentCompletionHandler(result: [PaymentTypeObject]) {
         cache.setObject(result as NSArray, forKey: "paymentTypeObject")
     }
+    
     private func currencyCompletionHandler(result: [CurrencyObject]) {
         cache.setObject(result as NSArray, forKey: "currencyObject")
     }
+    
     func getExpenseCategoryList() -> [ExpenseCategoryObject] {
         cache.object(forKey: "expenseCategoryObject") as? [ExpenseCategoryObject] ?? []
     }
+    
     func getExpensePaymentList() -> [PaymentTypeObject] {
         cache.object(forKey: "paymentTypeObject") as? [PaymentTypeObject] ?? []
     }
+    
     func getExpenseCurrencyList() -> [CurrencyObject] {
         cache.object(forKey: "currencyObject") as? [CurrencyObject] ?? []
     }
+    
     func getEventCategoryList() -> [EventCategoryObject] {
         cache.object(forKey: "eventCategoryObject") as? [EventCategoryObject] ?? []
     }

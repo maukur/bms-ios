@@ -12,17 +12,22 @@ protocol CalendarProtocol {
     func getAllEvents(year: Int,
                       completionHandler: @escaping ([Date]) -> Void,
                       errorHandler: ((String) -> Void)?)
+    
     func getEventTypeList(completionHandler: @escaping ([EventCategoryObject]) -> Void,
                           errorHandler: ((String) -> Void)?)
-    func addOrUpdate(event:eventDetailObject,
+    
+    func addOrUpdate(event:EventDetailObject,
                      completionHandler: @escaping () -> Void,
                      errorHandler: ((String) -> Void)?)
+    
     func getEventsByDate(date: Date,
                          completionHandler: @escaping ([EventObject]) -> Void,
                          errorHandler: ((String) -> Void)?)
+    
     func getEventDetailObjectById(guid: String,
-                                  completionHandler: @escaping (eventDetailObject) -> Void,
+                                  completionHandler: @escaping (EventDetailObject) -> Void,
                                   errorHandler: ((String) -> Void)?)
+    
     func removeEventById(guid: String,
                          completionHandler: @escaping () -> Void,
                          errorHandler: ((String) -> Void)?)

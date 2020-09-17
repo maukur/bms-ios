@@ -9,6 +9,7 @@
 import Foundation
 
 class UserMockDataService: BaseMockDataService, UserProtocol {
+    
     func login(login: String,
                password: String,
                completionHandler: @escaping (LoginResponseObject) -> Void,
@@ -17,12 +18,14 @@ class UserMockDataService: BaseMockDataService, UserProtocol {
                             completionHandler: completionHandler,
                             errorHandler: errorHandler)
     }
+    
     func getUserInfo(completionHandler: @escaping (UserInfoObject) -> Void,
                      errorHandler: ((String) -> Void)?) {
         makeRequestFromJson(fileName: "Info",
                             completionHandler: completionHandler,
                             errorHandler: errorHandler)
     }
+    
     func updateUserInfo(userInfoForUpdate: UserInfoForUpdateObject,
                         completionHandler: @escaping () -> Void,
                         errorHandler: ((String) -> Void)?) {

@@ -22,6 +22,7 @@ class EventViewCell: UITableViewCell, InitializedViewCell {
             container.applayStyle(Styles.UIViews.shadowUIView)
         }
     }
+    
     func getColorByStatus(status: StatusEnum) -> UIColor {
         switch status {
         case .created:
@@ -35,6 +36,7 @@ class EventViewCell: UITableViewCell, InitializedViewCell {
         }
 
     }
+    
     func initialize(item: Any) {
         let value = item as! EventObject
 
@@ -42,6 +44,7 @@ class EventViewCell: UITableViewCell, InitializedViewCell {
         eventTypeLabel.text = value.type
         eventStatusView.backgroundColor = getColorByStatus(status: value.status)
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

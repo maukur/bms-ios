@@ -13,6 +13,7 @@ import KDCalendar
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var window: UIWindow? = { UIWindow(frame: UIScreen.main.bounds) }()
+   
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if SettingsService.instance.token == "" {
@@ -34,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBar()
         return true
     }
+    
     func setupStatusBar() {
         if #available(iOS 13.0, *) {
                let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
@@ -44,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                UIApplication.shared.statusBarStyle = .lightContent
         }
     }
+    
     func setupCalendarView() {
         let style = CalendarView.Style()
         style.cellColorToday = Styles.Colors.mainColor
@@ -60,11 +63,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         style.cellBorderColor = Styles.Colors.mainColor
         CalendarView.Style.Default = style
     }
+    
     func setupTabBar() {
         UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().tintColor = .black
         UITabBar.appearance().unselectedItemTintColor = Styles.Colors.mainColor
     }
+    
     func setupNavigationBar() {
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = .white
@@ -73,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.barTintColor = Styles.Colors.navBarColor
         navigationBarAppearace.shadowImage =  UIImage()
     }
+    
     func getTopViewController() -> UIViewController? {
         if var topController = window?.rootViewController {
             while let presentedViewController = topController.presentedViewController {
@@ -82,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return nil
     }
+    
     func getToken() -> String {
         SettingsService.instance.token
     }

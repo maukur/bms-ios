@@ -12,26 +12,32 @@ class EventEditViewModel: BaseViewModel {
     
     var didLoadData: (() -> Void)?
     var eventCategoryList: [EventCategoryObject]?
-    var event: eventDetailObject?
+    var event: EventDetailObject?
     var didSetPageState: ((EventEditPageState) -> Void)?
     var didDataChange: (() -> Void?)?
+    
     enum EventEditPageState {
         case new
         case edit
         case readOnly
     }
+    
     func didSelectEventType(item: EventCategoryObject) {
         event?.eventCategoryId = item.id
     }
+    
     func didDescriptionTextChange(text: String) {
         event?.reason = text
     }
+    
     func didStartDateChange(date: Date) {
         event?.startDate = date
     }
+    
     func didEndDateChange(date: Date) {
         event?.endDate = date
     }
+    
     func deleteEvent() {
         showLoading()
         DataServices.calendarDataService?.removeEventById(guid: self.event!.id,
@@ -46,6 +52,7 @@ class EventEditViewModel: BaseViewModel {
                 self?.showAlert(message: message)
         })
     }
+    
     func addOrUpdateEvent(onlyStartDate: Bool = true) {
         showLoading()
         if (event?.startDate == event?.endDate || onlyStartDate == true) {
@@ -64,6 +71,7 @@ class EventEditViewModel: BaseViewModel {
                 self?.showAlert(message: message)
         })
     }
+    
     override func viewDidLoad() {
         showLoading()
         self.didDataChange = navigationParams["didDataChange"] as! () -> Void
@@ -71,7 +79,7 @@ class EventEditViewModel: BaseViewModel {
         let eventId = navigationParams["eventId"] as! String?
         if (eventId == nil || eventId == "") {
             didSetPageState?(.new)
-            event = eventDetailObject(id: "",
+            event = EventDetailObject(id: "",
                                       eventCategoryId: eventCategoryList!.first!.id,
                                       reason: "",
                                       startDate: Date(),

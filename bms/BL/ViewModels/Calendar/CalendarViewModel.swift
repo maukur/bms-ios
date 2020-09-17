@@ -15,11 +15,13 @@ class CalendarViewModel: BaseViewModel {
     var allEvents: [Date] = []
     var events: [EventObject] = []
     var selectedDate = Date()
+    
     func addNewItem(dates: [Date]) {
         navigateTo(modules: ["EventEdit"], mode: .modalNavigation, navigationParams: ["didDataChange": {[weak self] in
             self?.loadData()
             self?.didSelectDate(date: self!.selectedDate)}])
     }
+    
     func didSelectItem(item: Any) {
         let eventId = (item as? EventObject)!.id
         navigateTo(modules: ["EventEdit"],
@@ -29,6 +31,7 @@ class CalendarViewModel: BaseViewModel {
                                         self?.loadData()
                                         self?.didSelectDate(date: self!.selectedDate)}])
     }
+    
     func didSelectDate(date: Date) {
         selectedDate = date
         showLoading()
@@ -42,6 +45,7 @@ class CalendarViewModel: BaseViewModel {
                                                             self?.showAlert(message: message)}
         )
     }
+    
     override func loadData() {
         DataServices.calendarDataService?.getAllEvents(year: 2020,
                                                        completionHandler: { [weak self] events in

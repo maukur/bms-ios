@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ExpenseCategoryObject:Codable {
+struct ExpenseCategoryObject:Codable {
     let name: String
     let id: String
 }
