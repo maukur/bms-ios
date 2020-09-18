@@ -137,7 +137,7 @@ extension ExpenseDetailDto {
 extension LoginResponseDto {
     static let toObject = {
         (dto: LoginResponseDto) -> LoginResponseObject in
-        return LoginResponseObject(token: dto.token)
+        LoginResponseObject(token: dto.token)
         
     }
 }

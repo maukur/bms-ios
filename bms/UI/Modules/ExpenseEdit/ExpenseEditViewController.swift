@@ -10,60 +10,71 @@ import UIKit
 import SkyFloatingLabelTextField
 
 class ExpenseEditViewController: BaseViewController {
+    
     @IBOutlet weak var pickerCategoryTextField: SkyFloatingLabelTextField! {
         didSet {
             pickerCategoryTextField.applayStyle(Styles.Fields.mainSkyField)
             pickerCategoryTextField.placeholder = "Category"
         }
     }
+    
     @IBOutlet weak var descriptionTextField: SkyFloatingLabelTextField! {
         didSet {
             descriptionTextField.applayStyle(Styles.Fields.mainSkyField)
             descriptionTextField.placeholder = "Description"
         }
     }
+    
     @IBOutlet weak var datePickerTextField: SkyFloatingLabelTextField! {
         didSet {
             datePickerTextField.applayStyle(Styles.Fields.mainSkyField)
             datePickerTextField.placeholder = "Date of payment"
         }
     }
+    
     @IBOutlet weak var priceTextField: SkyFloatingLabelTextField! {
         didSet {
             priceTextField.applayStyle(Styles.Fields.mainSkyField)
             priceTextField.placeholder = "Price"
         }
     }
+    
     @IBOutlet weak var currencyTextField: SkyFloatingLabelTextField! {
         didSet {
             currencyTextField.applayStyle(Styles.Fields.mainSkyField)
             currencyTextField.placeholder = "Currency"
         }
     }
+    
     @IBOutlet weak var paymentTypeTextField: SkyFloatingLabelTextField! {
         didSet {
             paymentTypeTextField.applayStyle(Styles.Fields.mainSkyField)
             paymentTypeTextField.placeholder = "Payment method"
         }
     }
+    
     @IBOutlet weak var createPhotoButton: UIButton! {
         didSet {
             createPhotoButton.applayStyle(Styles.Buttons.lightMainButton)
         }
     }
+    
     @IBOutlet weak var selectPhotoButton: UIButton! {
         didSet {
             selectPhotoButton.applayStyle(Styles.Buttons.lightMainButton)
         }
     }
+    
     @IBOutlet weak var saveButton: UIButton! {
         didSet {
             saveButton.applayStyle(Styles.Buttons.mainButton)
         }
     }
+    
     private lazy var viewModel: ExpenseEditViewModel = {
         getViewModel()
     }()
+    
     override func bind() {
         viewModel.onSetCategories = { [weak self] items in
             guard let self = self else { return }
@@ -128,12 +139,15 @@ class ExpenseEditViewController: BaseViewController {
             }
         }
     }
+    
     @objc func deleteButtonAction(sender: Any) {
         viewModel.deleteItem()
     }
+    
     @objc func cancelButtonAction(sender: Any) {
         viewModel.cancel()
     }
+    
     func setReadOnlyState() {
         descriptionTextField.isEnabled = false
         priceTextField.isEnabled = false
@@ -145,33 +159,39 @@ class ExpenseEditViewController: BaseViewController {
         selectPhotoButton.isHidden = true
         saveButton.isHidden = true
     }
+    
     func createCategoryPickerView(items: [ExpenseCategoryObject]) {
         let pickerView = DefaultUIPickerView()
         let pickerSettings = getCategoriesPickerDelegate(items: items)
         pickerView.setSettings(settings: pickerSettings)
         pickerCategoryTextField.inputView = pickerView
     }
+    
     func createPaymentTypePickerView(items: [PaymentTypeObject]) {
         let pickerView = DefaultUIPickerView()
         let pickerSettings = getPaymentTypePickerDelegate(items: items)
         pickerView.setSettings(settings: pickerSettings)
         paymentTypeTextField.inputView = pickerView
     }
+    
     func createCurrencyPickerView(items: [CurrencyObject]) {
         let pickerView = DefaultUIPickerView()
         let pickerSettings = getCurrencyPickerDelegate(items: items)
         pickerView.setSettings(settings: pickerSettings)
         currencyTextField.inputView = pickerView
     }
+    
     func createDatePickerView() {
         let pickerView = UIDatePicker()
         pickerView.datePickerMode = .date
         pickerView.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         datePickerTextField.inputView = pickerView
     }
+    
     @objc func handleDatePicker(_ datePicker: UIDatePicker) {
         viewModel.didSelectDate(date: datePicker.date)
     }
+    
     func getCategoriesPickerDelegate(items: [ExpenseCategoryObject]) -> PickerSettings {
         let pickerDelegate = PickerSettings(
             items: items,
@@ -186,6 +206,7 @@ class ExpenseEditViewController: BaseViewController {
         })
         return pickerDelegate
     }
+    
     func getCurrencyPickerDelegate(items: [CurrencyObject]) -> PickerSettings {
         let pickerDelegate = PickerSettings(
             items: items,
@@ -200,6 +221,7 @@ class ExpenseEditViewController: BaseViewController {
         })
         return pickerDelegate
     }
+    
     func getPaymentTypePickerDelegate(items: [PaymentTypeObject]) -> PickerSettings {
         let pickerDelegate = PickerSettings(
             items: items,
@@ -214,20 +236,25 @@ class ExpenseEditViewController: BaseViewController {
         })
         return pickerDelegate
     }
+    
     @IBAction func getPhotoFromGalleryAction(_ sender: Any) {
         viewModel.getPhotoFromGallery()
     }
+    
     @IBAction func getPhotoFromCameraAction(_ sender: Any) {
         viewModel.getPhotoFromCamera()
     }
+    
     @IBAction func priceChanged(_ sender: UITextField) {
         let value = Double(sender.text!) ?? 0.0
         viewModel.didSelectPrice(value: value)
     }
+    
     @IBAction func descriptionTextChanged(_ sender: UITextField) {
         viewModel.didDescriptionChange(description: sender.text!)
         descriptionTextField.errorMessage = ""
     }
+    
     @IBAction func saveAction(_ sender: Any) {
         do {
             _ = try self.descriptionTextField.validatedText(validationType: .notNilOrEmpty)
@@ -237,6 +264,7 @@ class ExpenseEditViewController: BaseViewController {
         }
         viewModel.save()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePickerView()

@@ -7,12 +7,12 @@ import UIKit
 
 extension UIViewController {
     func doneTextFieldButton(textField: UITextField) {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
+        let toolBar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: view.frame.size.width, height: CGFloat(30))))
         let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
         toolBar.setItems([button], animated: true)
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
+        toolBar.sizeToFit()
     }
     @objc func action() {
         view.endEditing(true)
