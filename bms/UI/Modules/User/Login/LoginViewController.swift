@@ -23,6 +23,7 @@ class LoginViewController: BaseViewController {
     }
     @IBOutlet weak var loginField: SkyFloatingLabelTextFieldWithIcon! {
         didSet {
+            loginField.keyboardType = .emailAddress
             loginField.applayStyle(Styles.Fields.mainSkyFieldWithImage)
             loginField.iconImage = UIImage(named: "person.fill")
         }

@@ -54,8 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         style.cellTextColorToday = .white
         style.cellSelectedBorderWidth = 1.0
         style.cellSelectedBorderColor  = Styles.Colors.mainColor
-        style.weekdaysBackgroundColor = Styles.Colors.mainColor
+        style.weekdaysBackgroundColor = .clear
         style.weekdaysTextColor = .white
+        style.weekdaysBottomMargin = 20
         style.headerBackgroundColor = Styles.Colors.mainColor
         style.headerTextColor = .white
         style.cellColorDefault = .white
