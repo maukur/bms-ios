@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupCalendarView()
         setupTabBar()
         setupNavigationBar()
+        window?.backgroundColor = .white
         return true
     }
     
@@ -93,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func getToken() -> String {
         SettingsService.instance.token
     }
+    
     func unautorized() {
         SettingsService.instance.token = ""
         let dic = ["modules": ["Login"],
