@@ -75,7 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.tintColor = .white
         navigationBarAppearace.barStyle = .black
         navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationBarAppearace.barTintColor = Styles.Colors.navBarColor
+        navigationBarAppearace.barTintColor = Styles.Colors.mainColor
+        navigationBarAppearace.isTranslucent = false
         navigationBarAppearace.shadowImage =  UIImage()
     }
     

@@ -15,6 +15,8 @@ class DefaultTableViewDelegate: NSObject, UITableViewDelegate {
         self.didSelectRow = didSelectRow
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         didSelectRow(items[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

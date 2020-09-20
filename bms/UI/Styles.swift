@@ -14,7 +14,6 @@ class Styles {
 
     class Colors {
         private init() {}
-        static let navBarColor = UIColor(red: 0.001326225, green: 0.7638727427, blue: 0.8240564466, alpha: 1)
         static let mainColor = UIColor(red: 0.38310644, green: 0.7830117345, blue: 0.8353068829, alpha: 1)
         static let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
         static let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
